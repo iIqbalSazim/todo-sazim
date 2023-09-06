@@ -14,6 +14,7 @@ import {
   IconCircle,
   IconCircleCheck,
   IconCircleMinus,
+  IconPlus,
 } from "@tabler/icons-react";
 import React from "react";
 import AddTodoForm from "../components/AddTodoForm";
@@ -84,7 +85,7 @@ class Home extends React.Component {
         >
           <Center>
             <Button color="red" onClick={this.handleNewTodoClick}>
-              + New todo
+              <IconPlus size="1.125rem" /> New todo
             </Button>
           </Center>
           {this.state.isAddFormOpen ? (

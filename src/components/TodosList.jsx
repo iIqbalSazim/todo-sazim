@@ -17,6 +17,7 @@ import {
   IconCircleCheck,
   IconCircleMinus,
   IconEdit,
+  IconEditCircle,
 } from "@tabler/icons-react";
 import React from "react";
 
@@ -74,14 +75,13 @@ class TodosList extends React.Component {
                       >
                         {todo.priority}
                       </Badge>
+                      <ActionIcon>
+                        <IconEditCircle size="1.125rem" />
+                      </ActionIcon>
                       <ActionIcon
-                        color="white"
                         onClick={() => this.props.handleDelete(todo.id)}
                       >
                         <IconCircleMinus size="1.125rem" />
-                      </ActionIcon>
-                      <ActionIcon color="white">
-                        <IconEdit size="1.125rem" />
                       </ActionIcon>
                     </Group>
                   </Group>
