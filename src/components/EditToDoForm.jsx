@@ -11,20 +11,19 @@ import {
 } from "@mantine/core";
 import React from "react";
 
-class EditToDoForm extends React.Component {
-  state = {
-    title: "This is my test title",
-    description: "This is my test description",
-    priority: "high",
-  };
+class EditTodoForm extends React.Component {
+  state = this.props.todo;
 
   handleSubmit = (e) => {
     e.preventDefault();
     console.log(this.state);
+    this.props.editTodo(this.state);
+    this.props.closeModal();
   };
   render() {
     return (
-      <Modal opened={true}>
+      <Modal opened={this.props.isOpen} onClose={() => this.props.closeModal()}>
+        {console.log(this.state)}
         <form onSubmit={this.handleSubmit}>
           <SimpleGrid cols={1} p={"xl"}>
             <Title ta={"center"}>Edit Todo</Title>
@@ -38,9 +37,9 @@ class EditToDoForm extends React.Component {
             />
             <Select
               data={[
-                { value: "high", label: "High" },
-                { value: "medium", label: "Medium" },
-                { value: "low", label: "Low" },
+                { value: "High", label: "High" },
+                { value: "Medium", label: "Medium" },
+                { value: "Low", label: "Low" },
               ]}
               defaultValue={this.state.priority}
               onSelect={(e) => this.setState({ priority: e.target.value })}
@@ -57,4 +56,4 @@ class EditToDoForm extends React.Component {
   }
 }
 
-export default EditToDoForm;
+export default EditTodoForm;

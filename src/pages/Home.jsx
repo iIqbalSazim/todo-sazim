@@ -9,24 +9,27 @@ import {
   Title,
   Center,
   Button,
+  ActionIcon,
 } from "@mantine/core";
 import {
   IconCircle,
   IconCircleCheck,
   IconCircleMinus,
+  IconEditCircle,
   IconPlus,
 } from "@tabler/icons-react";
 import React from "react";
 import AddTodoForm from "../components/AddTodoForm";
 import TodosList from "../components/TodosList";
 import FilterTodos from "../components/FilterTodos";
-import EditToDoForm from "../components/EditToDoForm";
+import EditToDoForm from "../components/EditTodoForm";
 
 class Home extends React.Component {
   state = {
     todos: [],
     isAddFormOpen: false,
     isEditFormOpen: false,
+    toBeEdited: {},
   };
 
   // add functionality
@@ -47,14 +50,35 @@ class Home extends React.Component {
   };
 
   // edit functionality
-  toggleEditTodoForm = () => {
+  setOpenEditForm = () => {
     this.setState((prevState) => {
-      return { isEditFormOpen: !prevState.isEditFormOpen };
+      return { isEditFormOpen: true };
     });
   };
 
-  handleTodoCardClick = () => {
-    this.toggleEditTodoForm;
+  setCloseEditForm = () => {
+    this.setState((prevState) => {
+      return { isEditFormOpen: false };
+    });
+  };
+
+  handleEditTodoOpen = (todo) => {
+    this.setOpenEditForm();
+    this.setState((prevState) => {
+      return { toBeEdited: todo };
+    });
+  };
+
+  handleEditTodoClose = () => {
+    this.setCloseEditForm();
+  };
+
+  editTodo = (edited) => {
+    const updatedTodos = this.state.todos;
+    const index = this.state.todos.findIndex((todo) => todo.id === edited.id);
+    updatedTodos[index] = edited;
+
+    this.setState({ todos: updatedTodos });
   };
 
   // delete functionality
@@ -76,7 +100,8 @@ class Home extends React.Component {
                 ta={"center"}
                 h={"fit"}
                 color="indigo.9"
-                fw={"normal"}
+                fw={"200"}
+                tt="capitalize"
               >
                 TO-DO APP
               </Title>
@@ -85,7 +110,8 @@ class Home extends React.Component {
         >
           <Center>
             <Button color="red" onClick={this.handleNewTodoClick}>
-              <IconPlus size="1.125rem" /> New todo
+              <IconPlus size="1.125rem" />
+              <Text>Add todo</Text>
             </Button>
           </Center>
           {this.state.isAddFormOpen ? (
@@ -94,8 +120,20 @@ class Home extends React.Component {
               closeForm={this.toggleAddTodoForm}
             />
           ) : null}
-          {this.state.isEditFormOpen ? <EditToDoForm /> : null}
-          <TodosList todos={this.state.todos} handleDelete={this.deleteTodo} />
+          {this.state.isEditFormOpen ? (
+            <EditToDoForm
+              closeModal={this.handleEditTodoClose}
+              isOpen={this.state.isEditFormOpen}
+              todo={this.state.toBeEdited}
+              editTodo={this.editTodo}
+            />
+          ) : null}
+          <TodosList
+            todos={this.state.todos}
+            handleDelete={this.deleteTodo}
+            openEditForm={this.handleEditTodoOpen}
+          />
+
           <FilterTodos />
         </AppShell>
       </>

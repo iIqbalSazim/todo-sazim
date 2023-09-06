@@ -75,10 +75,14 @@ class TodosList extends React.Component {
                       >
                         {todo.priority}
                       </Badge>
-                      <ActionIcon>
+                      <ActionIcon
+                        onClick={() => this.props.openEditForm(todo)}
+                        bg="white"
+                      >
                         <IconEditCircle size="1.125rem" />
                       </ActionIcon>
                       <ActionIcon
+                        bg="white"
                         onClick={() => this.props.handleDelete(todo.id)}
                       >
                         <IconCircleMinus size="1.125rem" />
