@@ -7,7 +7,6 @@ export default class App extends React.Component {
     return (
       <>
         <MantineProvider withGlobalStyles withNormalizeCSS>
-          <div>{this.props.type}</div>
           <Home />
         </MantineProvider>
       </>

@@ -1,69 +1,103 @@
 import {
   Box,
-  Button,
-  Center,
-  Tabs,
-  Flex,
   List,
   Text,
   ThemeIcon,
+  AppShell,
+  Header,
+  Tabs,
+  Title,
+  Center,
+  Button,
 } from "@mantine/core";
-import { IconCircle, IconCircleCheck } from "@tabler/icons-react";
+import {
+  IconCircle,
+  IconCircleCheck,
+  IconCircleMinus,
+} from "@tabler/icons-react";
 import React from "react";
+import AddTodoForm from "../components/AddTodoForm";
+import TodosList from "../components/TodosList";
+import FilterTodos from "../components/FilterTodos";
+import EditToDoForm from "../components/EditToDoForm";
 
 class Home extends React.Component {
   state = {
-    item: "",
-    priority: "High",
-    isCompleted: false,
+    todos: [],
+    isAddFormOpen: false,
+    isEditFormOpen: false,
   };
+
+  // add functionality
+  toggleAddTodoForm = () => {
+    this.setState((prevState) => {
+      return { isAddFormOpen: !prevState.isAddFormOpen };
+    });
+  };
+
+  handleNewTodoClick = () => {
+    this.toggleAddTodoForm();
+  };
+
+  createNewTodo = (todo) => {
+    this.setState((prevState) => {
+      return { todos: [...prevState.todos, todo] };
+    });
+  };
+
+  // edit functionality
+  toggleEditTodoForm = () => {
+    this.setState((prevState) => {
+      return { isEditFormOpen: !prevState.isEditFormOpen };
+    });
+  };
+
+  handleTodoCardClick = () => {
+    this.toggleEditTodoForm;
+  };
+
+  // delete functionality
+  deleteTodo = (id) => {
+    let todos = this.state.todos;
+    let updatedList = todos.filter((todo) => todo.id !== id);
+    this.setState({ todos: updatedList });
+  };
+
   render() {
     return (
-      <div>
-        <Center>
-          <h1>To-do</h1>
-        </Center>
-        <Center>
-          <Flex direction="column" justify="center" align="center" gap="md">
-            <Button color="violet">New todo</Button>
-            <Tabs variant="pills" color="indigo" defaultValue="all">
-              <Tabs.List grow>
-                <Tabs.Tab value="all">All</Tabs.Tab>
-                <Tabs.Tab value="active">Active</Tabs.Tab>
-                <Tabs.Tab value="completed">Completed</Tabs.Tab>
-              </Tabs.List>
-            </Tabs>
-          </Flex>
-        </Center>
-        <Box py={"xl"}>
-          <Center>
-            <List
-              spacing="xs"
-              size="sm"
-              center
-              icon={
-                <ThemeIcon color="violet" size={24} radius="xl">
-                  <IconCircle size="1rem" />
-                </ThemeIcon>
-              }
-            >
-              <List.Item>Todo High</List.Item>
-              <List.Item>Todo Medium</List.Item>
-              <List.Item>Todo Low</List.Item>
-              <List.Item>Todo 2</List.Item>
-              <List.Item
-                icon={
-                  <ThemeIcon color="indigo" size={24} radius="xl">
-                    <IconCircleCheck size="1rem" />
-                  </ThemeIcon>
-                }
+      <>
+        <AppShell
+          padding="xl"
+          header={
+            <Header p={"xl"} height={"80"}>
+              <Title
+                order={1}
+                ta={"center"}
+                h={"fit"}
+                color="indigo.9"
+                fw={"normal"}
               >
-                <Text td={"line-through"}>Todo completed</Text>
-              </List.Item>
-            </List>
+                TO-DO APP
+              </Title>
+            </Header>
+          }
+        >
+          <Center>
+            <Button color="red" onClick={this.handleNewTodoClick}>
+              + New todo
+            </Button>
           </Center>
-        </Box>
-      </div>
+          {this.state.isAddFormOpen ? (
+            <AddTodoForm
+              createNewTodo={this.createNewTodo}
+              closeForm={this.toggleAddTodoForm}
+            />
+          ) : null}
+          {this.state.isEditFormOpen ? <EditToDoForm /> : null}
+          <TodosList todos={this.state.todos} handleDelete={this.deleteTodo} />
+          <FilterTodos />
+        </AppShell>
+      </>
     );
   }
 }
