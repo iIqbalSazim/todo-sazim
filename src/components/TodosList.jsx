@@ -70,6 +70,10 @@ class TodosList extends React.Component {
     return this.sortByCompletedStatus(todos);
   };
 
+  componentDidUpdate() {
+    localStorage.setItem("todos", JSON.stringify(this.props.todos));
+  }
+
   render() {
     let todos = this.displayTodosByFilterClick(this.props.todos);
 

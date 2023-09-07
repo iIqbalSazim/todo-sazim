@@ -34,7 +34,7 @@ import EditToDoForm from "../components/EditTodoForm";
 
 class Home extends React.Component {
   state = {
-    todos: [],
+    todos: JSON.parse(localStorage.getItem("todos")) || [],
     isAddFormOpen: false,
     isEditFormOpen: false,
     toBeEdited: {},
