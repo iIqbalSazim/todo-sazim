@@ -14,6 +14,7 @@ import TodosList from "../components/TodosList";
 import FilterTodos from "../components/FilterTodos";
 import EditToDoForm from "../components/EditTodoForm";
 import ActionButtons from "../components/ActionButtons";
+import Trashcan from "../components/Trashcan";
 
 class Home extends React.Component {
   state = {
@@ -188,6 +189,11 @@ class Home extends React.Component {
             openEditForm={this.handleEditTodoOpen}
             handleToggleIsCompleted={this.toggleIsCompleted}
             filter={this.state.filter}
+          />
+          <Trashcan
+            handleRetrieveTodosClick={this.retrieveFromTrash}
+            handlePermanentlyDeleteTodosClick={this.emptyTrash}
+            trash={this.state.trash}
           />
         </AppShell>
       </>

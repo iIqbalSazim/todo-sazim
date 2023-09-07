@@ -6,7 +6,7 @@ class Trashcan extends React.Component {
   render() {
     return (
       <Group position="right" my={"xl"}>
-        {this.state.trash.length !== 0 ? (
+        {this.props.trash.length !== 0 ? (
           <Menu width={200} shadow="md" withArrow position="left" offset={0}>
             <Menu.Target>
               <ActionIcon size={"4rem"} color="red.4" variant="transparent">
