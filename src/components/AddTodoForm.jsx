@@ -1,6 +1,8 @@
 import {
   Button,
   Center,
+  Container,
+  Paper,
   Select,
   SimpleGrid,
   TextInput,
@@ -12,9 +14,8 @@ import React from "react";
 class AddTodoForm extends React.Component {
   state = {
     id: Math.random(),
-    title: "",
-    description: "",
-    priority: "",
+    description: "Task details not provided",
+    priority: "Low",
     isCompleted: false,
     createdAt: "",
   };
@@ -25,7 +26,6 @@ class AddTodoForm extends React.Component {
 
     // clean up form data
     this.setState({
-      title: "",
       description: "",
       priority: "",
       isCompleted: false,
@@ -44,40 +44,41 @@ class AddTodoForm extends React.Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <SimpleGrid
-          cols={1}
-          bg={"gray.1"}
-          px={"xl"}
-          py={"xl"}
+        <Paper
+          shadow="lg"
+          p="xl"
+          radius={"md"}
           my={20}
           mx={"30%"}
+          bg={"white.0"}
+          withBorder
         >
-          <Title ta={"center"}>Create Todo</Title>
-          <TextInput
-            placeholder="Title"
-            value={this.state.title}
-            onChange={(e) => this.setState({ title: e.target.value })}
-          />
-          <Textarea
-            placeholder="Write your task"
-            value={this.state.description}
-            onChange={(e) => this.setState({ description: e.target.value })}
-          />
-          <Select
-            placeholder="Select one priority status"
-            data={[
-              { value: "high", label: "High" },
-              { value: "medium", label: "Medium" },
-              { value: "low", label: "Low" },
-            ]}
-            onSelect={(e) => this.setState({ priority: e.target.value })}
-          />
-          <Center>
-            <Button color="indigo.7" type="submit" onClick={this.setCreatedAt}>
-              Create
-            </Button>
-          </Center>
-        </SimpleGrid>
+          <SimpleGrid cols={1} verticalSpacing={"xl"}>
+            <Title ta={"center"}>Create Todo</Title>
+            <Textarea
+              placeholder="Write your task"
+              onChange={(e) => this.setState({ description: e.target.value })}
+            />
+            <Select
+              placeholder="Set priority"
+              data={[
+                { value: "High", label: "High" },
+                { value: "Medium", label: "Medium" },
+                { value: "Low", label: "Low" },
+              ]}
+              onSelect={(e) => this.setState({ priority: e.target.value })}
+            />
+            <Center>
+              <Button
+                color="indigo.7"
+                type="submit"
+                onClick={this.setCreatedAt}
+              >
+                Create
+              </Button>
+            </Center>
+          </SimpleGrid>
+        </Paper>
       </form>
     );
   }

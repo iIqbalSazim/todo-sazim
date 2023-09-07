@@ -22,20 +22,28 @@ import {
 import React from "react";
 
 class TodosList extends React.Component {
-  colorByPriority = (priority) => {
+  assignColorByPriority = (priority) => {
     if (priority === "High") {
-      return "red.4";
+      return "red.3";
     }
     if (priority === "Medium") {
-      return "cyan.6";
+      return "cyan.4";
     }
     if (priority === "Low") {
       return "blue.3";
     }
   };
 
+  getActiveTodos = (todos) => {
+    return todos.filter((todo) => !todo.isCompleted);
+  };
+
+  getCompletedTodos = (todos) => {
+    return todos.filter((todo) => todo.isCompleted);
+  };
+
   sortByPriority = (todos) => {
-    const sortedTodos = todos.sort((a, b) => {
+    return todos.sort((a, b) => {
       const priorityOrder = {
         High: 1,
         Medium: 2,
@@ -43,11 +51,27 @@ class TodosList extends React.Component {
       };
       return priorityOrder[a.priority] - priorityOrder[b.priority];
     });
-    return sortedTodos;
+  };
+
+  sortByCompletedStatus = (todos) => {
+    const active = this.getActiveTodos(todos);
+    const completed = this.getCompletedTodos(todos);
+    const sortedByPriority = this.sortByPriority(active);
+    return [...sortedByPriority, ...completed];
+  };
+
+  displayTodosByFilterClick = (todos) => {
+    if (this.props.filter === "active") {
+      return this.sortByPriority(this.getActiveTodos(todos));
+    }
+    if (this.props.filter === "completed") {
+      return this.getCompletedTodos(todos);
+    }
+    return this.sortByCompletedStatus(todos);
   };
 
   render() {
-    let todos = this.sortByPriority(this.props.todos);
+    let todos = this.displayTodosByFilterClick(this.props.todos);
 
     return (
       <>
@@ -55,47 +79,88 @@ class TodosList extends React.Component {
           <SimpleGrid mx="xl" cols={1} verticalSpacing="lg">
             {todos.length !== 0 ? (
               todos.map((todo) => (
-                <Card
-                  key={todo.id}
-                  bg={this.colorByPriority(todo.priority)}
-                  shadow="sm"
-                  radius="md"
-                  p="xl"
-                  mx="xl"
-                  withBorder
-                >
-                  <Group position="apart" mt="md" mb="xs">
-                    <Text weight={500} size={"xl"}>
-                      {todo.title}
-                    </Text>
-                    <Group position="right">
-                      <Badge
-                        color={this.colorByPriority(todo.priority)}
-                        variant="light"
+                <Box key={todo.id}>
+                  <Card
+                    bg={
+                      todo.isCompleted
+                        ? "gray.2"
+                        : this.assignColorByPriority(todo.priority)
+                    }
+                    shadow={todo.isCompleted ? "" : "md"}
+                    radius={todo.isCompleted ? "" : "md"}
+                    px="xl"
+                    py="xs"
+                    mx="xl"
+                    withBorder
+                  >
+                    <Group position="apart">
+                      <Text
+                        weight={500}
+                        color={todo.isCompleted ? "gray.6" : ""}
+                        size={"30px"}
+                        td={todo.isCompleted ? "line-through" : ""}
                       >
-                        {todo.priority}
-                      </Badge>
-                      <ActionIcon
-                        onClick={() => this.props.openEditForm(todo)}
-                        bg="white"
-                      >
-                        <IconEditCircle size="1.125rem" />
-                      </ActionIcon>
-                      <ActionIcon
-                        bg="white"
-                        onClick={() => this.props.handleDelete(todo.id)}
-                      >
-                        <IconCircleMinus size="1.125rem" />
-                      </ActionIcon>
+                        {todo.description}
+                      </Text>
+
+                      {todo.isCompleted ? (
+                        <Group>
+                          <ActionIcon
+                            variant="filled"
+                            bg={"cyan.4"}
+                            onClick={() =>
+                              this.props.handleToggleIsCompleted(todo.id)
+                            }
+                          >
+                            <IconCircleCheck size="1.125rem" />
+                          </ActionIcon>
+                          <ActionIcon
+                            variant="filled"
+                            bg="red.4"
+                            onClick={() => this.props.handleDelete(todo.id)}
+                          >
+                            <IconCircleMinus size="1.125rem" />
+                          </ActionIcon>
+                        </Group>
+                      ) : (
+                        <Group position="right">
+                          <Badge
+                            color={this.assignColorByPriority(todo.priority)}
+                            variant="light"
+                          >
+                            {todo.priority}
+                          </Badge>
+                          <ActionIcon
+                            variant="light"
+                            onClick={() =>
+                              this.props.handleToggleIsCompleted(todo.id)
+                            }
+                            bg="teal.1"
+                          >
+                            <IconCircleCheck size="1.125rem" />
+                          </ActionIcon>
+                          <ActionIcon
+                            variant="light"
+                            onClick={() => this.props.openEditForm(todo)}
+                            bg="white"
+                          >
+                            <IconEditCircle size="1.125rem" />
+                          </ActionIcon>
+                          <ActionIcon
+                            variant="light"
+                            bg="red.1"
+                            onClick={() => this.props.handleDelete(todo.id)}
+                          >
+                            <IconCircleMinus size="1.125rem" />
+                          </ActionIcon>
+                        </Group>
+                      )}
                     </Group>
-                  </Group>
-                  <Text size="sm" weight={300}>
-                    {todo.description}
-                  </Text>
-                  <Text size="sm" weight={300}>
-                    Created at {todo.createdAt}
-                  </Text>
-                </Card>
+                    <Text size="xs" weight={300}>
+                      Created at {todo.createdAt}
+                    </Text>
+                  </Card>
+                </Box>
               ))
             ) : (
               <Center>

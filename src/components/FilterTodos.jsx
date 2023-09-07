@@ -4,17 +4,20 @@ import React from "react";
 class FilterTodos extends React.Component {
   render() {
     return (
-      <>
-        <Center>
-          <Tabs variant="pills" color="indigo" defaultValue="all">
-            <Tabs.List grow>
-              <Tabs.Tab value="all">All</Tabs.Tab>
-              <Tabs.Tab value="active">Active</Tabs.Tab>
-              <Tabs.Tab value="completed">Completed</Tabs.Tab>
-            </Tabs.List>
-          </Tabs>
-        </Center>
-      </>
+      <Tabs
+        orientation="vertical"
+        variant="pills"
+        color="indigo"
+        defaultValue="all"
+        onTabChange={(value) => this.props.setFilter(value)}
+        h={"180px"}
+      >
+        <Tabs.List position="apart">
+          <Tabs.Tab value="all">All</Tabs.Tab>
+          <Tabs.Tab value="active">Active</Tabs.Tab>
+          <Tabs.Tab value="completed">Completed</Tabs.Tab>
+        </Tabs.List>
+      </Tabs>
     );
   }
 }

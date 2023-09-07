@@ -10,6 +10,10 @@ import {
   Center,
   Button,
   ActionIcon,
+  Navbar,
+  Paper,
+  Group,
+  Container,
 } from "@mantine/core";
 import {
   IconCircle,
@@ -17,6 +21,10 @@ import {
   IconCircleMinus,
   IconEditCircle,
   IconPlus,
+  IconTrash,
+  IconTrashFilled,
+  IconTrashX,
+  IconTrashXFilled,
 } from "@tabler/icons-react";
 import React from "react";
 import AddTodoForm from "../components/AddTodoForm";
@@ -30,6 +38,34 @@ class Home extends React.Component {
     isAddFormOpen: false,
     isEditFormOpen: false,
     toBeEdited: {},
+    filter: "",
+  };
+
+  // filter functionality
+  setFilter = (filter) => {
+    this.setState((prevState) => {
+      return { filter: filter };
+    });
+  };
+
+  // isCompleted functionality
+  toggleIsCompleted = (id) => {
+    const updatedTodos = this.state.todos.map((todo) => {
+      if (todo.id === id) {
+        return { ...todo, isCompleted: !todo.isCompleted };
+      }
+      return todo;
+    });
+
+    this.setState({ todos: updatedTodos });
+  };
+
+  clearAllCompletedTasks = () => {
+    let updatedList = this.state.todos.filter(
+      (todo) => todo.isCompleted !== true
+    );
+
+    this.setState({ todos: updatedList });
   };
 
   // add functionality
@@ -74,8 +110,8 @@ class Home extends React.Component {
   };
 
   editTodo = (edited) => {
-    const updatedTodos = this.state.todos;
     const index = this.state.todos.findIndex((todo) => todo.id === edited.id);
+    const updatedTodos = this.state.todos;
     updatedTodos[index] = edited;
 
     this.setState({ todos: updatedTodos });
@@ -93,11 +129,22 @@ class Home extends React.Component {
       <>
         <AppShell
           padding="xl"
+          navbar={
+            <Navbar width={{ base: 200 }} height={"full"} p="xl" bg={"gray.2"}>
+              <Navbar.Section grow mt={"120%"}>
+                <FilterTodos setFilter={this.setFilter} />
+              </Navbar.Section>
+            </Navbar>
+          }
           header={
-            <Header p={"xl"} height={"80"}>
+            <Header
+              p={"xl"}
+              height={"90"}
+              sx={{ boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)" }}
+            >
               <Title
                 order={1}
-                ta={"center"}
+                ta={"left"}
                 h={"fit"}
                 color="indigo.9"
                 fw={"200"}
@@ -108,12 +155,23 @@ class Home extends React.Component {
             </Header>
           }
         >
-          <Center>
-            <Button color="red" onClick={this.handleNewTodoClick}>
-              <IconPlus size="1.125rem" />
+          <Group position="apart" p={"lg"}>
+            <Button
+              color="indigo"
+              leftIcon={<IconPlus size="1.125rem" />}
+              onClick={this.handleNewTodoClick}
+            >
               <Text>Add todo</Text>
             </Button>
-          </Center>
+            <Button
+              leftIcon={<IconTrashFilled size="1.125rem" />}
+              color="red"
+              onClick={this.clearAllCompletedTasks}
+            >
+              <Text>Remove Completed Tasks</Text>
+            </Button>
+          </Group>
+
           {this.state.isAddFormOpen ? (
             <AddTodoForm
               createNewTodo={this.createNewTodo}
@@ -132,9 +190,9 @@ class Home extends React.Component {
             todos={this.state.todos}
             handleDelete={this.deleteTodo}
             openEditForm={this.handleEditTodoOpen}
+            handleToggleIsCompleted={this.toggleIsCompleted}
+            filter={this.state.filter}
           />
-
-          <FilterTodos />
         </AppShell>
       </>
     );

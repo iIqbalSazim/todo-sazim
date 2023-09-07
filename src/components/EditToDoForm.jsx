@@ -16,21 +16,15 @@ class EditTodoForm extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log(this.state);
     this.props.editTodo(this.state);
     this.props.closeModal();
   };
   render() {
     return (
       <Modal opened={this.props.isOpen} onClose={() => this.props.closeModal()}>
-        {console.log(this.state)}
         <form onSubmit={this.handleSubmit}>
-          <SimpleGrid cols={1} p={"xl"}>
+          <SimpleGrid cols={1} p={"lg"}>
             <Title ta={"center"}>Edit Todo</Title>
-            <TextInput
-              defaultValue={this.state.title}
-              onChange={(e) => this.setState({ title: e.target.value })}
-            />
             <Textarea
               defaultValue={this.state.description}
               onChange={(e) => this.setState({ description: e.target.value })}
