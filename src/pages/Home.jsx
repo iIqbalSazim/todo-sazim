@@ -1,36 +1,19 @@
 import {
-  Box,
-  List,
-  Text,
-  ThemeIcon,
   AppShell,
   Header,
-  Tabs,
   Title,
-  Center,
-  Button,
   ActionIcon,
   Navbar,
-  Paper,
   Group,
-  Container,
+  Menu,
 } from "@mantine/core";
-import {
-  IconCircle,
-  IconCircleCheck,
-  IconCircleMinus,
-  IconEditCircle,
-  IconPlus,
-  IconTrash,
-  IconTrashFilled,
-  IconTrashX,
-  IconTrashXFilled,
-} from "@tabler/icons-react";
+import { IconTrash, IconTrashFilled } from "@tabler/icons-react";
 import React from "react";
 import AddTodoForm from "../components/AddTodoForm";
 import TodosList from "../components/TodosList";
 import FilterTodos from "../components/FilterTodos";
 import EditToDoForm from "../components/EditTodoForm";
+import ActionButtons from "../components/ActionButtons";
 
 class Home extends React.Component {
   state = {
@@ -39,6 +22,11 @@ class Home extends React.Component {
     isEditFormOpen: false,
     toBeEdited: {},
     filter: "",
+    trash: JSON.parse(localStorage.getItem("trash")) || [],
+  };
+
+  findIndexWithId = (data, id) => {
+    return data.findIndex((element) => element.id === id);
   };
 
   // filter functionality
@@ -69,48 +57,44 @@ class Home extends React.Component {
   };
 
   // add functionality
-  toggleAddTodoForm = () => {
+  toggleAddForm = () => {
     this.setState((prevState) => {
       return { isAddFormOpen: !prevState.isAddFormOpen };
     });
   };
 
-  handleNewTodoClick = () => {
-    this.toggleAddTodoForm();
-  };
-
-  createNewTodo = (todo) => {
+  addTodo = (todo) => {
     this.setState((prevState) => {
       return { todos: [...prevState.todos, todo] };
     });
   };
 
   // edit functionality
-  setOpenEditForm = () => {
+  openEditForm = () => {
     this.setState((prevState) => {
       return { isEditFormOpen: true };
     });
   };
 
-  setCloseEditForm = () => {
+  closeEditForm = () => {
     this.setState((prevState) => {
       return { isEditFormOpen: false };
     });
   };
 
   handleEditTodoOpen = (todo) => {
-    this.setOpenEditForm();
+    this.openEditForm();
     this.setState((prevState) => {
-      return { toBeEdited: todo };
+      return { toBeEdited: todo }; // passed down props to change state
     });
   };
 
   handleEditTodoClose = () => {
-    this.setCloseEditForm();
+    this.closeEditForm();
   };
 
   editTodo = (edited) => {
-    const index = this.state.todos.findIndex((todo) => todo.id === edited.id);
+    const index = this.findIndexWithId(this.state.todos, edited.id);
     const updatedTodos = this.state.todos;
     updatedTodos[index] = edited;
 
@@ -120,9 +104,34 @@ class Home extends React.Component {
   // delete functionality
   deleteTodo = (id) => {
     let todos = this.state.todos;
+    let removedTodo = todos.filter((todo) => todo.id === id)[0];
+    this.addToTrash(removedTodo);
     let updatedList = todos.filter((todo) => todo.id !== id);
     this.setState({ todos: updatedList });
   };
+
+  // trash functionality
+  addToTrash = (removedTodo) => {
+    this.setState((prevState) => {
+      return { trash: [...prevState.trash, removedTodo] };
+    });
+  };
+
+  emptyTrash = () => {
+    this.setState({ trash: [] });
+    localStorage.removeItem("trash");
+  };
+
+  retrieveFromTrash = () => {
+    this.setState((prevState) => {
+      return { todos: [...prevState.todos, ...this.state.trash] };
+    });
+    this.emptyTrash();
+  };
+
+  componentDidUpdate() {
+    localStorage.setItem("trash", JSON.stringify(this.state.trash));
+  }
 
   render() {
     return (
@@ -155,27 +164,14 @@ class Home extends React.Component {
             </Header>
           }
         >
-          <Group position="apart" p={"lg"}>
-            <Button
-              color="indigo"
-              leftIcon={<IconPlus size="1.125rem" />}
-              onClick={this.handleNewTodoClick}
-            >
-              <Text>Add todo</Text>
-            </Button>
-            <Button
-              leftIcon={<IconTrashFilled size="1.125rem" />}
-              color="red"
-              onClick={this.clearAllCompletedTasks}
-            >
-              <Text>Remove Completed Tasks</Text>
-            </Button>
-          </Group>
-
+          <ActionButtons
+            handleNewTodoClick={this.toggleAddForm}
+            handleRemoveCompletedClick={this.clearAllCompletedTasks}
+          />
           {this.state.isAddFormOpen ? (
             <AddTodoForm
-              createNewTodo={this.createNewTodo}
-              closeForm={this.toggleAddTodoForm}
+              createNewTodo={this.addTodo}
+              closeForm={this.toggleAddForm}
             />
           ) : null}
           {this.state.isEditFormOpen ? (

@@ -1,11 +1,9 @@
 import {
   Button,
   Center,
-  Container,
   Paper,
   Select,
   SimpleGrid,
-  TextInput,
   Textarea,
   Title,
 } from "@mantine/core";
@@ -37,7 +35,10 @@ class AddTodoForm extends React.Component {
 
   setCreatedAt = () => {
     let date = new Date();
-    let createdAt = `${date.toLocaleTimeString()} | ${date.toDateString()}`;
+    let currTime =
+      date.toLocaleTimeString().slice(0, 4) +
+      date.toLocaleTimeString().slice(7);
+    let createdAt = `${currTime} | ${date.toDateString()}`;
     this.setState({ createdAt: createdAt });
   };
 

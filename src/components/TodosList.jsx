@@ -2,21 +2,16 @@ import {
   ActionIcon,
   Badge,
   Box,
-  Button,
   Card,
   Center,
   Container,
   Group,
-  List,
   SimpleGrid,
   Text,
-  ThemeIcon,
 } from "@mantine/core";
 import {
-  IconCircle,
   IconCircleCheck,
   IconCircleMinus,
-  IconEdit,
   IconEditCircle,
 } from "@tabler/icons-react";
 import React from "react";
@@ -29,9 +24,7 @@ class TodosList extends React.Component {
     if (priority === "Medium") {
       return "cyan.4";
     }
-    if (priority === "Low") {
-      return "blue.3";
-    }
+    return "blue.3";
   };
 
   getActiveTodos = (todos) => {
@@ -101,8 +94,9 @@ class TodosList extends React.Component {
                       <Text
                         weight={500}
                         color={todo.isCompleted ? "gray.6" : ""}
-                        size={"30px"}
+                        size={"15px"}
                         td={todo.isCompleted ? "line-through" : ""}
+                        maw={"70%"}
                       >
                         {todo.description}
                       </Text>

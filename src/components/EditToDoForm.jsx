@@ -1,11 +1,9 @@
 import {
-  Box,
   Button,
   Center,
   Modal,
   Select,
   SimpleGrid,
-  TextInput,
   Textarea,
   Title,
 } from "@mantine/core";
@@ -19,6 +17,7 @@ class EditTodoForm extends React.Component {
     this.props.editTodo(this.state);
     this.props.closeModal();
   };
+
   render() {
     return (
       <Modal opened={this.props.isOpen} onClose={() => this.props.closeModal()}>
