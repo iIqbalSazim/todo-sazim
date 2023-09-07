@@ -1,120 +1,101 @@
-import {
-  AppShell,
-  Header,
-  Title,
-  ActionIcon,
-  Navbar,
-  Group,
-  Menu,
-} from "@mantine/core";
-import { IconTrash, IconTrashFilled } from "@tabler/icons-react";
+import { AppShell, Header, Title, Navbar } from "@mantine/core";
 import React from "react";
-import AddTodoForm from "../components/AddTodoForm";
-import TodosList from "../components/TodosList";
-import FilterTodos from "../components/FilterTodos";
-import EditToDoForm from "../components/EditTodoForm";
+import AddTaskForm from "../components/AddTaskForm";
+import TasksList from "../components/TasksList";
+import FilterByCompletedStatus from "../components/FilterByCompletedStatus";
+import EditForm from "../components/EditForm";
 import ActionButtons from "../components/ActionButtons";
-import Trashcan from "../components/Trashcan";
+import Bin from "../components/Bin";
 
 class Home extends React.Component {
   state = {
-    todos: JSON.parse(localStorage.getItem("todos")) || [],
+    tasks: [],
     isAddFormOpen: false,
     isEditFormOpen: false,
     toBeEdited: {},
     filter: "",
-    trash: JSON.parse(localStorage.getItem("trash")) || [],
+    trash: [],
   };
 
   findIndexWithId = (data, id) => {
     return data.findIndex((element) => element.id === id);
   };
 
-  // filter functionality
   setFilter = (filter) => {
     this.setState((prevState) => {
       return { filter: filter };
     });
   };
 
-  // isCompleted functionality
-  toggleIsCompleted = (id) => {
-    const updatedTodos = this.state.todos.map((todo) => {
-      if (todo.id === id) {
-        return { ...todo, isCompleted: !todo.isCompleted };
+  setIsCompleted = (id) => {
+    const updatedTasks = this.state.tasks.map((task) => {
+      if (task.id === id) {
+        return { ...task, isCompleted: !task.isCompleted };
       }
-      return todo;
+      return task;
     });
 
-    this.setState({ todos: updatedTodos });
+    this.setState({ tasks: updatedTasks });
   };
 
   clearAllCompletedTasks = () => {
-    let updatedList = this.state.todos.filter(
-      (todo) => todo.isCompleted !== true
+    let updatedList = this.state.tasks.filter(
+      (task) => task.isCompleted !== true
     );
 
-    this.setState({ todos: updatedList });
+    this.setState({ tasks: updatedList });
   };
 
-  // add functionality
-  toggleAddForm = () => {
+  setIsAddFormOpen = () => {
     this.setState((prevState) => {
       return { isAddFormOpen: !prevState.isAddFormOpen };
     });
   };
 
-  addTodo = (todo) => {
+  addNewTask = (task) => {
     this.setState((prevState) => {
-      return { todos: [...prevState.todos, todo] };
+      return { tasks: [...prevState.tasks, task] };
     });
   };
 
-  // edit functionality
-  openEditForm = () => {
+  setIsEditFormOpen = () => {
     this.setState((prevState) => {
       return { isEditFormOpen: true };
     });
   };
 
-  closeEditForm = () => {
+  setIsEditFormClose = () => {
     this.setState((prevState) => {
       return { isEditFormOpen: false };
     });
   };
 
-  handleEditTodoOpen = (todo) => {
-    this.openEditForm();
+  handleOpenEditForm = (task) => {
+    this.setIsEditFormOpen();
     this.setState((prevState) => {
-      return { toBeEdited: todo }; // passed down props to change state
+      return { toBeEdited: task };
     });
   };
 
-  handleEditTodoClose = () => {
-    this.closeEditForm();
+  editTask = (edited) => {
+    const index = this.findIndexWithId(this.state.tasks, edited.id);
+    const updatedTasks = this.state.tasks;
+    updatedTasks[index] = edited;
+
+    this.setState({ tasks: updatedTasks });
   };
 
-  editTodo = (edited) => {
-    const index = this.findIndexWithId(this.state.todos, edited.id);
-    const updatedTodos = this.state.todos;
-    updatedTodos[index] = edited;
-
-    this.setState({ todos: updatedTodos });
+  deleteTask = (id) => {
+    let tasks = this.state.tasks;
+    let removedTask = tasks.filter((task) => task.id === id)[0];
+    this.addToTrash(removedTask);
+    let updatedList = tasks.filter((task) => task.id !== id);
+    this.setState({ tasks: updatedList });
   };
 
-  // delete functionality
-  deleteTodo = (id) => {
-    let todos = this.state.todos;
-    let removedTodo = todos.filter((todo) => todo.id === id)[0];
-    this.addToTrash(removedTodo);
-    let updatedList = todos.filter((todo) => todo.id !== id);
-    this.setState({ todos: updatedList });
-  };
-
-  // trash functionality
-  addToTrash = (removedTodo) => {
+  addToTrash = (removedTask) => {
     this.setState((prevState) => {
-      return { trash: [...prevState.trash, removedTodo] };
+      return { trash: [...prevState.trash, removedTask] };
     });
   };
 
@@ -123,15 +104,27 @@ class Home extends React.Component {
     localStorage.removeItem("trash");
   };
 
-  retrieveFromTrash = () => {
+  retrieveAll = () => {
     this.setState((prevState) => {
-      return { todos: [...prevState.todos, ...this.state.trash] };
+      return { tasks: [...prevState.tasks, ...this.state.trash] };
     });
     this.emptyTrash();
   };
 
-  componentDidUpdate() {
-    localStorage.setItem("trash", JSON.stringify(this.state.trash));
+  componentDidMount() {
+    this.setState((prevState) => {
+      return {
+        tasks: JSON.parse(localStorage.getItem("tasks")) || [],
+        trash: JSON.parse(localStorage.getItem("trash")) || [],
+      };
+    });
+  }
+
+  componentDidUpdate(prevState) {
+    let local = JSON.parse(localStorage.getItem("trash"));
+    if (this.state.trash !== prevState.trash) {
+      localStorage.setItem("trash", JSON.stringify(this.state.trash));
+    }
   }
 
   render() {
@@ -142,7 +135,7 @@ class Home extends React.Component {
           navbar={
             <Navbar width={{ base: 200 }} height={"full"} p="xl" bg={"gray.2"}>
               <Navbar.Section grow mt={"120%"}>
-                <FilterTodos setFilter={this.setFilter} />
+                <FilterByCompletedStatus setFilter={this.setFilter} />
               </Navbar.Section>
             </Navbar>
           }
@@ -160,39 +153,39 @@ class Home extends React.Component {
                 fw={"200"}
                 tt="capitalize"
               >
-                TO-DO APP
+                &lt;TODO OR <strong>!</strong>TODO /&gt;
               </Title>
             </Header>
           }
         >
           <ActionButtons
-            handleNewTodoClick={this.toggleAddForm}
+            handleNewToDoClick={this.setIsAddFormOpen}
             handleRemoveCompletedClick={this.clearAllCompletedTasks}
           />
           {this.state.isAddFormOpen ? (
-            <AddTodoForm
-              createNewTodo={this.addTodo}
-              closeForm={this.toggleAddForm}
+            <AddTaskForm
+              createNewTask={this.addNewTask}
+              closeForm={this.setIsAddFormOpen}
             />
           ) : null}
           {this.state.isEditFormOpen ? (
-            <EditToDoForm
-              closeModal={this.handleEditTodoClose}
+            <EditForm
+              closeModal={this.setIsEditFormClose}
               isOpen={this.state.isEditFormOpen}
-              todo={this.state.toBeEdited}
-              editTodo={this.editTodo}
+              task={this.state.toBeEdited}
+              editTask={this.editTask}
             />
           ) : null}
-          <TodosList
-            todos={this.state.todos}
-            handleDelete={this.deleteTodo}
-            openEditForm={this.handleEditTodoOpen}
-            handleToggleIsCompleted={this.toggleIsCompleted}
+          <TasksList
+            tasks={this.state.tasks}
+            handleDelete={this.deleteTask}
+            openEditForm={this.handleOpenEditForm}
+            handleToggleIsCompleted={this.setIsCompleted}
             filter={this.state.filter}
           />
-          <Trashcan
-            handleRetrieveTodosClick={this.retrieveFromTrash}
-            handlePermanentlyDeleteTodosClick={this.emptyTrash}
+          <Bin
+            handleRetrieveAllClick={this.retrieveAll}
+            handleEmptyBinClick={this.emptyTrash}
             trash={this.state.trash}
           />
         </AppShell>

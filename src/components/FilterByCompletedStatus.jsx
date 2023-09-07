@@ -1,7 +1,7 @@
-import { Center, Tabs } from "@mantine/core";
+import { Tabs } from "@mantine/core";
 import React from "react";
 
-class FilterTodos extends React.Component {
+class FilterByCompletedStatus extends React.Component {
   render() {
     return (
       <Tabs
@@ -22,4 +22,4 @@ class FilterTodos extends React.Component {
   }
 }
 
-export default FilterTodos;
+export default FilterByCompletedStatus;

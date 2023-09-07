@@ -9,9 +9,9 @@ import {
 } from "@mantine/core";
 import React from "react";
 
-class AddTodoForm extends React.Component {
+class AddTaskForm extends React.Component {
   state = {
-    id: Math.random(),
+    id: Math.round(Math.random() * 1000000),
     description: "Task details not provided",
     priority: "Low",
     isCompleted: false,
@@ -20,9 +20,8 @@ class AddTodoForm extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.createNewTodo(this.state);
+    this.props.createNewTask(this.state);
 
-    // clean up form data
     this.setState({
       description: "",
       priority: "",
@@ -85,4 +84,4 @@ class AddTodoForm extends React.Component {
   }
 }
 
-export default AddTodoForm;
+export default AddTaskForm;

@@ -9,18 +9,20 @@ import {
 } from "@mantine/core";
 import React from "react";
 
-class EditTodoForm extends React.Component {
-  state = this.props.todo;
+class EditForm extends React.Component {
+  state = this.props.task;
 
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.editTodo(this.state);
+    this.props.editTask(this.state);
     this.props.closeModal();
   };
 
   render() {
+    const { isOpen, closeModal } = this.props;
+
     return (
-      <Modal opened={this.props.isOpen} onClose={() => this.props.closeModal()}>
+      <Modal opened={isOpen} onClose={() => closeModal()}>
         <form onSubmit={this.handleSubmit}>
           <SimpleGrid cols={1} p={"lg"}>
             <Title ta={"center"}>Edit Todo</Title>
@@ -49,4 +51,4 @@ class EditTodoForm extends React.Component {
   }
 }
 
-export default EditTodoForm;
+export default EditForm;
