@@ -7,23 +7,27 @@ import EditForm from "../components/EditForm";
 import ActionButtons from "../components/ActionButtons";
 import Bin from "../components/Bin";
 
+import { findIndexWithId } from "../helper/helper";
+
 class Home extends React.Component {
   state = {
     tasks: [],
     isAddFormOpen: false,
     isEditFormOpen: false,
     toBeEdited: {},
-    filter: "",
+    filter: { status: "all", priority: "" },
     trash: [],
   };
 
-  findIndexWithId = (data, id) => {
-    return data.findIndex((element) => element.id === id);
+  setCompletedStatusFilter = (status) => {
+    this.setState((prevState) => {
+      return { filter: { ...prevState.filter, status: status } };
+    });
   };
 
-  setFilter = (filter) => {
+  setPriorityStatusFilter = (priority) => {
     this.setState((prevState) => {
-      return { filter: filter };
+      return { filter: { ...prevState.filter, priority: priority } };
     });
   };
 
@@ -78,7 +82,7 @@ class Home extends React.Component {
   };
 
   editTask = (edited) => {
-    const index = this.findIndexWithId(this.state.tasks, edited.id);
+    const index = findIndexWithId(this.state.tasks, edited.id);
     const updatedTasks = this.state.tasks;
     updatedTasks[index] = edited;
 
@@ -121,21 +125,28 @@ class Home extends React.Component {
   }
 
   componentDidUpdate(prevState) {
-    let local = JSON.parse(localStorage.getItem("trash"));
-    if (this.state.trash !== prevState.trash) {
+    let local = JSON.parse(localStorage.getItem("trash")) || [];
+    if (JSON.stringify(this.state.trash) !== JSON.stringify(local)) {
       localStorage.setItem("trash", JSON.stringify(this.state.trash));
+      console.log("trash updated");
     }
+    console.log(JSON.stringify(this.state.trash) === JSON.stringify(local));
+    console.log(this.state.trash);
+    console.log(local);
   }
 
   render() {
     return (
       <>
+        {console.log(this.state.filter)}
         <AppShell
           padding="xl"
           navbar={
             <Navbar width={{ base: 200 }} height={"full"} p="xl" bg={"gray.2"}>
               <Navbar.Section grow mt={"120%"}>
-                <FilterByCompletedStatus setFilter={this.setFilter} />
+                <FilterByCompletedStatus
+                  setFilter={this.setCompletedStatusFilter}
+                />
               </Navbar.Section>
             </Navbar>
           }
@@ -159,6 +170,7 @@ class Home extends React.Component {
           }
         >
           <ActionButtons
+            setFilter={this.setPriorityStatusFilter}
             handleNewToDoClick={this.setIsAddFormOpen}
             handleRemoveCompletedClick={this.clearAllCompletedTasks}
           />
