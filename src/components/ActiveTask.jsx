@@ -1,4 +1,4 @@
-import { ActionIcon, Badge, Box, Card, Group, Text } from "@mantine/core";
+import { ActionIcon, Badge, Box, Card, Code, Group, Text } from "@mantine/core";
 import {
   IconCircleCheck,
   IconCircleMinus,
@@ -56,9 +56,14 @@ class ActiveTask extends React.Component {
             </ActionIcon>
           </Group>
         </Group>
-        <Text size="xs" weight={300}>
-          Created at {task.createdAt}
-        </Text>
+        <Group position="apart" pt={"md"}>
+          <Text size="xs" weight={300}>
+            Created at {task.createdAt}
+          </Text>
+          <Code size={"sm"} radius={"md"} color="red">
+            Complete by: {task.dueDate}
+          </Code>
+        </Group>
       </Card>
     );
   }

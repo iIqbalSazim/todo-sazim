@@ -110,6 +110,12 @@ class TasksList extends React.Component {
     }
   };
 
+  sortTasksByDueDate = (tasks) => {
+    return tasks.sort(function (task1, task2) {
+      return new Date(task1.dueDate) - new Date(task2.dueDate);
+    });
+  };
+
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.tasks !== this.props.tasks) {
       localStorage.setItem("tasks", JSON.stringify(this.props.tasks));
@@ -117,9 +123,14 @@ class TasksList extends React.Component {
   }
 
   render() {
-    const { handleDelete, handleToggleIsCompleted, openEditForm } = this.props;
+    const { handleDelete, handleToggleIsCompleted, openEditForm, filter } =
+      this.props;
     let tasks = this.filterTasks(this.props.tasks);
 
+    if (filter.dueDate === true && tasks) {
+      console.log(tasks);
+      this.sortTasksByDueDate(tasks);
+    }
     return (
       <>
         <Container fluid mx="xl" p={"xl"}>

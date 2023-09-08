@@ -1,4 +1,14 @@
-import { AppShell, Header, Title, Navbar, Modal, Button } from "@mantine/core";
+import {
+  AppShell,
+  Header,
+  Title,
+  Navbar,
+  Modal,
+  Button,
+  Center,
+  Group,
+  Accordion,
+} from "@mantine/core";
 import React from "react";
 import AddTaskForm from "../components/AddTaskForm";
 import TasksList from "../components/TasksList";
@@ -9,6 +19,7 @@ import Bin from "../components/Bin";
 
 import { findIndexWithId } from "../helper/helper";
 import ConfirmModal from "../components/ConfirmModal";
+import { IconChevronDown } from "@tabler/icons-react";
 
 class Home extends React.Component {
   state = {
@@ -17,7 +28,7 @@ class Home extends React.Component {
     isEditFormOpen: false,
     isConfirmModalOpen: false,
     toBeEdited: {},
-    filter: { status: "all", priority: "" },
+    filter: { status: "all", priority: "", dueDate: false },
     trash: [],
   };
 
@@ -30,6 +41,14 @@ class Home extends React.Component {
   setIsConfirmModalClose = () => {
     this.setState((prevState) => {
       return { isConfirmModalOpen: false };
+    });
+  };
+
+  toggleFilterDueDate = () => {
+    this.setState((prevState) => {
+      return {
+        filter: { ...prevState.filter, dueDate: !prevState.filter.dueDate },
+      };
     });
   };
 
@@ -185,6 +204,15 @@ class Home extends React.Component {
             handleNewToDoClick={this.setIsAddFormOpen}
             setIsConfirmModalOpen={this.setIsConfirmModalOpen}
           />
+          <Group position="right" mx={"lg"} pt={"xl"}>
+            <Button
+              rightIcon={<IconChevronDown size={"1rem"} />}
+              variant="outline"
+              onClick={() => this.toggleFilterDueDate()}
+            >
+              Sort by Due Date
+            </Button>
+          </Group>
           {this.state.isAddFormOpen ? (
             <AddTaskForm
               createNewTask={this.addNewTask}

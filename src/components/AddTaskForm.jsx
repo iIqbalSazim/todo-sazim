@@ -7,6 +7,7 @@ import {
   Textarea,
   Title,
 } from "@mantine/core";
+import { DateInput } from "@mantine/dates";
 import React from "react";
 
 class AddTaskForm extends React.Component {
@@ -30,6 +31,7 @@ class AddTaskForm extends React.Component {
       isCompleted: false,
       createdAt: "",
       updatedAt: "",
+      dueDate: "",
     });
     closeForm();
   };
@@ -71,14 +73,16 @@ class AddTaskForm extends React.Component {
               ]}
               onSelect={(e) => this.setState({ priority: e.target.value })}
             />
-            {/* <DateInput
-              value={value}
-              onChange={setValue}
+            <DateInput
+              minDate={new Date()}
+              onChange={(value) =>
+                this.setState({ dueDate: value.toDateString().slice(0, 15) })
+              }
               label="Date input"
               placeholder="Date input"
-              maw={400}
-              mx="auto"
-            /> */}
+              clearable
+            />
+            {console.log(this.state)}
             <Center>
               <Button
                 color="indigo.7"
