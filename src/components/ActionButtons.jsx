@@ -6,8 +6,12 @@ import FilterByDueDate from "./FilterByDueDate";
 
 class ActionButtons extends React.Component {
   render() {
-    const { handleNewToDoClick, handleRemoveCompletedClick, setFilter } =
-      this.props;
+    const {
+      handleNewToDoClick,
+      handleRemoveCompletedClick,
+      setFilter,
+      filter,
+    } = this.props;
     return (
       <>
         <Group position="apart" p={"lg"}>
@@ -18,7 +22,7 @@ class ActionButtons extends React.Component {
           >
             <Text>Add todo</Text>
           </Button>
-          <FilterByPriority setFilter={setFilter} />
+          <FilterByPriority setFilter={setFilter} filter={filter} />
           {/* <FilterByDueDate /> */}
           <Button
             leftIcon={<IconTrashX size="1.125rem" />}

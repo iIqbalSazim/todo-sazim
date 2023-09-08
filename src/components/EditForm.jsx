@@ -13,9 +13,11 @@ class EditForm extends React.Component {
   state = this.props.task;
 
   handleSubmit = (e) => {
+    const { editTask, closeModal } = this.props;
     e.preventDefault();
-    this.props.editTask(this.state);
-    this.props.closeModal();
+
+    editTask(this.state);
+    closeModal();
   };
 
   render() {

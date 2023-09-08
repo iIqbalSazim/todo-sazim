@@ -126,19 +126,15 @@ class Home extends React.Component {
 
   componentDidUpdate(prevState) {
     let local = JSON.parse(localStorage.getItem("trash")) || [];
-    if (JSON.stringify(this.state.trash) !== JSON.stringify(local)) {
+
+    if (JSON.stringify(this.state.trash) === JSON.stringify(local)) {
       localStorage.setItem("trash", JSON.stringify(this.state.trash));
-      console.log("trash updated");
     }
-    console.log(JSON.stringify(this.state.trash) === JSON.stringify(local));
-    console.log(this.state.trash);
-    console.log(local);
   }
 
   render() {
     return (
       <>
-        {console.log(this.state.filter)}
         <AppShell
           padding="xl"
           navbar={
@@ -170,6 +166,7 @@ class Home extends React.Component {
           }
         >
           <ActionButtons
+            filter={this.state.filter}
             setFilter={this.setPriorityStatusFilter}
             handleNewToDoClick={this.setIsAddFormOpen}
             handleRemoveCompletedClick={this.clearAllCompletedTasks}

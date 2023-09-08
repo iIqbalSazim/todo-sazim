@@ -19,8 +19,9 @@ class AddTaskForm extends React.Component {
   };
 
   handleSubmit = (e) => {
+    const { createNewTask, closeForm } = this.props;
     e.preventDefault();
-    this.props.createNewTask(this.state);
+    createNewTask(this.state);
 
     this.setState({
       description: "",
@@ -29,7 +30,7 @@ class AddTaskForm extends React.Component {
       createdAt: "",
       updatedAt: "",
     });
-    this.props.closeForm();
+    closeForm();
   };
 
   setCreatedAt = () => {
@@ -61,6 +62,7 @@ class AddTaskForm extends React.Component {
             />
             <Select
               placeholder="Set priority"
+              defaultValue={"Low"}
               data={[
                 { value: "High", label: "High" },
                 { value: "Medium", label: "Medium" },

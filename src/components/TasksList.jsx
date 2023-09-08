@@ -48,17 +48,18 @@ class TasksList extends React.Component {
   };
 
   filterByPriority = (tasks) => {
+    const { priority } = this.props.filter;
     let highPriority = tasks.filter((task) => task.priority === "High");
     let mediumPriority = tasks.filter((task) => task.priority === "Medium");
     let lowPriority = tasks.filter((task) => task.priority === "Low");
 
-    if (this.props.priorityFilter === "High") {
+    if (priority === "High") {
       return highPriority;
     }
-    if (this.props.priorityFilter === "Medium") {
+    if (priority === "Medium") {
       return mediumPriority;
     }
-    if (this.props.priorityFilter === "Low") {
+    if (priority === "Low") {
       return lowPriority;
     }
   };
@@ -116,6 +117,7 @@ class TasksList extends React.Component {
   }
 
   render() {
+    const { handleDelete, handleToggleIsCompleted, openEditForm } = this.props;
     let tasks = this.filterTasks(this.props.tasks);
 
     return (
@@ -129,21 +131,17 @@ class TasksList extends React.Component {
                     <CompletedTask
                       key={task.id}
                       task={task}
-                      handleDelete={this.props.handleDelete}
-                      handleToggleIsCompleted={
-                        this.props.handleToggleIsCompleted
-                      }
+                      handleDelete={handleDelete}
+                      handleToggleIsCompleted={handleToggleIsCompleted}
                     />
                   ) : (
                     <ActiveTask
                       task={task}
                       key={task.id}
                       assignColorByPriority={this.assignColorByPriority}
-                      handleToggleIsCompleted={
-                        this.props.handleToggleIsCompleted
-                      }
-                      openEditForm={this.props.openEditForm}
-                      handleDelete={this.props.handleDelete}
+                      handleToggleIsCompleted={handleToggleIsCompleted}
+                      openEditForm={openEditForm}
+                      handleDelete={handleDelete}
                     />
                   )
                 )
