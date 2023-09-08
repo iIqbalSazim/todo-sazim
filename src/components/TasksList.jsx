@@ -13,10 +13,10 @@ import ActiveTask from "./ActiveTAsk";
 class TasksList extends React.Component {
   assignColorByPriority = (priority) => {
     if (priority === "High") {
-      return "red.3";
+      return "violet.3";
     }
     if (priority === "Medium") {
-      return "teal.2";
+      return "indigo.2";
     }
     return "blue.1";
   };

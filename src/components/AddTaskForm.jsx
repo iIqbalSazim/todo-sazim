@@ -16,6 +16,7 @@ class AddTaskForm extends React.Component {
     priority: "Low",
     isCompleted: false,
     createdAt: "",
+    dueDate: "",
   };
 
   handleSubmit = (e) => {
@@ -70,6 +71,14 @@ class AddTaskForm extends React.Component {
               ]}
               onSelect={(e) => this.setState({ priority: e.target.value })}
             />
+            {/* <DateInput
+              value={value}
+              onChange={setValue}
+              label="Date input"
+              placeholder="Date input"
+              maw={400}
+              mx="auto"
+            /> */}
             <Center>
               <Button
                 color="indigo.7"

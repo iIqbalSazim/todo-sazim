@@ -6,12 +6,8 @@ import FilterByDueDate from "./FilterByDueDate";
 
 class ActionButtons extends React.Component {
   render() {
-    const {
-      handleNewToDoClick,
-      handleRemoveCompletedClick,
-      setFilter,
-      filter,
-    } = this.props;
+    const { handleNewToDoClick, setIsConfirmModalOpen, setFilter, filter } =
+      this.props;
     return (
       <>
         <Group position="apart" p={"lg"}>
@@ -27,7 +23,7 @@ class ActionButtons extends React.Component {
           <Button
             leftIcon={<IconTrashX size="1.125rem" />}
             color="red"
-            onClick={() => handleRemoveCompletedClick()}
+            onClick={() => setIsConfirmModalOpen()}
           >
             <Text>Remove Completed</Text>
           </Button>

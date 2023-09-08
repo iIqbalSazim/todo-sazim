@@ -1,4 +1,4 @@
-import { AppShell, Header, Title, Navbar } from "@mantine/core";
+import { AppShell, Header, Title, Navbar, Modal, Button } from "@mantine/core";
 import React from "react";
 import AddTaskForm from "../components/AddTaskForm";
 import TasksList from "../components/TasksList";
@@ -8,15 +8,29 @@ import ActionButtons from "../components/ActionButtons";
 import Bin from "../components/Bin";
 
 import { findIndexWithId } from "../helper/helper";
+import ConfirmModal from "../components/ConfirmModal";
 
 class Home extends React.Component {
   state = {
     tasks: [],
     isAddFormOpen: false,
     isEditFormOpen: false,
+    isConfirmModalOpen: false,
     toBeEdited: {},
     filter: { status: "all", priority: "" },
     trash: [],
+  };
+
+  setIsConfirmModalOpen = () => {
+    this.setState((prevState) => {
+      return { isConfirmModalOpen: true };
+    });
+  };
+
+  setIsConfirmModalClose = () => {
+    this.setState((prevState) => {
+      return { isConfirmModalOpen: false };
+    });
   };
 
   setCompletedStatusFilter = (status) => {
@@ -169,7 +183,7 @@ class Home extends React.Component {
             filter={this.state.filter}
             setFilter={this.setPriorityStatusFilter}
             handleNewToDoClick={this.setIsAddFormOpen}
-            handleRemoveCompletedClick={this.clearAllCompletedTasks}
+            setIsConfirmModalOpen={this.setIsConfirmModalOpen}
           />
           {this.state.isAddFormOpen ? (
             <AddTaskForm
@@ -183,6 +197,13 @@ class Home extends React.Component {
               isOpen={this.state.isEditFormOpen}
               task={this.state.toBeEdited}
               editTask={this.editTask}
+            />
+          ) : null}
+          {this.state.isConfirmModalOpen ? (
+            <ConfirmModal
+              isConfirmModalOpen={this.state.isConfirmModalOpen}
+              closeModal={this.setIsConfirmModalClose}
+              clearAllCompletedTasks={this.clearAllCompletedTasks}
             />
           ) : null}
           <TasksList
