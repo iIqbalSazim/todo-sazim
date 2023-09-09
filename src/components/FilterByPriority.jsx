@@ -2,12 +2,9 @@ import React from "react";
 import { Button, Group } from "@mantine/core";
 
 class FilterByPriority extends React.Component {
-  state = { variant: "outline" };
-
   handleClearFilterByPriority = () => {
     const { setFilter } = this.props;
     setFilter("");
-    this.setState({ variant: "outline" });
   };
 
   handleButtonClick = (value) => {
@@ -20,28 +17,40 @@ class FilterByPriority extends React.Component {
       <>
         <Button.Group>
           <Button
-            variant={this.state.variant}
-            color="indigo.4"
-            onClick={() => this.handleButtonClick("High")}
+            variant={
+              filter.priority === "high" && !filter.dueDate
+                ? "filled"
+                : "outline"
+            }
+            color="indigo.3"
+            onClick={() => this.handleButtonClick("high")}
           >
             High
           </Button>
           <Button
-            variant={this.state.variant}
-            color="indigo.4"
-            onClick={() => this.handleButtonClick("Medium")}
+            variant={
+              filter.priority === "medium" && !filter.dueDate
+                ? "filled"
+                : "outline"
+            }
+            color="indigo.3"
+            onClick={() => this.handleButtonClick("medium")}
           >
             Medium
           </Button>
           <Button
-            variant={this.state.variant}
-            color="indigo.4"
-            onClick={() => this.handleButtonClick("Low")}
+            variant={
+              filter.priority === "low" && !filter.dueDate
+                ? "filled"
+                : "outline"
+            }
+            color="indigo.3"
+            onClick={() => this.handleButtonClick("low")}
           >
             Low
           </Button>
           <Button
-            variant="filled"
+            variant="light"
             color="indigo.4"
             onClick={() => this.handleClearFilterByPriority()}
           >

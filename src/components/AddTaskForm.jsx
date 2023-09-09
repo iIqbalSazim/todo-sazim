@@ -14,10 +14,10 @@ class AddTaskForm extends React.Component {
   state = {
     id: Math.round(Math.random() * 1000000),
     description: "Task details not provided",
-    priority: "Low",
+    priority: "low",
     isCompleted: false,
     createdAt: "",
-    dueDate: "",
+    dueDate: new Date().toDateString().slice(0, 15),
   };
 
   handleSubmit = (e) => {
@@ -65,24 +65,24 @@ class AddTaskForm extends React.Component {
             />
             <Select
               placeholder="Set priority"
-              defaultValue={"Low"}
+              defaultValue={"low"}
               data={[
-                { value: "High", label: "High" },
-                { value: "Medium", label: "Medium" },
-                { value: "Low", label: "Low" },
+                { value: "high", label: "High" },
+                { value: "medium", label: "Medium" },
+                { value: "low", label: "Low" },
               ]}
-              onSelect={(e) => this.setState({ priority: e.target.value })}
+              onSelect={(e) =>
+                this.setState({ priority: e.target.value.toLowerCase() })
+              }
             />
             <DateInput
               minDate={new Date()}
-              onChange={(value) =>
-                this.setState({ dueDate: value.toDateString().slice(0, 15) })
-              }
+              defaultValue={new Date(this.state.dueDate)}
+              onChange={(value) => {
+                this.setState({ dueDate: value.toDateString().slice(0, 15) });
+              }}
               label="Date input"
-              placeholder="Date input"
-              clearable
             />
-            {console.log(this.state)}
             <Center>
               <Button
                 color="indigo.7"

@@ -3,11 +3,9 @@ import {
   Header,
   Title,
   Navbar,
-  Modal,
-  Button,
-  Center,
+  Badge,
   Group,
-  Accordion,
+  Center,
 } from "@mantine/core";
 import React from "react";
 import AddTaskForm from "../components/AddTaskForm";
@@ -19,7 +17,8 @@ import Bin from "../components/Bin";
 
 import { findIndexWithId } from "../helper/helper";
 import ConfirmModal from "../components/ConfirmModal";
-import { IconChevronDown } from "@tabler/icons-react";
+import FilterByDueDate from "../components/FilterByDueDate";
+import DisplayDate from "../components/DisplayDate";
 
 class Home extends React.Component {
   state = {
@@ -80,7 +79,13 @@ class Home extends React.Component {
       (task) => task.isCompleted !== true
     );
 
-    this.setState({ tasks: updatedList });
+    this.setState((prevState) => {
+      if (JSON.stringify(prevState.tasks) === JSON.stringify(updatedList)) {
+        alert("You have no completed tasks to remove");
+      } else {
+        return { tasks: updatedList };
+      }
+    });
   };
 
   setIsAddFormOpen = () => {
@@ -96,22 +101,20 @@ class Home extends React.Component {
   };
 
   setIsEditFormOpen = () => {
-    this.setState((prevState) => {
-      return { isEditFormOpen: true };
+    this.setState({
+      isEditFormOpen: true,
     });
   };
 
   setIsEditFormClose = () => {
-    this.setState((prevState) => {
-      return { isEditFormOpen: false };
+    this.setState({
+      isEditFormOpen: false,
     });
   };
 
   handleOpenEditForm = (task) => {
     this.setIsEditFormOpen();
-    this.setState((prevState) => {
-      return { toBeEdited: task };
-    });
+    this.setState({ toBeEdited: task });
   };
 
   editTask = (edited) => {
@@ -149,18 +152,16 @@ class Home extends React.Component {
   };
 
   componentDidMount() {
-    this.setState((prevState) => {
-      return {
-        tasks: JSON.parse(localStorage.getItem("tasks")) || [],
-        trash: JSON.parse(localStorage.getItem("trash")) || [],
-      };
+    this.setState({
+      tasks: JSON.parse(localStorage.getItem("tasks")) || [],
+      trash: JSON.parse(localStorage.getItem("trash")) || [],
     });
   }
 
-  componentDidUpdate(prevState) {
+  componentDidUpdate() {
     let local = JSON.parse(localStorage.getItem("trash")) || [];
 
-    if (JSON.stringify(this.state.trash) === JSON.stringify(local)) {
+    if (JSON.stringify(this.state.trash) !== JSON.stringify(local)) {
       localStorage.setItem("trash", JSON.stringify(this.state.trash));
     }
   }
@@ -198,21 +199,17 @@ class Home extends React.Component {
             </Header>
           }
         >
+          <DisplayDate />
           <ActionButtons
             filter={this.state.filter}
             setFilter={this.setPriorityStatusFilter}
             handleNewToDoClick={this.setIsAddFormOpen}
             setIsConfirmModalOpen={this.setIsConfirmModalOpen}
           />
-          <Group position="right" mx={"lg"} pt={"xl"}>
-            <Button
-              rightIcon={<IconChevronDown size={"1rem"} />}
-              variant="outline"
-              onClick={() => this.toggleFilterDueDate()}
-            >
-              Sort by Due Date
-            </Button>
-          </Group>
+          <FilterByDueDate
+            toggleFilterDueDate={this.toggleFilterDueDate}
+            filter={this.state.filter}
+          />
           {this.state.isAddFormOpen ? (
             <AddTaskForm
               createNewTask={this.addNewTask}

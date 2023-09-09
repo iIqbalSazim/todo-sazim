@@ -2,7 +2,6 @@ import { Button, Group, Text } from "@mantine/core";
 import { IconPlus, IconTrashX } from "@tabler/icons-react";
 import React from "react";
 import FilterByPriority from "./FilterByPriority";
-import FilterByDueDate from "./FilterByDueDate";
 
 class ActionButtons extends React.Component {
   render() {
@@ -19,7 +18,6 @@ class ActionButtons extends React.Component {
             <Text>Add todo</Text>
           </Button>
           <FilterByPriority setFilter={setFilter} filter={filter} />
-          {/* <FilterByDueDate /> */}
           <Button
             leftIcon={<IconTrashX size="1.125rem" />}
             color="red"
