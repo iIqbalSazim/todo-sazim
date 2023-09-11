@@ -1,5 +1,6 @@
 import { Tabs } from "@mantine/core";
 import React from "react";
+import { BUTTON } from "../constants/colors";
 
 class FilterByCompletedStatus extends React.Component {
   render() {
@@ -7,7 +8,7 @@ class FilterByCompletedStatus extends React.Component {
       <Tabs
         orientation="vertical"
         variant="pills"
-        color="indigo"
+        color={BUTTON}
         defaultValue="all"
         onTabChange={(value) => this.props.setFilter(value)}
         h={"180px"}

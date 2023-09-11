@@ -1,5 +1,8 @@
 import React from "react";
 import { Button, Group } from "@mantine/core";
+import { IconX } from "@tabler/icons-react";
+import { HIGH, LOW, MEDIUM } from "../constants/priority";
+import { BUTTON, PRIORITYBUTTON } from "../constants/colors";
 
 class FilterByPriority extends React.Component {
   handleClearFilterByPriority = () => {
@@ -12,49 +15,47 @@ class FilterByPriority extends React.Component {
   };
 
   render() {
-    const { setFilter, filter } = this.props;
+    const { filter } = this.props;
     return (
       <>
         <Button.Group>
           <Button
             variant={
-              filter.priority === "high" && !filter.dueDate
-                ? "filled"
-                : "outline"
+              filter.priority === HIGH && !filter.dueDate ? "filled" : "outline"
             }
-            color="indigo.3"
-            onClick={() => this.handleButtonClick("high")}
+            color={PRIORITYBUTTON}
+            onClick={() => this.handleButtonClick(HIGH)}
           >
             High
           </Button>
           <Button
             variant={
-              filter.priority === "medium" && !filter.dueDate
+              filter.priority === MEDIUM && !filter.dueDate
                 ? "filled"
                 : "outline"
             }
-            color="indigo.3"
-            onClick={() => this.handleButtonClick("medium")}
+            color={PRIORITYBUTTON}
+            onClick={() => this.handleButtonClick(MEDIUM)}
           >
             Medium
           </Button>
           <Button
             variant={
-              filter.priority === "low" && !filter.dueDate
-                ? "filled"
-                : "outline"
+              filter.priority === LOW && !filter.dueDate ? "filled" : "outline"
             }
-            color="indigo.3"
-            onClick={() => this.handleButtonClick("low")}
+            color={PRIORITYBUTTON}
+            onClick={() => this.handleButtonClick(LOW)}
           >
             Low
           </Button>
           <Button
             variant="light"
-            color="indigo.4"
+            color={"indigo.4"}
+            size="sm"
+            rightIcon={<IconX size={"1rem"} />}
             onClick={() => this.handleClearFilterByPriority()}
           >
-            Clear Filtering By Priority
+            Clear Filter
           </Button>
         </Button.Group>
       </>

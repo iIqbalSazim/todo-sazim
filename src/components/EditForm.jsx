@@ -1,3 +1,4 @@
+import React from "react";
 import {
   Button,
   Center,
@@ -8,7 +9,9 @@ import {
   Title,
 } from "@mantine/core";
 import { DateInput } from "@mantine/dates";
-import React from "react";
+import { HIGH, LOW, MEDIUM } from "../constants/priority";
+import { formatDueDate } from "../helper/helper";
+import { BUTTON } from "../constants/colors";
 
 class EditForm extends React.Component {
   state = this.props.task;
@@ -25,7 +28,7 @@ class EditForm extends React.Component {
     const { isOpen, closeModal } = this.props;
 
     return (
-      <Modal opened={isOpen} onClose={() => closeModal()}>
+      <Modal opened={isOpen} onClose={() => closeModal()} centered>
         <form onSubmit={this.handleSubmit}>
           <SimpleGrid cols={1} p={"lg"}>
             <Title ta={"center"}>Edit Todo</Title>
@@ -35,9 +38,9 @@ class EditForm extends React.Component {
             />
             <Select
               data={[
-                { value: "high", label: "High" },
-                { value: "medium", label: "Medium" },
-                { value: "low", label: "Low" },
+                { value: HIGH, label: "High" },
+                { value: MEDIUM, label: "Medium" },
+                { value: LOW, label: "Low" },
               ]}
               defaultValue={this.state.priority}
               onSelect={(e) =>
@@ -47,14 +50,14 @@ class EditForm extends React.Component {
             <DateInput
               minDate={new Date()}
               defaultValue={new Date(this.state.dueDate)}
-              onChange={(value) =>
-                this.setState({ dueDate: value.toDateString().slice(0, 15) })
+              onChange={(input) =>
+                this.setState({ dueDate: formatDueDate(input) })
               }
               label="Date input"
               placeholder="Date input"
             />
             <Center>
-              <Button color="indigo.7" type="submit">
+              <Button color={BUTTON} type="submit">
                 Update
               </Button>
             </Center>

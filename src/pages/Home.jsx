@@ -1,12 +1,4 @@
-import {
-  AppShell,
-  Header,
-  Title,
-  Navbar,
-  Badge,
-  Group,
-  Center,
-} from "@mantine/core";
+import { AppShell, Header, Title, Navbar } from "@mantine/core";
 import React from "react";
 import AddTaskForm from "../components/AddTaskForm";
 import TasksList from "../components/TasksList";

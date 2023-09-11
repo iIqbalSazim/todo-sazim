@@ -1,22 +1,16 @@
-import {
-  Badge,
-  Center,
-  Code,
-  Container,
-  ScrollArea,
-  SimpleGrid,
-  Text,
-} from "@mantine/core";
+import { Center, Container, ScrollArea, SimpleGrid, Text } from "@mantine/core";
 import React from "react";
 import CompletedTask from "./CompletedTask";
 import ActiveTask from "./ActiveTAsk";
+import { HIGH, LOW, MEDIUM } from "../constants/priority";
+import { ACTIVE, ALL, COMPLETED } from "../constants/completedStatus";
 
 class TasksList extends React.Component {
   assignColorByPriority = (priority) => {
-    if (priority === "high") {
+    if (priority === HIGH) {
       return "violet.3";
     }
-    if (priority === "medium") {
+    if (priority === MEDIUM) {
       return "indigo.2";
     }
     return "blue.1";
@@ -31,15 +25,15 @@ class TasksList extends React.Component {
   };
 
   getHighPriorityTasks = (tasks) => {
-    return tasks.filter((task) => task.priority === "high");
+    return tasks.filter((task) => task.priority === HIGH);
   };
 
   getMediumPriorityTasks = (tasks) => {
-    return tasks.filter((task) => task.priority === "medium");
+    return tasks.filter((task) => task.priority === MEDIUM);
   };
 
   getLowPriorityTasks = (tasks) => {
-    return tasks.filter((task) => task.priority === "low");
+    return tasks.filter((task) => task.priority === LOW);
   };
 
   sortByPriority = (tasks) => {
@@ -54,34 +48,38 @@ class TasksList extends React.Component {
   };
 
   sortTasks = (tasks) => {
-    const active = this.getActiveTasks(tasks);
-    const completed = this.getCompletedTasks(tasks);
-    const sortedActiveByPriority = this.sortByPriority(active);
-    return [...sortedActiveByPriority, ...completed];
+    const activeTasks = this.getActiveTasks(tasks);
+    const completedTasks = this.getCompletedTasks(tasks);
+    const sortedActiveByPriority = this.sortByPriority(activeTasks);
+    return [...sortedActiveByPriority, ...completedTasks];
   };
 
   getTaskByPriority = (tasks, priority) => {
     return tasks.filter((task) => task.priority === priority);
   };
 
-  filterTasks = (tasks) => {
-    const { filter } = this.props;
+  filterActiveTasks = (tasks, priority) => {
+    const activeTasks = this.sortByPriority(this.getActiveTasks(tasks));
 
-    if (filter.status === "all" && !filter.priority) {
+    if (priority !== "") {
+      return this.getTaskByPriority(activeTasks, priority);
+    }
+
+    return activeTasks;
+  };
+
+  filterTasks = (tasks) => {
+    const { status, priority } = this.props.filter;
+
+    if (status === ALL && !priority) {
       return this.sortTasks(tasks);
     }
 
-    if (filter.status === "active" || filter.status === "all") {
-      const activeTasks = this.sortByPriority(this.getActiveTasks(tasks));
-
-      if (filter.priority !== "") {
-        return this.getTaskByPriority(activeTasks, filter.priority);
-      }
-
-      return activeTasks;
+    if (status === ACTIVE || status === ALL) {
+      return this.filterActiveTasks(tasks, priority);
     }
 
-    if (filter.status === "completed") {
+    if (status === COMPLETED) {
       return this.getCompletedTasks(tasks);
     }
   };
@@ -104,16 +102,17 @@ class TasksList extends React.Component {
 
     let tasks = this.props.tasks;
 
-    if (filter.dueDate === true && filter.status !== "completed") {
+    if (filter.dueDate === true && filter.status !== COMPLETED) {
       tasks = this.sortTasksByDueDate(this.getActiveTasks(tasks));
-    } else if (filter.dueDate === true && filter.status === "completed") {
+    } else if (filter.dueDate === true && filter.status === COMPLETED) {
       tasks = this.sortTasksByDueDate(this.getCompletedTasks(tasks));
     } else {
       tasks = this.filterTasks(tasks);
     }
+
     return (
       <Container fluid mx="xl" p={"xl"}>
-        <ScrollArea h={"50vh"} py={"xl"} auto="true">
+        <ScrollArea h={"47vh"} py={"xl"} auto="true">
           <SimpleGrid mx="xl" cols={1} verticalSpacing="lg">
             {tasks.length !== 0 ? (
               tasks.map((task) =>

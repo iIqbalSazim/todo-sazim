@@ -1,4 +1,4 @@
-import { Button, Group, Text } from "@mantine/core";
+import { Button, Group } from "@mantine/core";
 import { IconChevronDown, IconX } from "@tabler/icons-react";
 import React from "react";
 

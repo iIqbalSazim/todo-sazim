@@ -9,12 +9,15 @@ import {
 } from "@mantine/core";
 import { DateInput } from "@mantine/dates";
 import React from "react";
+import { HIGH, LOW, MEDIUM } from "../constants/priority";
+import { formatDueDate, generateCurrentTimeAndDate } from "../helper/helper";
+import { BUTTON } from "../constants/colors";
 
 class AddTaskForm extends React.Component {
   state = {
     id: Math.round(Math.random() * 1000000),
     description: "Task details not provided",
-    priority: "low",
+    priority: LOW,
     isCompleted: false,
     createdAt: "",
     dueDate: new Date().toDateString().slice(0, 15),
@@ -38,10 +41,7 @@ class AddTaskForm extends React.Component {
 
   setCreatedAt = () => {
     let date = new Date();
-    let currTime =
-      date.toLocaleTimeString().slice(0, 4) +
-      date.toLocaleTimeString().slice(7);
-    let createdAt = `${currTime} | ${date.toDateString()}`;
+    let createdAt = generateCurrentTimeAndDate(date);
     this.setState({ createdAt: createdAt });
   };
 
@@ -67,9 +67,9 @@ class AddTaskForm extends React.Component {
               placeholder="Set priority"
               defaultValue={"low"}
               data={[
-                { value: "high", label: "High" },
-                { value: "medium", label: "Medium" },
-                { value: "low", label: "Low" },
+                { value: HIGH, label: "High" },
+                { value: MEDIUM, label: "Medium" },
+                { value: LOW, label: "Low" },
               ]}
               onSelect={(e) =>
                 this.setState({ priority: e.target.value.toLowerCase() })
@@ -78,17 +78,13 @@ class AddTaskForm extends React.Component {
             <DateInput
               minDate={new Date()}
               defaultValue={new Date(this.state.dueDate)}
-              onChange={(value) => {
-                this.setState({ dueDate: value.toDateString().slice(0, 15) });
+              onChange={(input) => {
+                this.setState({ dueDate: formatDueDate(input) });
               }}
               label="Date input"
             />
             <Center>
-              <Button
-                color="indigo.7"
-                type="submit"
-                onClick={this.setCreatedAt}
-              >
+              <Button color={BUTTON} type="submit" onClick={this.setCreatedAt}>
                 Create
               </Button>
             </Center>

@@ -1,9 +1,5 @@
-import { ActionIcon, Badge, Box, Card, Group, Text } from "@mantine/core";
-import {
-  IconCircleCheck,
-  IconCircleMinus,
-  IconEditCircle,
-} from "@tabler/icons-react";
+import { ActionIcon, Card, Group, Text } from "@mantine/core";
+import { IconCircleCheck, IconCircleMinus } from "@tabler/icons-react";
 import React from "react";
 
 class CompletedTask extends React.Component {
