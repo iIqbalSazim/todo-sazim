@@ -1,12 +1,22 @@
 import { Center, Container, ScrollArea, SimpleGrid, Text } from "@mantine/core";
-import React from "react";
 import CompletedTask from "./CompletedTask";
 import ActiveTask from "./ActiveTAsk";
 import { HIGH, LOW, MEDIUM } from "../constants/priority";
 import { ACTIVE, ALL, COMPLETED } from "../constants/completedStatus";
+import { useEffect } from "react";
 
-class TasksList extends React.Component {
-  assignColorByPriority = (priority) => {
+const TasksList = ({
+  handleDelete,
+  handleToggleIsCompleted,
+  openEditForm,
+  filter,
+  tasks,
+}) => {
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }, [tasks]);
+
+  const assignColorByPriority = (priority) => {
     if (priority === HIGH) {
       return "violet.3";
     }
@@ -16,27 +26,15 @@ class TasksList extends React.Component {
     return "blue.1";
   };
 
-  getActiveTasks = (tasks) => {
+  const getActiveTasks = (tasks) => {
     return tasks.filter((task) => !task.isCompleted);
   };
 
-  getCompletedTasks = (tasks) => {
+  const getCompletedTasks = (tasks) => {
     return tasks.filter((task) => task.isCompleted);
   };
 
-  getHighPriorityTasks = (tasks) => {
-    return tasks.filter((task) => task.priority === HIGH);
-  };
-
-  getMediumPriorityTasks = (tasks) => {
-    return tasks.filter((task) => task.priority === MEDIUM);
-  };
-
-  getLowPriorityTasks = (tasks) => {
-    return tasks.filter((task) => task.priority === LOW);
-  };
-
-  sortByPriority = (tasks) => {
+  const sortByPriority = (tasks) => {
     return tasks.sort((item1, item2) => {
       const priorityOrder = {
         high: 1,
@@ -47,105 +45,92 @@ class TasksList extends React.Component {
     });
   };
 
-  sortTasks = (tasks) => {
-    const activeTasks = this.getActiveTasks(tasks);
-    const completedTasks = this.getCompletedTasks(tasks);
-    const sortedActiveByPriority = this.sortByPriority(activeTasks);
+  const sortTasks = (tasks) => {
+    const activeTasks = getActiveTasks(tasks);
+    const completedTasks = getCompletedTasks(tasks);
+    const sortedActiveByPriority = sortByPriority(activeTasks);
     return [...sortedActiveByPriority, ...completedTasks];
   };
 
-  getTaskByPriority = (tasks, priority) => {
+  const getTaskByPriority = (tasks, priority) => {
     return tasks.filter((task) => task.priority === priority);
   };
 
-  filterActiveTasks = (tasks, priority) => {
-    const activeTasks = this.sortByPriority(this.getActiveTasks(tasks));
+  const filterActiveTasks = (tasks, priority) => {
+    const activeTasks = sortByPriority(getActiveTasks(tasks));
 
     if (priority !== "") {
-      return this.getTaskByPriority(activeTasks, priority);
+      return getTaskByPriority(activeTasks, priority);
     }
 
     return activeTasks;
   };
 
-  filterTasks = (tasks) => {
-    const { status, priority } = this.props.filter;
+  const filterTasks = (tasks) => {
+    const { status, priority } = filter;
 
     if (status === ALL && !priority) {
-      return this.sortTasks(tasks);
+      return sortTasks(tasks);
     }
 
     if (status === ACTIVE || status === ALL) {
-      return this.filterActiveTasks(tasks, priority);
+      return filterActiveTasks(tasks, priority);
     }
 
     if (status === COMPLETED) {
-      return this.getCompletedTasks(tasks);
+      return getCompletedTasks(tasks);
     }
   };
 
-  sortTasksByDueDate = (tasks) => {
+  const sortTasksByDueDate = (tasks) => {
     return tasks.sort(function (task1, task2) {
       return new Date(task1.dueDate) - new Date(task2.dueDate);
     });
   };
 
-  componentDidUpdate(prevProps, prevState) {
-    if (prevProps.tasks !== this.props.tasks) {
-      localStorage.setItem("tasks", JSON.stringify(this.props.tasks));
-    }
+  if (filter.dueDate === true && filter.status !== COMPLETED) {
+    tasks = sortTasksByDueDate(getActiveTasks(tasks));
+  } else if (filter.dueDate === true && filter.status === COMPLETED) {
+    tasks = sortTasksByDueDate(getCompletedTasks(tasks));
+  } else {
+    tasks = filterTasks(tasks);
   }
 
-  render() {
-    const { handleDelete, handleToggleIsCompleted, openEditForm, filter } =
-      this.props;
-
-    let tasks = this.props.tasks;
-
-    if (filter.dueDate === true && filter.status !== COMPLETED) {
-      tasks = this.sortTasksByDueDate(this.getActiveTasks(tasks));
-    } else if (filter.dueDate === true && filter.status === COMPLETED) {
-      tasks = this.sortTasksByDueDate(this.getCompletedTasks(tasks));
-    } else {
-      tasks = this.filterTasks(tasks);
-    }
-
-    return (
-      <Container fluid mx="xl" p={"xl"}>
-        <ScrollArea h={"47vh"} py={"xl"} auto="true">
-          <SimpleGrid mx="xl" cols={1} verticalSpacing="lg">
-            {tasks.length !== 0 ? (
-              tasks.map((task) =>
-                task.isCompleted ? (
-                  <CompletedTask
-                    key={task.id}
-                    task={task}
-                    handleDelete={handleDelete}
-                    handleToggleIsCompleted={handleToggleIsCompleted}
-                  />
-                ) : (
-                  <ActiveTask
-                    task={task}
-                    key={task.id}
-                    assignColorByPriority={this.assignColorByPriority}
-                    handleToggleIsCompleted={handleToggleIsCompleted}
-                    openEditForm={openEditForm}
-                    handleDelete={handleDelete}
-                  />
-                )
+  return (
+    <Container fluid mx="xl" p={"xl"}>
+      <ScrollArea h={"47vh"} py={"xl"} auto="true">
+        <SimpleGrid mx="xl" cols={1} verticalSpacing="lg">
+          {tasks.length !== 0 ? (
+            tasks.map((task) =>
+              task.isCompleted ? (
+                <CompletedTask
+                  key={task.id}
+                  task={task}
+                  handleDelete={handleDelete}
+                  handleToggleIsCompleted={handleToggleIsCompleted}
+                />
+              ) : (
+                <ActiveTask
+                  task={task}
+                  key={task.id}
+                  assignColorByPriority={assignColorByPriority}
+                  handleToggleIsCompleted={handleToggleIsCompleted}
+                  openEditForm={openEditForm}
+                  handleDelete={handleDelete}
+                />
               )
-            ) : (
-              <Center>
-                <Text size={"xl"} my={"xl"}>
-                  NO TODOS
-                </Text>
-              </Center>
-            )}
-          </SimpleGrid>
-        </ScrollArea>
-      </Container>
-    );
-  }
-}
+            )
+          ) : (
+            <Center>
+              <Text size={"xl"} my={"xl"}>
+                NO TODOS
+              </Text>
+            </Center>
+          )}
+        </SimpleGrid>
+      </ScrollArea>
+    </Container>
+  );
+};
 
 export default TasksList;
