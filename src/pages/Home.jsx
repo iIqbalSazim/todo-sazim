@@ -54,7 +54,7 @@ const Home = () => {
     setFilter({ ...filter, priority: priority });
   };
 
-  const setIsCompleted = (id) => {
+  const toggleIsCompleted = (id) => {
     const updatedTasks = tasks.map((task) => {
       if (task.id === id) {
         return { ...task, isCompleted: !task.isCompleted };
@@ -187,9 +187,9 @@ const Home = () => {
         ) : null}
         <TasksList
           tasks={tasks}
-          handleDelete={deleteTask}
+          deleteTask={deleteTask}
           openEditForm={handleOpenEditForm}
-          handleToggleIsCompleted={setIsCompleted}
+          toggleIsCompleted={toggleIsCompleted}
           filter={filter}
         />
         <Bin

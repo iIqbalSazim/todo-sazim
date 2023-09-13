@@ -6,8 +6,8 @@ import { ACTIVE, ALL, COMPLETED } from "../constants/completedStatus";
 import { useEffect } from "react";
 
 const TasksList = ({
-  handleDelete,
-  handleToggleIsCompleted,
+  deleteTask,
+  toggleIsCompleted,
   openEditForm,
   filter,
   tasks,
@@ -106,17 +106,17 @@ const TasksList = ({
                 <CompletedTask
                   key={task.id}
                   task={task}
-                  handleDelete={handleDelete}
-                  handleToggleIsCompleted={handleToggleIsCompleted}
+                  deleteTask={deleteTask}
+                  toggleIsCompleted={toggleIsCompleted}
                 />
               ) : (
                 <ActiveTask
                   task={task}
                   key={task.id}
                   assignColorByPriority={assignColorByPriority}
-                  handleToggleIsCompleted={handleToggleIsCompleted}
+                  toggleIsCompleted={toggleIsCompleted}
                   openEditForm={openEditForm}
-                  handleDelete={handleDelete}
+                  deleteTask={deleteTask}
                 />
               )
             )

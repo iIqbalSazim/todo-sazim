@@ -8,9 +8,9 @@ import {
 const ActiveTask = ({
   task,
   assignColorByPriority,
-  handleToggleIsCompleted,
+  toggleIsCompleted,
   openEditForm,
-  handleDelete,
+  deleteTask,
 }) => {
   return (
     <Card
@@ -32,7 +32,7 @@ const ActiveTask = ({
           </Badge>
           <ActionIcon
             variant="light"
-            onClick={() => handleToggleIsCompleted(task.id)}
+            onClick={() => toggleIsCompleted(task.id)}
             bg="teal.1"
           >
             <IconCircleCheck size="1.125rem" />
@@ -47,7 +47,7 @@ const ActiveTask = ({
           <ActionIcon
             variant="light"
             bg="red.1"
-            onClick={() => handleDelete(task.id)}
+            onClick={() => deleteTask(task.id)}
           >
             <IconCircleMinus size="1.125rem" />
           </ActionIcon>
