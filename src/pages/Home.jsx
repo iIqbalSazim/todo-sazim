@@ -1,4 +1,4 @@
-import { AppShell, Header, Title, Navbar, ThemeIcon } from "@mantine/core";
+import { AppShell, Header, Title, Navbar } from "@mantine/core";
 import { useEffect, useState } from "react";
 import AddTaskForm from "../components/AddTaskForm";
 import TasksList from "../components/TasksList";
@@ -26,9 +26,19 @@ const Home = () => {
   const [trash, setTrash] = useState([]);
 
   useEffect(() => {
-    setTasks(JSON.parse(localStorage.getItem("tasks")) || []);
-    setTrash(JSON.parse(localStorage.getItem("trash")) || []);
+    const localTasks = JSON.parse(localStorage.getItem("tasks"));
+    const localTrash = JSON.parse(localStorage.getItem("trash"));
+    if (localTasks.length !== 0) {
+      setTasks([...localTasks]);
+    }
+    if (localTrash.length !== 0) {
+      setTrash(localTrash);
+    }
   }, []);
+
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }, [tasks]);
 
   useEffect(() => {
     localStorage.setItem("trash", JSON.stringify(trash));

@@ -12,10 +12,6 @@ const TasksList = ({
   filter,
   tasks,
 }) => {
-  useEffect(() => {
-    localStorage.setItem("tasks", JSON.stringify(tasks));
-  }, [tasks]);
-
   const assignColorByPriority = (priority) => {
     if (priority === HIGH) {
       return "violet.3";
