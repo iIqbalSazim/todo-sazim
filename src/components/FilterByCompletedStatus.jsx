@@ -1,12 +1,12 @@
 import { Tabs } from "@mantine/core";
-import { BUTTON } from "../constants/colors";
+import { COLORS } from "../constants/constant";
 
 const FilterByCompletedStatus = ({ setFilter }) => {
   return (
     <Tabs
       orientation="vertical"
       variant="pills"
-      color={BUTTON}
+      color={COLORS.BUTTON}
       defaultValue="all"
       onTabChange={(value) => setFilter(value)}
       h={"180px"}

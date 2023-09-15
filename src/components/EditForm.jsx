@@ -8,9 +8,9 @@ import {
   Title,
 } from "@mantine/core";
 import { DateInput } from "@mantine/dates";
-import { selectPriorityData } from "../constants/formData";
 import { formatDueDate } from "../helper/helper";
-import { BUTTON } from "../constants/colors";
+import { PRIORITY_OPTIONS } from "../constants/constant";
+import { COLORS } from "../constants/constant";
 import { useState } from "react";
 
 const EditForm = ({ task, editTask, isOpen, closeModal }) => {
@@ -35,7 +35,7 @@ const EditForm = ({ task, editTask, isOpen, closeModal }) => {
             }
           />
           <Select
-            data={selectPriorityData}
+            data={PRIORITY_OPTIONS}
             defaultValue={editedTask.priority}
             onSelect={(e) =>
               setEditedTask({
@@ -54,7 +54,7 @@ const EditForm = ({ task, editTask, isOpen, closeModal }) => {
             placeholder="Date input"
           />
           <Center>
-            <Button color={BUTTON} type="submit">
+            <Button color={COLORS.BUTTON} type="submit">
               Update
             </Button>
           </Center>

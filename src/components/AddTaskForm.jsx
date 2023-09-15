@@ -1,7 +1,7 @@
 import {
   Button,
   Center,
-  Paper,
+  Modal,
   Select,
   SimpleGrid,
   Textarea,
@@ -9,16 +9,16 @@ import {
 } from "@mantine/core";
 import { DateInput } from "@mantine/dates";
 import { useState } from "react";
-import { LOW } from "../constants/priority";
 import { formatDueDate, generateCurrentTimeAndDate } from "../helper/helper";
-import { BUTTON } from "../constants/colors";
-import { selectPriorityData } from "../constants/formData";
+import { PRIORITY } from "../constants/constant";
+import { PRIORITY_OPTIONS } from "../constants/constant";
+import { COLORS } from "../constants/constant";
 
-const AddTaskForm = ({ createNewTask, closeForm }) => {
+const AddTaskForm = ({ createNewTask, isOpen, closeModal }) => {
   const [newTask, setNewTask] = useState({
     id: Math.round(Math.random() * 1000000),
     description: "Task details not provided",
-    priority: LOW,
+    priority: PRIORITY.LOW,
     isCompleted: false,
     createdAt: "",
     dueDate: new Date().toDateString().slice(0, 15),
@@ -36,7 +36,7 @@ const AddTaskForm = ({ createNewTask, closeForm }) => {
       dueDate: "",
     });
 
-    closeForm();
+    closeModal();
   };
 
   const setCreatedAt = () => {
@@ -46,17 +46,9 @@ const AddTaskForm = ({ createNewTask, closeForm }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <Paper
-        shadow="lg"
-        p="xl"
-        radius={"md"}
-        my={20}
-        mx={"30%"}
-        bg={"white.0"}
-        withBorder
-      >
-        <SimpleGrid cols={1} verticalSpacing={"xl"}>
+    <Modal opened={isOpen} onClose={() => closeModal()} centered>
+      <form onSubmit={handleSubmit}>
+        <SimpleGrid cols={1} p={"lg"}>
           <Title ta={"center"}>Create Todo</Title>
           <Textarea
             placeholder="Write your task"
@@ -66,10 +58,13 @@ const AddTaskForm = ({ createNewTask, closeForm }) => {
           />
           <Select
             placeholder="Set priority"
-            defaultValue={LOW}
-            data={selectPriorityData}
+            defaultValue={PRIORITY.LOW}
+            data={PRIORITY_OPTIONS}
             onSelect={(e) =>
-              setNewTask({ ...newTask, priority: e.target.value.toLowerCase() })
+              setNewTask({
+                ...newTask,
+                priority: e.target.value.toLowerCase(),
+              })
             }
           />
           <DateInput
@@ -81,13 +76,13 @@ const AddTaskForm = ({ createNewTask, closeForm }) => {
             label="Date input"
           />
           <Center>
-            <Button color={BUTTON} type="submit" onClick={setCreatedAt}>
+            <Button color={COLORS.BUTTON} type="submit" onClick={setCreatedAt}>
               Create
             </Button>
           </Center>
         </SimpleGrid>
-      </Paper>
-    </form>
+      </form>
+    </Modal>
   );
 };
 

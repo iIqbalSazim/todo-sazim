@@ -1,8 +1,8 @@
 import { Center, Container, ScrollArea, SimpleGrid, Text } from "@mantine/core";
 import CompletedTask from "./CompletedTask";
-import ActiveTask from "./ActiveTAsk";
-import { HIGH, LOW, MEDIUM } from "../constants/priority";
-import { ACTIVE, ALL, COMPLETED } from "../constants/completedStatus";
+import ActiveTask from "./ActiveTask";
+import { PRIORITY } from "../constants/constant";
+import { COMPLETED_STATUS } from "../constants/constant";
 import { useEffect } from "react";
 
 const TasksList = ({
@@ -13,10 +13,10 @@ const TasksList = ({
   tasks,
 }) => {
   const assignColorByPriority = (priority) => {
-    if (priority === HIGH) {
+    if (priority === PRIORITY.HIGH) {
       return "violet.3";
     }
-    if (priority === MEDIUM) {
+    if (priority === PRIORITY.MEDIUM) {
       return "indigo.2";
     }
     return "blue.1";
@@ -65,15 +65,15 @@ const TasksList = ({
   const filterTasks = (tasks) => {
     const { status, priority } = filter;
 
-    if (status === ALL && !priority) {
+    if (status === COMPLETED_STATUS.ALL && !priority) {
       return sortTasks(tasks);
     }
 
-    if (status === ACTIVE || status === ALL) {
+    if (status === COMPLETED_STATUS.ACTIVE || status === COMPLETED_STATUS.ALL) {
       return filterActiveTasks(tasks, priority);
     }
 
-    if (status === COMPLETED) {
+    if (status === COMPLETED_STATUS.COMPLETED) {
       return getCompletedTasks(tasks);
     }
   };
@@ -84,9 +84,12 @@ const TasksList = ({
     });
   };
 
-  if (filter.dueDate === true && filter.status !== COMPLETED) {
+  if (filter.dueDate === true && filter.status !== COMPLETED_STATUS.COMPLETED) {
     tasks = sortTasksByDueDate(getActiveTasks(tasks));
-  } else if (filter.dueDate === true && filter.status === COMPLETED) {
+  } else if (
+    filter.dueDate === true &&
+    filter.status === COMPLETED_STATUS.COMPLETED
+  ) {
     tasks = sortTasksByDueDate(getCompletedTasks(tasks));
   } else {
     tasks = filterTasks(tasks);

@@ -11,6 +11,7 @@ import { findIndexWithId } from "../helper/helper";
 import ConfirmModal from "../components/ConfirmModal";
 import FilterByDueDate from "../components/FilterByDueDate";
 import DisplayDate from "../components/DisplayDate";
+import { COMPLETED_STATUS } from "../constants/constant";
 
 const Home = () => {
   const [tasks, setTasks] = useState([]);
@@ -19,7 +20,7 @@ const Home = () => {
   const [isConfirmModalOpen, setIsConfirmModalOpen] = useState(false);
   const [toBeEdited, setToBeEdited] = useState({});
   const [filter, setFilter] = useState({
-    status: "all",
+    status: COMPLETED_STATUS.ALL,
     priority: "",
     dueDate: false,
   });
@@ -92,16 +93,12 @@ const Home = () => {
     setTasks([...tasks, task]);
   };
 
-  const setIsEditFormToOpen = () => {
-    setIsEditFormOpen(true);
-  };
-
-  const setIsEditFormToClose = () => {
-    setIsEditFormOpen(false);
+  const toggleIsEditFormOpen = () => {
+    setIsEditFormOpen(!isEditFormOpen);
   };
 
   const handleOpenEditForm = (task) => {
-    setIsEditFormToOpen();
+    toggleIsEditFormOpen();
     setToBeEdited(task);
   };
 
@@ -177,24 +174,24 @@ const Home = () => {
         {isAddFormOpen ? (
           <AddTaskForm
             createNewTask={addNewTask}
-            closeForm={toggleIsAddFormOpen}
+            closeModal={toggleIsAddFormOpen}
+            isOpen={isAddFormOpen}
           />
         ) : null}
         {isEditFormOpen ? (
           <EditForm
-            closeModal={setIsEditFormToClose}
+            closeModal={toggleIsEditFormOpen}
             isOpen={isEditFormOpen}
             task={toBeEdited}
             editTask={editTask}
           />
         ) : null}
-        {isConfirmModalOpen ? (
-          <ConfirmModal
-            isConfirmModalOpen={isConfirmModalOpen}
-            closeModal={setIsConfirmModalToClose}
-            clearAllCompletedTasks={clearAllCompletedTasks}
-          />
-        ) : null}
+
+        <ConfirmModal
+          isConfirmModalOpen={isConfirmModalOpen}
+          closeModal={setIsConfirmModalToClose}
+          clearAllCompletedTasks={clearAllCompletedTasks}
+        />
         <TasksList
           tasks={tasks}
           deleteTask={deleteTask}

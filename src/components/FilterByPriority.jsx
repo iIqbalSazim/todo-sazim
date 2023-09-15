@@ -1,7 +1,7 @@
 import { Button } from "@mantine/core";
 import { IconX } from "@tabler/icons-react";
-import { HIGH, LOW, MEDIUM } from "../constants/priority";
-import { PRIORITYBUTTON } from "../constants/colors";
+import { PRIORITY } from "../constants/constant";
+import { COLORS } from "../constants/constant";
 
 const FilterByPriority = ({ setFilter, filter }) => {
   return (
@@ -9,28 +9,34 @@ const FilterByPriority = ({ setFilter, filter }) => {
       <Button.Group>
         <Button
           variant={
-            filter.priority === HIGH && !filter.dueDate ? "filled" : "outline"
+            filter.priority === PRIORITY.HIGH && !filter.dueDate
+              ? "filled"
+              : "outline"
           }
-          color={PRIORITYBUTTON}
-          onClick={() => setFilter(HIGH)}
+          color={COLORS.PRIORITYBUTTON}
+          onClick={() => setFilter(PRIORITY.HIGH)}
         >
           High
         </Button>
         <Button
           variant={
-            filter.priority === MEDIUM && !filter.dueDate ? "filled" : "outline"
+            filter.priority === PRIORITY.MEDIUM && !filter.dueDate
+              ? "filled"
+              : "outline"
           }
-          color={PRIORITYBUTTON}
-          onClick={() => setFilter(MEDIUM)}
+          color={COLORS.PRIORITYBUTTON}
+          onClick={() => setFilter(PRIORITY.MEDIUM)}
         >
           Medium
         </Button>
         <Button
           variant={
-            filter.priority === LOW && !filter.dueDate ? "filled" : "outline"
+            filter.priority === PRIORITY.LOW && !filter.dueDate
+              ? "filled"
+              : "outline"
           }
-          color={PRIORITYBUTTON}
-          onClick={() => setFilter(LOW)}
+          color={COLORS.PRIORITYBUTTON}
+          onClick={() => setFilter(PRIORITY.LOW)}
         >
           Low
         </Button>
