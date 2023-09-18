@@ -1,4 +1,11 @@
-import { AppShell, Header, Title, Navbar } from "@mantine/core";
+import {
+  AppShell,
+  Header,
+  Title,
+  Navbar,
+  ThemeIcon,
+  MediaQuery,
+} from "@mantine/core";
 import { useEffect, useState } from "react";
 import AddTaskForm from "../components/AddTaskForm";
 import TasksList from "../components/TasksList";
@@ -134,8 +141,16 @@ const Home = () => {
     <>
       <AppShell
         padding="xl"
+        navbarOffsetBreakpoint={"md"}
         navbar={
-          <Navbar width={{ base: 200 }} height={"full"} p="xl" bg={"gray.2"}>
+          <Navbar
+            width={{ base: 200 }}
+            hiddenBreakpoint={"md"}
+            height={"full"}
+            p="xl"
+            bg={"gray.2"}
+            hidden={"true"}
+          >
             <Navbar.Section grow mt={"120%"}>
               <FilterByCompletedStatus setFilter={setCompletedStatusFilter} />
             </Navbar.Section>
