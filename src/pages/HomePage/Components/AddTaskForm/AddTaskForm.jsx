@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import {
   Button,
   Center,
@@ -8,11 +10,12 @@ import {
   Title,
 } from "@mantine/core";
 import { DateInput } from "@mantine/dates";
-import { useState } from "react";
-import { formatDueDate, generateCurrentTimeAndDate } from "../helper/helper";
-import { PRIORITY } from "../constants/constant";
-import { PRIORITY_OPTIONS } from "../constants/constant";
-import { COLORS } from "../constants/constant";
+
+import {
+  formatDueDate,
+  generateCurrentTimeAndDate,
+} from "../../HomePageHelpers";
+import { PRIORITY, PRIORITY_OPTIONS, COLORS } from "../../HomePageConstants";
 
 const AddTaskForm = ({ createNewTask, isOpen, closeModal }) => {
   const [newTask, setNewTask] = useState({
@@ -27,6 +30,7 @@ const AddTaskForm = ({ createNewTask, isOpen, closeModal }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     createNewTask(newTask);
+
     setNewTask({
       description: "",
       priority: "",
@@ -73,7 +77,7 @@ const AddTaskForm = ({ createNewTask, isOpen, closeModal }) => {
             onChange={(input) => {
               setNewTask({ ...newTask, dueDate: formatDueDate(input) });
             }}
-            label="Date input"
+            label="Due Date"
           />
           <Center>
             <Button color={COLORS.BUTTON} type="submit" onClick={setCreatedAt}>

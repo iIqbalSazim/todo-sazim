@@ -1,5 +1,5 @@
 import { MantineProvider } from "@mantine/core";
-import Home from "./pages/home";
+import Home from "./Pages/HomePage/HomePage";
 
 const App = () => {
   return (

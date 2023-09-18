@@ -1,5 +1,5 @@
 import { Tabs } from "@mantine/core";
-import { COLORS } from "../constants/constant";
+import { COLORS } from "../../HomePageConstants";
 
 const FilterByCompletedStatus = ({ setFilter }) => {
   return (

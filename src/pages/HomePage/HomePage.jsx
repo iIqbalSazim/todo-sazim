@@ -1,17 +1,20 @@
-import { AppShell, Header, Title, Navbar } from "@mantine/core";
 import { useEffect, useState } from "react";
-import AddTaskForm from "../components/AddTaskForm";
-import TasksList from "../components/TasksList";
-import FilterByCompletedStatus from "../components/FilterByCompletedStatus";
-import EditForm from "../components/EditForm";
-import ActionButtons from "../components/ActionButtons";
-import Bin from "../components/Bin";
 
-import { findIndexWithId } from "../helper/helper";
-import ConfirmModal from "../components/ConfirmModal";
-import FilterByDueDate from "../components/FilterByDueDate";
-import DisplayDate from "../components/DisplayDate";
-import { COMPLETED_STATUS } from "../constants/constant";
+import { AppShell, Header, Title, Navbar, MediaQuery } from "@mantine/core";
+
+import { findIndexWithId } from "./HomePageHelpers";
+import { COMPLETED_STATUS } from "./HomePageConstants";
+
+import FilterByCompletedStatus from "./Components/FilterByCompletedStatus/FilterByCompletedStatus";
+import DisplayDate from "./Components/DisplayDate/DisplayDate";
+import ActionButtons from "./Components/ActionButtons/ActionButtons";
+import FilterByDueDate from "./Components/FilterByDueDate/FilterByDueDate";
+import AddTaskForm from "./Components/AddTaskForm/AddTaskForm";
+import EditForm from "./Components/EditForm/EditForm";
+import ConfirmModal from "./Components/ConfirmModal/ConfirmModal";
+import TasksList from "./Components/TasksList/TasksList";
+import ResponsiveFilterByCompletedStatus from "./Components/ResponsiveFilterByCompletedStatus/ResponsiveFilterByCompletedStatus";
+import Bin from "./Components/Bin/Bin";
 
 const Home = () => {
   const [tasks, setTasks] = useState([]);
@@ -29,10 +32,10 @@ const Home = () => {
   useEffect(() => {
     const localTasks = JSON.parse(localStorage.getItem("tasks"));
     const localTrash = JSON.parse(localStorage.getItem("trash"));
-    if (localTasks.length !== 0) {
+    if (localTasks) {
       setTasks([...localTasks]);
     }
-    if (localTrash.length !== 0) {
+    if (localTrash) {
       setTrash(localTrash);
     }
   }, []);
@@ -134,8 +137,16 @@ const Home = () => {
     <>
       <AppShell
         padding="xl"
+        navbarOffsetBreakpoint={"md"}
         navbar={
-          <Navbar width={{ base: 200 }} height={"full"} p="xl" bg={"gray.2"}>
+          <Navbar
+            width={{ base: 200 }}
+            hiddenBreakpoint={"md"}
+            height={"full"}
+            p="xl"
+            bg={"gray.2"}
+            hidden={"true"}
+          >
             <Navbar.Section grow mt={"120%"}>
               <FilterByCompletedStatus setFilter={setCompletedStatusFilter} />
             </Navbar.Section>
@@ -143,20 +154,36 @@ const Home = () => {
         }
         header={
           <Header
-            p={"xl"}
+            p={"lg"}
             height={"90"}
             sx={{ boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)" }}
           >
-            <Title
-              order={1}
-              ta={"left"}
-              h={"fit"}
-              color="indigo.9"
-              fw={"200"}
-              tt="capitalize"
-            >
-              &lt;TODO OR <strong>!</strong>TODO /&gt;
-            </Title>
+            <MediaQuery smallerThan={"sm"} styles={{ display: "none" }}>
+              <Title
+                order={1}
+                ta={"left"}
+                h={"fit"}
+                color="indigo.9"
+                fw={"200"}
+                tt="capitalize"
+              >
+                &lt;TODO OR <strong>!</strong>TODO /&gt;
+              </Title>
+            </MediaQuery>
+
+            <MediaQuery largerThan={"sm"} styles={{ display: "none" }}>
+              <Title
+                order={2}
+                ta={"left"}
+                h={"fit"}
+                color="indigo.9"
+                fw={"200"}
+                mt={"sm"}
+                tt="capitalize"
+              >
+                &lt;TODO OR <strong>!</strong>TODO /&gt;
+              </Title>
+            </MediaQuery>
           </Header>
         }
       >
@@ -197,6 +224,10 @@ const Home = () => {
           deleteTask={deleteTask}
           openEditForm={handleOpenEditForm}
           toggleIsCompleted={toggleIsCompleted}
+          filter={filter}
+        />
+        <ResponsiveFilterByCompletedStatus
+          setCompletedStatusFilter={setCompletedStatusFilter}
           filter={filter}
         />
         <Bin
