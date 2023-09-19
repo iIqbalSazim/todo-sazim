@@ -158,20 +158,36 @@ const Home = () => {
         }
         header={
           <Header
-            p={"xl"}
+            p={"lg"}
             height={"90"}
             sx={{ boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)" }}
           >
-            <Title
-              order={1}
-              ta={"left"}
-              h={"fit"}
-              color="indigo.9"
-              fw={"200"}
-              tt="capitalize"
-            >
-              &lt;TODO OR <strong>!</strong>TODO /&gt;
-            </Title>
+            <MediaQuery smallerThan={"sm"} styles={{ display: "none" }}>
+              <Title
+                order={1}
+                ta={"left"}
+                h={"fit"}
+                color="indigo.9"
+                fw={"200"}
+                tt="capitalize"
+              >
+                &lt;TODO OR <strong>!</strong>TODO /&gt;
+              </Title>
+            </MediaQuery>
+
+            <MediaQuery largerThan={"sm"} styles={{ display: "none" }}>
+              <Title
+                order={2}
+                ta={"left"}
+                h={"fit"}
+                color="indigo.9"
+                fw={"200"}
+                mt={"sm"}
+                tt="capitalize"
+              >
+                &lt;TODO OR <strong>!</strong>TODO /&gt;
+              </Title>
+            </MediaQuery>
           </Header>
         }
       >
