@@ -1,4 +1,11 @@
-import { Center, Container, ScrollArea, SimpleGrid, Text } from "@mantine/core";
+import {
+  Center,
+  Container,
+  MediaQuery,
+  ScrollArea,
+  SimpleGrid,
+  Text,
+} from "@mantine/core";
 import CompletedTask from "./CompletedTask";
 import ActiveTask from "./ActiveTask";
 import { PRIORITY } from "../constants/constant";
@@ -96,39 +103,79 @@ const TasksList = ({
   }
 
   return (
-    <Container fluid mx="xl" p={"xl"}>
-      <ScrollArea h={"47vh"} py={"xl"} auto="true">
-        <SimpleGrid mx="xl" cols={1} verticalSpacing="lg">
-          {tasks.length !== 0 ? (
-            tasks.map((task) =>
-              task.isCompleted ? (
-                <CompletedTask
-                  key={task.id}
-                  task={task}
-                  deleteTask={deleteTask}
-                  toggleIsCompleted={toggleIsCompleted}
-                />
+    <>
+      <MediaQuery smallerThan={"md"} styles={{ display: "none" }}>
+        <Container fluid mx="xl" p={"xl"}>
+          <ScrollArea h={"47vh"} py={"xl"} auto="true">
+            <SimpleGrid mx="xl" cols={1} verticalSpacing="lg">
+              {tasks.length !== 0 ? (
+                tasks.map((task) =>
+                  task.isCompleted ? (
+                    <CompletedTask
+                      key={task.id}
+                      task={task}
+                      deleteTask={deleteTask}
+                      toggleIsCompleted={toggleIsCompleted}
+                    />
+                  ) : (
+                    <ActiveTask
+                      task={task}
+                      key={task.id}
+                      assignColorByPriority={assignColorByPriority}
+                      toggleIsCompleted={toggleIsCompleted}
+                      openEditForm={openEditForm}
+                      deleteTask={deleteTask}
+                    />
+                  )
+                )
               ) : (
-                <ActiveTask
-                  task={task}
-                  key={task.id}
-                  assignColorByPriority={assignColorByPriority}
-                  toggleIsCompleted={toggleIsCompleted}
-                  openEditForm={openEditForm}
-                  deleteTask={deleteTask}
-                />
-              )
-            )
-          ) : (
-            <Center>
-              <Text size={"xl"} my={"xl"}>
-                NO TODOS
-              </Text>
-            </Center>
-          )}
-        </SimpleGrid>
-      </ScrollArea>
-    </Container>
+                <Center>
+                  <Text size={"xl"} my={"xl"}>
+                    NO TODOS
+                  </Text>
+                </Center>
+              )}
+            </SimpleGrid>
+          </ScrollArea>
+        </Container>
+      </MediaQuery>
+
+      <MediaQuery largerThan={"md"} styles={{ display: "none" }}>
+        <Container fluid py={"md"}>
+          <ScrollArea h={"47vh"} py={"xl"} auto="true">
+            <SimpleGrid cols={1} verticalSpacing="lg">
+              {tasks.length !== 0 ? (
+                tasks.map((task) =>
+                  task.isCompleted ? (
+                    <CompletedTask
+                      key={task.id}
+                      task={task}
+                      deleteTask={deleteTask}
+                      toggleIsCompleted={toggleIsCompleted}
+                    />
+                  ) : (
+                    <ActiveTask
+                      task={task}
+                      key={task.id}
+                      assignColorByPriority={assignColorByPriority}
+                      toggleIsCompleted={toggleIsCompleted}
+                      openEditForm={openEditForm}
+                      deleteTask={deleteTask}
+                    />
+                  )
+                )
+              ) : (
+                <Center>
+                  <Text size={"xl"} my={"xl"}>
+                    NO TODOS
+                  </Text>
+                </Center>
+              )}
+            </SimpleGrid>
+          </ScrollArea>
+        </Container>
+      </MediaQuery>
+    </>
   );
 };
 

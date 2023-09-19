@@ -50,8 +50,7 @@ const EditForm = ({ task, editTask, isOpen, closeModal }) => {
             onChange={(input) =>
               setEditedTask({ ...editedTask, dueDate: formatDueDate(input) })
             }
-            label="Date input"
-            placeholder="Date input"
+            label="Due Date"
           />
           <Center>
             <Button color={COLORS.BUTTON} type="submit">

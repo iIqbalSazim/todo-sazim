@@ -73,7 +73,7 @@ const AddTaskForm = ({ createNewTask, isOpen, closeModal }) => {
             onChange={(input) => {
               setNewTask({ ...newTask, dueDate: formatDueDate(input) });
             }}
-            label="Date input"
+            label="Due Date"
           />
           <Center>
             <Button color={COLORS.BUTTON} type="submit" onClick={setCreatedAt}>
