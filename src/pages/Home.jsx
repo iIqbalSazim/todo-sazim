@@ -3,8 +3,9 @@ import {
   Header,
   Title,
   Navbar,
-  ThemeIcon,
   MediaQuery,
+  Button,
+  Center,
 } from "@mantine/core";
 import { useEffect, useState } from "react";
 import AddTaskForm from "../components/AddTaskForm";
@@ -18,7 +19,8 @@ import { findIndexWithId } from "../helper/helper";
 import ConfirmModal from "../components/ConfirmModal";
 import FilterByDueDate from "../components/FilterByDueDate";
 import DisplayDate from "../components/DisplayDate";
-import { COMPLETED_STATUS } from "../constants/constant";
+import { COLORS, COMPLETED_STATUS } from "../constants/constant";
+import ResponsiveFilterByCompletedStatus from "../components/ResponsiveFilterByCompletedStatus";
 
 const Home = () => {
   const [tasks, setTasks] = useState([]);
@@ -228,6 +230,10 @@ const Home = () => {
           deleteTask={deleteTask}
           openEditForm={handleOpenEditForm}
           toggleIsCompleted={toggleIsCompleted}
+          filter={filter}
+        />
+        <ResponsiveFilterByCompletedStatus
+          setCompletedStatusFilter={setCompletedStatusFilter}
           filter={filter}
         />
         <Bin
