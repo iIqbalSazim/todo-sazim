@@ -1,7 +1,7 @@
-import { Button, MediaQuery, Menu } from "@mantine/core";
+import { Button, MediaQuery } from "@mantine/core";
 import { IconX } from "@tabler/icons-react";
-import { PRIORITY } from "../constants/constant";
-import { COLORS } from "../constants/constant";
+
+import { PRIORITY, COLORS } from "../../../HomePageConstants";
 
 const FilterByPriority = ({ setFilter, filter }) => {
   return (
@@ -14,7 +14,7 @@ const FilterByPriority = ({ setFilter, filter }) => {
                 ? "filled"
                 : "outline"
             }
-            color={COLORS.PRIORITYBUTTON}
+            color={COLORS.PRIORITY_BUTTON}
             onClick={() => setFilter(PRIORITY.HIGH)}
           >
             High
@@ -25,7 +25,7 @@ const FilterByPriority = ({ setFilter, filter }) => {
                 ? "filled"
                 : "outline"
             }
-            color={COLORS.PRIORITYBUTTON}
+            color={COLORS.PRIORITY_BUTTON}
             onClick={() => setFilter(PRIORITY.MEDIUM)}
           >
             Medium
@@ -36,7 +36,7 @@ const FilterByPriority = ({ setFilter, filter }) => {
                 ? "filled"
                 : "outline"
             }
-            color={COLORS.PRIORITYBUTTON}
+            color={COLORS.PRIORITY_BUTTON}
             onClick={() => setFilter(PRIORITY.LOW)}
           >
             Low

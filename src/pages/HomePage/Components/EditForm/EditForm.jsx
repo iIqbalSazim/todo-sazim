@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import {
   Button,
   Center,
@@ -8,10 +10,9 @@ import {
   Title,
 } from "@mantine/core";
 import { DateInput } from "@mantine/dates";
-import { formatDueDate } from "../helper/helper";
-import { PRIORITY_OPTIONS } from "../constants/constant";
-import { COLORS } from "../constants/constant";
-import { useState } from "react";
+
+import { formatDueDate } from "../../HomePageHelpers";
+import { PRIORITY_OPTIONS, COLORS } from "../../HomePageConstants";
 
 const EditForm = ({ task, editTask, isOpen, closeModal }) => {
   const [editedTask, setEditedTask] = useState({ ...task });

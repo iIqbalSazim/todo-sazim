@@ -1,5 +1,6 @@
 import { Button, Center, MediaQuery } from "@mantine/core";
-import { COLORS, COMPLETED_STATUS } from "../constants/constant";
+
+import { COLORS, COMPLETED_STATUS } from "../../HomePageConstants";
 
 const ResponsiveFilterByCompletedStatus = ({
   setCompletedStatusFilter,
@@ -16,6 +17,7 @@ const ResponsiveFilterByCompletedStatus = ({
               }
               color={COLORS.BUTTON}
               onClick={() => setCompletedStatusFilter(COMPLETED_STATUS.ALL)}
+              size="xs"
             >
               All
             </Button>
@@ -25,6 +27,7 @@ const ResponsiveFilterByCompletedStatus = ({
               }
               color={COLORS.BUTTON}
               onClick={() => setCompletedStatusFilter(COMPLETED_STATUS.ACTIVE)}
+              size="xs"
             >
               Active
             </Button>
@@ -38,6 +41,7 @@ const ResponsiveFilterByCompletedStatus = ({
               onClick={() =>
                 setCompletedStatusFilter(COMPLETED_STATUS.COMPLETED)
               }
+              size="xs"
             >
               Completed
             </Button>

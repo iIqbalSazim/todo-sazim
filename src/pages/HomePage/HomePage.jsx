@@ -1,26 +1,20 @@
-import {
-  AppShell,
-  Header,
-  Title,
-  Navbar,
-  MediaQuery,
-  Button,
-  Center,
-} from "@mantine/core";
 import { useEffect, useState } from "react";
-import AddTaskForm from "../components/AddTaskForm";
-import TasksList from "../components/TasksList";
-import FilterByCompletedStatus from "../components/FilterByCompletedStatus";
-import EditForm from "../components/EditForm";
-import ActionButtons from "../components/ActionButtons";
-import Bin from "../components/Bin";
 
-import { findIndexWithId } from "../helper/helper";
-import ConfirmModal from "../components/ConfirmModal";
-import FilterByDueDate from "../components/FilterByDueDate";
-import DisplayDate from "../components/DisplayDate";
-import { COLORS, COMPLETED_STATUS } from "../constants/constant";
-import ResponsiveFilterByCompletedStatus from "../components/ResponsiveFilterByCompletedStatus";
+import { AppShell, Header, Title, Navbar, MediaQuery } from "@mantine/core";
+
+import { findIndexWithId } from "./HomePageHelpers";
+import { COMPLETED_STATUS } from "./HomePageConstants";
+
+import FilterByCompletedStatus from "./Components/FilterByCompletedStatus/FilterByCompletedStatus";
+import DisplayDate from "./Components/DisplayDate/DisplayDate";
+import ActionButtons from "./Components/ActionButtons/ActionButtons";
+import FilterByDueDate from "./Components/FilterByDueDate/FilterByDueDate";
+import AddTaskForm from "./Components/AddTaskForm/AddTaskForm";
+import EditForm from "./Components/EditForm/EditForm";
+import ConfirmModal from "./Components/ConfirmModal/ConfirmModal";
+import TasksList from "./Components/TasksList/TasksList";
+import ResponsiveFilterByCompletedStatus from "./Components/ResponsiveFilterByCompletedStatus/ResponsiveFilterByCompletedStatus";
+import Bin from "./Components/Bin/Bin";
 
 const Home = () => {
   const [tasks, setTasks] = useState([]);

@@ -6,11 +6,11 @@ import {
   SimpleGrid,
   Text,
 } from "@mantine/core";
-import CompletedTask from "./CompletedTask";
-import ActiveTask from "./ActiveTask";
-import { PRIORITY } from "../constants/constant";
-import { COMPLETED_STATUS } from "../constants/constant";
-import { useEffect } from "react";
+
+import CompletedTask from "./CompletedTask/CompletedTask";
+import ActiveTask from "./ActiveTask/ActiveTask";
+
+import { PRIORITY, COMPLETED_STATUS } from "../../HomePageConstants";
 
 const TasksList = ({
   deleteTask,

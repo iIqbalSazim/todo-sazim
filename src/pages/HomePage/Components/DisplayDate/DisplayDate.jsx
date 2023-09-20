@@ -1,5 +1,5 @@
 import { Center, MediaQuery, Title } from "@mantine/core";
-import { COLORS } from "../constants/constant";
+import { COLORS } from "../../HomePageConstants";
 
 const DisplayDate = () => {
   return (
