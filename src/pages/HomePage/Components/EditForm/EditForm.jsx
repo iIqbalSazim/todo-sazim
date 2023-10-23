@@ -24,7 +24,7 @@ const EditForm = ({ task, isOpen, closeModal }) => {
 
     closeModal();
     window.location.reload(false);
-    alert("Product successfully updated");
+    alert("Task successfully updated");
   };
 
   return (

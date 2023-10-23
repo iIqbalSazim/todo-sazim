@@ -31,11 +31,11 @@ const TasksList = ({ toggleIsCompleted, openEditForm, filter, tasks }) => {
   };
 
   const getActiveTasks = (tasks) => {
-    return tasks.filter((task) => !task.isCompleted);
+    return tasks.filter((task) => !task.is_completed);
   };
 
   const getCompletedTasks = (tasks) => {
-    return tasks.filter((task) => task.isCompleted);
+    return tasks.filter((task) => task.is_completed);
   };
 
   const sortByPriority = (tasks) => {
@@ -111,7 +111,7 @@ const TasksList = ({ toggleIsCompleted, openEditForm, filter, tasks }) => {
             <SimpleGrid mx="xl" cols={1} verticalSpacing="lg">
               {tasks.length !== 0 ? (
                 tasks.map((task) =>
-                  task.isCompleted ? (
+                  task.is_completed ? (
                     <CompletedTask
                       key={task.id}
                       task={task}
@@ -147,7 +147,7 @@ const TasksList = ({ toggleIsCompleted, openEditForm, filter, tasks }) => {
             <SimpleGrid cols={1} verticalSpacing="lg">
               {tasks.length !== 0 ? (
                 tasks.map((task) =>
-                  task.isCompleted ? (
+                  task.is_completed ? (
                     <CompletedTask
                       key={task.id}
                       task={task}

@@ -29,7 +29,7 @@ const AddTaskForm = ({ isOpen, closeModal }) => {
 
     closeModal();
     window.location.reload(false);
-    alert("Product successfully added");
+    alert("Task successfully added");
   };
 
   return (
