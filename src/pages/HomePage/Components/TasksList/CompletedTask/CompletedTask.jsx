@@ -34,7 +34,7 @@ const CompletedTask = ({ task, deleteTask, toggleIsCompleted }) => {
             </Group>
           </Group>
           <Text size="xs" weight={300}>
-            Created at {task.createdAt}
+            Created at {task.created_at}
           </Text>
         </Card>
       </MediaQuery>
@@ -71,7 +71,7 @@ const CompletedTask = ({ task, deleteTask, toggleIsCompleted }) => {
             </Group>
           </Group>
           <Text size="xs" weight={300} pt={"md"}>
-            Created at {task.createdAt}
+            Created at {task.created_at}
           </Text>
         </Card>
       </MediaQuery>

@@ -68,14 +68,14 @@ const ActiveTask = ({
           </Group>
           <Group position="apart" pt={"md"}>
             <Text size="xs" weight={300}>
-              Created at {task.createdAt}
+              Created at {task.created_at}
             </Text>
             <Code
               size={"sm"}
               radius={"md"}
               bg={assignColorByPriority(task.priority)}
             >
-              Complete by: {task.dueDate}
+              Complete by: {task.due_date}
             </Code>
           </Group>
         </Card>
@@ -128,7 +128,8 @@ const ActiveTask = ({
               radius={"md"}
               bg={assignColorByPriority(task.priority)}
             >
-              Complete by: {task.dueDate.slice(4)}
+              Complete by:{" "}
+              {task.due_data ? task.due_date.slice(4) : "no due date"}
             </Code>
           </Group>
         </Card>

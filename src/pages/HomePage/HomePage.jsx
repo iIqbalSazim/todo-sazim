@@ -15,6 +15,7 @@ import ConfirmModal from "./Components/ConfirmModal/ConfirmModal";
 import TasksList from "./Components/TasksList/TasksList";
 import ResponsiveFilterByCompletedStatus from "./Components/ResponsiveFilterByCompletedStatus/ResponsiveFilterByCompletedStatus";
 import Bin from "./Components/Bin/Bin";
+import { fetchAllTasks } from "./Api/Methods";
 
 const Home = () => {
   const [tasks, setTasks] = useState([]);
@@ -29,11 +30,18 @@ const Home = () => {
   });
   const [trash, setTrash] = useState([]);
 
+  const getAllTasks = async () => {
+    const res = await fetchAllTasks();
+    setTasks(res.data);
+  };
+
   useEffect(() => {
     const localTasks = JSON.parse(localStorage.getItem("tasks"));
     const localTrash = JSON.parse(localStorage.getItem("trash"));
-    if (localTasks) {
+    if (localTasks && localTasks.length !== 0) {
       setTasks([...localTasks]);
+    } else {
+      getAllTasks();
     }
     if (localTrash) {
       setTrash(localTrash);
