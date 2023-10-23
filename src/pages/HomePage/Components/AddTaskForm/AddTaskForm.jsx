@@ -11,42 +11,25 @@ import {
 } from "@mantine/core";
 import { DateInput } from "@mantine/dates";
 
-import {
-  formatDueDate,
-  generateCurrentTimeAndDate,
-} from "../../HomePageHelpers";
 import { PRIORITY, PRIORITY_OPTIONS, COLORS } from "../../HomePageConstants";
+import { createTask } from "../../Api/Methods";
 
-const AddTaskForm = ({ createNewTask, isOpen, closeModal }) => {
+const AddTaskForm = ({ isOpen, closeModal }) => {
   const [newTask, setNewTask] = useState({
-    id: Math.round(Math.random() * 1000000),
     description: "Task details not provided",
     priority: PRIORITY.LOW,
-    isCompleted: false,
-    createdAt: "",
-    dueDate: new Date().toDateString().slice(0, 15),
+    is_completed: false,
+    due_date: new Date().toDateString(),
   });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    createNewTask(newTask);
 
-    setNewTask({
-      description: "",
-      priority: "",
-      isCompleted: false,
-      createdAt: "",
-      updatedAt: "",
-      dueDate: "",
-    });
+    await createTask({ task: { ...newTask } });
 
     closeModal();
-  };
-
-  const setCreatedAt = () => {
-    let date = new Date();
-    let createdAt = generateCurrentTimeAndDate(date);
-    setNewTask({ ...newTask, createdAt: createdAt });
+    window.location.reload(false);
+    alert("Product successfully added");
   };
 
   return (
@@ -73,14 +56,14 @@ const AddTaskForm = ({ createNewTask, isOpen, closeModal }) => {
           />
           <DateInput
             minDate={new Date()}
-            defaultValue={new Date(newTask.dueDate)}
+            defaultValue={new Date()}
             onChange={(input) => {
-              setNewTask({ ...newTask, dueDate: formatDueDate(input) });
+              setNewTask({ ...newTask, due_date: input });
             }}
             label="Due Date"
           />
           <Center>
-            <Button color={COLORS.BUTTON} type="submit" onClick={setCreatedAt}>
+            <Button color={COLORS.BUTTON} type="submit">
               Create
             </Button>
           </Center>

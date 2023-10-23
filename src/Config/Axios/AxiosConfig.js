@@ -11,6 +11,29 @@ axiosClient.defaults.headers = {
 
 axiosClient.defaults.timeout = 5000;
 
+axiosClient.interceptors.response.use(
+  (response) => {
+    return response;
+  },
+  (error) => {
+    if (error.message === "Network Error") {
+      alert("Network Error. Please check your internet connection.");
+    } else if (error.response) {
+      if (error.response.status === 400) {
+        alert("400 Bad request error");
+      }
+      if (error.response.status === 403) {
+        alert("403 Forbidden - You are not authorized.");
+      }
+      if (error.response.status === 404) {
+        alert("404 Not Found");
+      }
+    } else {
+      alert("Something went wrong!");
+    }
+  }
+);
+
 export function getRequest(URL) {
   return axiosClient.get(`/${URL}`).then((response) => response);
 }

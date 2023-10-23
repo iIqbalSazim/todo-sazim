@@ -37,12 +37,12 @@ const Home = () => {
 
   useEffect(() => {
     const localTasks = JSON.parse(localStorage.getItem("tasks"));
-    const localTrash = JSON.parse(localStorage.getItem("trash"));
     if (localTasks && localTasks.length !== 0) {
       setTasks([...localTasks]);
     } else {
       getAllTasks();
     }
+    const localTrash = JSON.parse(localStorage.getItem("trash"));
     if (localTrash) {
       setTrash(localTrash);
     }
@@ -98,10 +98,6 @@ const Home = () => {
 
   const toggleIsAddFormOpen = () => {
     setIsAddFormOpen(!isAddFormOpen);
-  };
-
-  const addNewTask = (task) => {
-    setTasks([...tasks, task]);
   };
 
   const toggleIsEditFormOpen = () => {
@@ -208,7 +204,6 @@ const Home = () => {
         />
         {isAddFormOpen ? (
           <AddTaskForm
-            createNewTask={addNewTask}
             closeModal={toggleIsAddFormOpen}
             isOpen={isAddFormOpen}
           />
