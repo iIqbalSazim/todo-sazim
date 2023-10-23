@@ -224,7 +224,6 @@ const Home = () => {
         />
         <TasksList
           tasks={tasks}
-          deleteTask={deleteTask}
           openEditForm={handleOpenEditForm}
           toggleIsCompleted={toggleIsCompleted}
           filter={filter}

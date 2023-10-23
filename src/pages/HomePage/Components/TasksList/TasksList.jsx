@@ -10,15 +10,10 @@ import {
 import CompletedTask from "./CompletedTask/CompletedTask";
 import ActiveTask from "./ActiveTask/ActiveTask";
 
+import { deleteTask } from "../../Api/Methods";
 import { PRIORITY, COMPLETED_STATUS } from "../../HomePageConstants";
 
-const TasksList = ({
-  deleteTask,
-  toggleIsCompleted,
-  openEditForm,
-  filter,
-  tasks,
-}) => {
+const TasksList = ({ toggleIsCompleted, openEditForm, filter, tasks }) => {
   const assignColorByPriority = (priority) => {
     if (priority === PRIORITY.HIGH) {
       return "violet.3";
@@ -27,6 +22,12 @@ const TasksList = ({
       return "indigo.2";
     }
     return "blue.1";
+  };
+
+  const handleDeleteTask = async (id) => {
+    await deleteTask(id);
+    window.location.reload(false);
+    alert("Task successfully deleted");
   };
 
   const getActiveTasks = (tasks) => {
@@ -114,7 +115,7 @@ const TasksList = ({
                     <CompletedTask
                       key={task.id}
                       task={task}
-                      deleteTask={deleteTask}
+                      deleteTask={handleDeleteTask}
                       toggleIsCompleted={toggleIsCompleted}
                     />
                   ) : (
@@ -124,7 +125,7 @@ const TasksList = ({
                       assignColorByPriority={assignColorByPriority}
                       toggleIsCompleted={toggleIsCompleted}
                       openEditForm={openEditForm}
-                      deleteTask={deleteTask}
+                      deleteTask={handleDeleteTask}
                     />
                   )
                 )
