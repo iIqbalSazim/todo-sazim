@@ -2,6 +2,7 @@ import {
   deleteRequest,
   getRequest,
   postRequest,
+  putRequest,
 } from "../../../Config/Axios/AxiosConfig";
 
 export const fetchAllTasks = async () => {
@@ -10,6 +11,10 @@ export const fetchAllTasks = async () => {
 
 export const createTask = async (task) => {
   return await postRequest("tasks", task);
+};
+
+export const updateTask = async (id, task) => {
+  return await putRequest(`tasks/${id}`, task);
 };
 
 export const deleteTask = async (id) => {

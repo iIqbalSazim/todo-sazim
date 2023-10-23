@@ -11,17 +11,20 @@ import {
 } from "@mantine/core";
 import { DateInput } from "@mantine/dates";
 
-import { formatDueDate } from "../../HomePageHelpers";
 import { PRIORITY_OPTIONS, COLORS } from "../../HomePageConstants";
+import { updateTask } from "../../Api/Methods";
 
-const EditForm = ({ task, editTask, isOpen, closeModal }) => {
+const EditForm = ({ task, isOpen, closeModal }) => {
   const [editedTask, setEditedTask] = useState({ ...task });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    editTask(editedTask);
+    await updateTask(editedTask.id, { task: { ...editedTask } });
+
     closeModal();
+    window.location.reload(false);
+    alert("Product successfully updated");
   };
 
   return (
@@ -47,9 +50,9 @@ const EditForm = ({ task, editTask, isOpen, closeModal }) => {
           />
           <DateInput
             minDate={new Date()}
-            defaultValue={new Date(editedTask.dueDate)}
+            defaultValue={new Date(editedTask.due_date)}
             onChange={(input) =>
-              setEditedTask({ ...editedTask, dueDate: formatDueDate(input) })
+              setEditedTask({ ...editedTask, due_date: input })
             }
             label="Due Date"
           />

@@ -213,7 +213,6 @@ const Home = () => {
             closeModal={toggleIsEditFormOpen}
             isOpen={isEditFormOpen}
             task={toBeEdited}
-            editTask={editTask}
           />
         ) : null}
 
