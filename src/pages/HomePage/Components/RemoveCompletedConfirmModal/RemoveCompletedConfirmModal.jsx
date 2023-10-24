@@ -1,6 +1,6 @@
 import { Button, Grid, Group, Modal, Text, Title } from "@mantine/core";
 
-const ConfirmModal = ({
+const RemoveCompletedConfirmModal = ({
   clearAllCompletedTasks,
   closeModal,
   isConfirmModalOpen,
@@ -40,4 +40,4 @@ const ConfirmModal = ({
   );
 };
 
-export default ConfirmModal;
+export default RemoveCompletedConfirmModal;

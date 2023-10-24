@@ -22,10 +22,22 @@ export const updateTaskIsCompleted = async (id, task) => {
   return patchRequest(`tasks/${id}`, task);
 };
 
+export const updateTaskIsDeleted = async (id, task) => {
+  return await patchRequest(`tasks/${id}`, task);
+};
+
+export const retrieveArchived = async () => {
+  return await patchRequest(`archived`);
+};
+
 export const deleteTask = async (id) => {
   return await deleteRequest(`tasks/${id}`);
 };
 
 export const deleteCompletedTasks = async () => {
   return await deleteRequest("completed");
+};
+
+export const deleteArchivedTasks = async () => {
+  return await deleteRequest("archived");
 };

@@ -10,10 +10,15 @@ import {
 import CompletedTask from "./CompletedTask/CompletedTask";
 import ActiveTask from "./ActiveTask/ActiveTask";
 
-import { deleteTask } from "../../Api/Methods";
 import { PRIORITY, COMPLETED_STATUS } from "../../HomePageConstants";
 
-const TasksList = ({ toggleIsCompleted, openEditForm, filter, tasks }) => {
+const TasksList = ({
+  toggleIsCompleted,
+  openEditForm,
+  filter,
+  tasks,
+  archiveTask,
+}) => {
   const assignColorByPriority = (priority) => {
     if (priority === PRIORITY.HIGH) {
       return "violet.3";
@@ -22,12 +27,6 @@ const TasksList = ({ toggleIsCompleted, openEditForm, filter, tasks }) => {
       return "indigo.2";
     }
     return "blue.1";
-  };
-
-  const handleDeleteTask = async (id) => {
-    await deleteTask(id);
-    window.location.reload(false);
-    alert("Task successfully deleted");
   };
 
   const getActiveTasks = (tasks) => {
@@ -115,8 +114,8 @@ const TasksList = ({ toggleIsCompleted, openEditForm, filter, tasks }) => {
                     <CompletedTask
                       key={task.id}
                       task={task}
-                      deleteTask={handleDeleteTask}
                       toggleIsCompleted={toggleIsCompleted}
+                      archiveTask={archiveTask}
                     />
                   ) : (
                     <ActiveTask
@@ -125,7 +124,7 @@ const TasksList = ({ toggleIsCompleted, openEditForm, filter, tasks }) => {
                       assignColorByPriority={assignColorByPriority}
                       toggleIsCompleted={toggleIsCompleted}
                       openEditForm={openEditForm}
-                      deleteTask={handleDeleteTask}
+                      archiveTask={archiveTask}
                     />
                   )
                 )
@@ -151,8 +150,8 @@ const TasksList = ({ toggleIsCompleted, openEditForm, filter, tasks }) => {
                     <CompletedTask
                       key={task.id}
                       task={task}
-                      deleteTask={deleteTask}
                       toggleIsCompleted={toggleIsCompleted}
+                      archiveTask={archiveTask}
                     />
                   ) : (
                     <ActiveTask
@@ -161,7 +160,7 @@ const TasksList = ({ toggleIsCompleted, openEditForm, filter, tasks }) => {
                       assignColorByPriority={assignColorByPriority}
                       toggleIsCompleted={toggleIsCompleted}
                       openEditForm={openEditForm}
-                      deleteTask={deleteTask}
+                      archiveTask={archiveTask}
                     />
                   )
                 )
