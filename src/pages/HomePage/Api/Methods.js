@@ -25,3 +25,7 @@ export const updateTaskIsCompleted = async (id, task) => {
 export const deleteTask = async (id) => {
   return await deleteRequest(`tasks/${id}`);
 };
+
+export const deleteCompletedTasks = async () => {
+  return await deleteRequest("completed");
+};

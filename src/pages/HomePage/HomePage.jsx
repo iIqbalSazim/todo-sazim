@@ -15,7 +15,11 @@ import ConfirmModal from "./Components/ConfirmModal/ConfirmModal";
 import TasksList from "./Components/TasksList/TasksList";
 import ResponsiveFilterByCompletedStatus from "./Components/ResponsiveFilterByCompletedStatus/ResponsiveFilterByCompletedStatus";
 import Bin from "./Components/Bin/Bin";
-import { fetchAllTasks, updateTaskIsCompleted } from "./Api/Methods";
+import {
+  deleteCompletedTasks,
+  fetchAllTasks,
+  updateTaskIsCompleted,
+} from "./Api/Methods";
 
 const Home = () => {
   const [tasks, setTasks] = useState([]);
@@ -89,14 +93,10 @@ const Home = () => {
     setTasks(updatedTasks);
   };
 
-  const clearAllCompletedTasks = () => {
-    let updatedList = tasks.filter((task) => task.is_completed !== true);
-
-    if (JSON.stringify(tasks) === JSON.stringify(updatedList)) {
-      alert("You have no completed tasks to remove");
-    } else {
-      setTasks(updatedList);
-    }
+  const clearAllCompletedTasks = async () => {
+    await deleteCompletedTasks();
+    window.location.reload(false);
+    alert("All completed tasks removed!");
   };
 
   const toggleIsAddFormOpen = () => {
