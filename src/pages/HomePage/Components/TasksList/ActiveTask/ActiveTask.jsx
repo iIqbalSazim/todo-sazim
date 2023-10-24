@@ -18,7 +18,7 @@ const ActiveTask = ({
   assignColorByPriority,
   toggleIsCompleted,
   openEditForm,
-  deleteTask,
+  archiveTask,
 }) => {
   return (
     <>
@@ -60,7 +60,7 @@ const ActiveTask = ({
               <ActionIcon
                 variant="light"
                 bg="red.1"
-                onClick={() => deleteTask(task.id)}
+                onClick={() => archiveTask(task)}
               >
                 <IconCircleMinus size="1.125rem" />
               </ActionIcon>
@@ -114,7 +114,7 @@ const ActiveTask = ({
             <ActionIcon
               variant="light"
               bg="red.1"
-              onClick={() => deleteTask(task.id)}
+              onClick={() => archiveTask(task)}
             >
               <IconCircleMinus size="1.2rem" />
             </ActionIcon>

@@ -11,14 +11,18 @@ import ActionButtons from "./Components/ActionButtons/ActionButtons";
 import FilterByDueDate from "./Components/FilterByDueDate/FilterByDueDate";
 import AddTaskForm from "./Components/AddTaskForm/AddTaskForm";
 import EditForm from "./Components/EditForm/EditForm";
-import ConfirmModal from "./Components/ConfirmModal/ConfirmModal";
+import RemoveCompletedConfirmModal from "./Components/RemoveCompletedConfirmModal/RemoveCompletedConfirmModal";
 import TasksList from "./Components/TasksList/TasksList";
 import ResponsiveFilterByCompletedStatus from "./Components/ResponsiveFilterByCompletedStatus/ResponsiveFilterByCompletedStatus";
 import Bin from "./Components/Bin/Bin";
 import {
+  deleteArchivedTasks,
   deleteCompletedTasks,
   fetchAllTasks,
+  retrieveArchived,
+  updateTask,
   updateTaskIsCompleted,
+  updateTaskIsDeleted,
 } from "./Api/Methods";
 
 const Home = () => {
@@ -35,30 +39,34 @@ const Home = () => {
   const [trash, setTrash] = useState([]);
 
   const getAllTasks = async () => {
-    const res = await fetchAllTasks();
-    setTasks(res.data);
+    const local = JSON.parse(localStorage.getItem("tasks"));
+    let data = [];
+    if (local && local.length !== 0) {
+      data = local;
+    } else {
+      const res = await fetchAllTasks();
+      data = res.data;
+    }
+    const active = [];
+    const deleted = [];
+    data.map((el) => {
+      if (!el.is_deleted) {
+        active.push(el);
+      } else {
+        deleted.push(el);
+      }
+    });
+    setTrash(deleted);
+    setTasks(active);
   };
 
   useEffect(() => {
-    const localTasks = JSON.parse(localStorage.getItem("tasks"));
-    if (localTasks && localTasks.length !== 0) {
-      setTasks([...localTasks]);
-    } else {
-      getAllTasks();
-    }
-    const localTrash = JSON.parse(localStorage.getItem("trash"));
-    if (localTrash) {
-      setTrash(localTrash);
-    }
+    getAllTasks();
   }, []);
 
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks]);
-
-  useEffect(() => {
-    localStorage.setItem("trash", JSON.stringify(trash));
-  }, [trash]);
 
   const setIsConfirmModalToOpen = () => {
     setIsConfirmModalOpen(true);
@@ -80,25 +88,6 @@ const Home = () => {
     setFilter({ ...filter, priority: priority });
   };
 
-  const toggleIsCompleted = (id) => {
-    const updatedTasks = tasks.map((task) => {
-      if (task.id === id) {
-        updateTaskIsCompleted(id, {
-          task: { is_completed: !task.is_completed },
-        });
-        return { ...task, is_completed: !task.is_completed };
-      }
-      return task;
-    });
-    setTasks(updatedTasks);
-  };
-
-  const clearAllCompletedTasks = async () => {
-    await deleteCompletedTasks();
-    window.location.reload(false);
-    alert("All completed tasks removed!");
-  };
-
   const toggleIsAddFormOpen = () => {
     setIsAddFormOpen(!isAddFormOpen);
   };
@@ -112,32 +101,61 @@ const Home = () => {
     setToBeEdited(task);
   };
 
-  const editTask = (edited) => {
-    const index = findIndexWithId(tasks, edited.id);
-    const updatedTasks = tasks;
-    updatedTasks[index] = edited;
+  const toggleIsCompleted = (id) => {
+    const updatedTasks = tasks.map((task) => {
+      if (task.id === id) {
+        updateTaskIsCompleted(id, {
+          task: { is_completed: !task.is_completed },
+        });
+        return { ...task, is_completed: !task.is_completed };
+      }
+      return task;
+    });
     setTasks(updatedTasks);
   };
 
-  const deleteTask = (id) => {
-    let removedTask = tasks.filter((task) => task.id === id)[0];
-    addToTrash(removedTask);
-    let updatedList = tasks.filter((task) => task.id !== id);
-    setTasks(updatedList);
+  const archiveTask = async (task) => {
+    await updateTaskIsDeleted(task.id, {
+      task: { is_deleted: true },
+    });
+
+    const index = findIndexWithId(tasks, task.id);
+    const deletedTask = { ...task, is_deleted: true };
+    const updatedTasks = tasks;
+    updatedTasks[index] = deletedTask;
+
+    setTasks(updatedTasks);
+
+    window.location.reload(false);
+    alert("Task archived");
   };
 
-  const addToTrash = (removedTask) => {
-    setTrash([...trash, removedTask]);
+  const clearAllCompletedTasks = async () => {
+    await deleteCompletedTasks();
+    window.location.reroad(false);
+    alert("All completed tasks removed!");
   };
 
-  const emptyTrash = () => {
+  const editTask = async (editedTask) => {
+    const index = findIndexWithId(tasks, editedTask.id);
+    const updatedTasks = tasks;
+    updatedTasks[index] = editedTask;
+    setTasks(updatedTasks);
+
+    await updateTask(editedTask.id, { task: { ...editedTask } });
+  };
+
+  const emptyTrash = async () => {
+    await deleteArchivedTasks();
     setTrash([]);
-    localStorage.removeItem("trash");
+    alert("Archived tasks removed");
   };
 
-  const retrieveAll = () => {
+  const retrieveAll = async () => {
+    await retrieveArchived();
+    setTrash([]);
     setTasks([...tasks, ...trash]);
-    emptyTrash();
+    alert("Archived tasks retrieved");
   };
 
   return (
@@ -216,10 +234,10 @@ const Home = () => {
             closeModal={toggleIsEditFormOpen}
             isOpen={isEditFormOpen}
             task={toBeEdited}
+            editTask={editTask}
           />
         ) : null}
-
-        <ConfirmModal
+        <RemoveCompletedConfirmModal
           isConfirmModalOpen={isConfirmModalOpen}
           closeModal={setIsConfirmModalToClose}
           clearAllCompletedTasks={clearAllCompletedTasks}
@@ -229,6 +247,7 @@ const Home = () => {
           openEditForm={handleOpenEditForm}
           toggleIsCompleted={toggleIsCompleted}
           filter={filter}
+          archiveTask={archiveTask}
         />
         <ResponsiveFilterByCompletedStatus
           setCompletedStatusFilter={setCompletedStatusFilter}

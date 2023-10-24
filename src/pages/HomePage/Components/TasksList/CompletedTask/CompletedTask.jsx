@@ -1,7 +1,7 @@
 import { ActionIcon, Card, Group, MediaQuery, Text } from "@mantine/core";
 import { IconCircleCheck, IconCircleMinus } from "@tabler/icons-react";
 
-const CompletedTask = ({ task, deleteTask, toggleIsCompleted }) => {
+const CompletedTask = ({ task, toggleIsCompleted, archiveTask }) => {
   return (
     <>
       <MediaQuery smallerThan={"sm"} styles={{ display: "none" }}>
@@ -27,7 +27,7 @@ const CompletedTask = ({ task, deleteTask, toggleIsCompleted }) => {
               <ActionIcon
                 variant="filled"
                 bg="red.4"
-                onClick={() => deleteTask(task.id)}
+                onClick={() => archiveTask(task)}
               >
                 <IconCircleMinus size="1.125rem" />
               </ActionIcon>
@@ -64,7 +64,7 @@ const CompletedTask = ({ task, deleteTask, toggleIsCompleted }) => {
                 size={"sm"}
                 variant="filled"
                 bg="red.4"
-                onClick={() => deleteTask(task.id)}
+                onClick={() => archiveTask(task)}
               >
                 <IconCircleMinus size="1rem" />
               </ActionIcon>

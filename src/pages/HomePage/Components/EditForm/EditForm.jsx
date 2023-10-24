@@ -14,16 +14,15 @@ import { DateInput } from "@mantine/dates";
 import { PRIORITY_OPTIONS, COLORS } from "../../HomePageConstants";
 import { updateTask } from "../../Api/Methods";
 
-const EditForm = ({ task, isOpen, closeModal }) => {
+const EditForm = ({ task, isOpen, closeModal, editTask }) => {
   const [editedTask, setEditedTask] = useState({ ...task });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    await updateTask(editedTask.id, { task: { ...editedTask } });
+    await editTask(editedTask);
 
     closeModal();
-    window.location.reload(false);
     alert("Task successfully updated");
   };
 
