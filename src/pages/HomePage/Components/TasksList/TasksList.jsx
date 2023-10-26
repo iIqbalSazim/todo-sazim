@@ -1,10 +1,10 @@
 import {
   Center,
   Container,
+  Loader,
   MediaQuery,
   ScrollArea,
   SimpleGrid,
-  Text,
 } from "@mantine/core";
 
 import CompletedTask from "./CompletedTask/CompletedTask";
@@ -130,9 +130,7 @@ const TasksList = ({
                 )
               ) : (
                 <Center>
-                  <Text size={"xl"} my={"xl"}>
-                    NO TODOS
-                  </Text>
+                  <Loader color="indigo" size="lg" />
                 </Center>
               )}
             </SimpleGrid>
@@ -166,9 +164,7 @@ const TasksList = ({
                 )
               ) : (
                 <Center>
-                  <Text size={"xl"} my={"xl"}>
-                    NO TODOS
-                  </Text>
+                  <Loader color="indigo" size="lg" />
                 </Center>
               )}
             </SimpleGrid>
