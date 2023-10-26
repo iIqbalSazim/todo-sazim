@@ -1,6 +1,15 @@
 import { useEffect, useState } from "react";
 
-import { AppShell, Header, Title, Navbar, MediaQuery } from "@mantine/core";
+import {
+  AppShell,
+  Header,
+  Title,
+  Navbar,
+  MediaQuery,
+  Loader,
+  Center,
+  Text,
+} from "@mantine/core";
 
 import { findIndexWithId } from "./HomePageHelpers";
 import { COMPLETED_STATUS } from "./HomePageConstants";
@@ -37,27 +46,24 @@ const Home = () => {
     dueDate: false,
   });
   const [trash, setTrash] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   const getAllTasks = async () => {
-    const local = JSON.parse(localStorage.getItem("tasks"));
-    let data = [];
-    if (local && local.length !== 0) {
-      data = local;
-    } else {
+    setIsLoading(true);
+
+    let data = JSON.parse(localStorage.getItem("tasks")) || [];
+    if (data.length === 0) {
       const res = await fetchAllTasks();
       data = res.data;
     }
-    const active = [];
-    const deleted = [];
-    data.map((el) => {
-      if (!el.is_deleted) {
-        active.push(el);
-      } else {
-        deleted.push(el);
-      }
-    });
+
+    const active = data.filter((el) => !el.is_deleted);
+    const deleted = data.filter((el) => el.is_deleted);
+
     setTrash(deleted);
     setTasks(active);
+
+    setIsLoading(false);
   };
 
   useEffect(() => {
@@ -126,7 +132,7 @@ const Home = () => {
 
     setTasks(updatedTasks);
 
-    window.location.reload(false);
+    // window.location.reload(false);
     alert("Task archived");
   };
 
@@ -242,13 +248,20 @@ const Home = () => {
           closeModal={setIsConfirmModalToClose}
           clearAllCompletedTasks={clearAllCompletedTasks}
         />
-        <TasksList
-          tasks={tasks}
-          openEditForm={handleOpenEditForm}
-          toggleIsCompleted={toggleIsCompleted}
-          filter={filter}
-          archiveTask={archiveTask}
-        />
+        {tasks.length !== 0 ? (
+          <TasksList
+            tasks={tasks}
+            openEditForm={handleOpenEditForm}
+            toggleIsCompleted={toggleIsCompleted}
+            filter={filter}
+            archiveTask={archiveTask}
+            isLoading={isLoading}
+          />
+        ) : (
+          <Center h={"47vh"}>
+            <Text>You have no todos</Text>
+          </Center>
+        )}
         <ResponsiveFilterByCompletedStatus
           setCompletedStatusFilter={setCompletedStatusFilter}
           filter={filter}

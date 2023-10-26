@@ -1,6 +1,7 @@
 import {
   Center,
   Container,
+  Loader,
   MediaQuery,
   ScrollArea,
   SimpleGrid,
@@ -18,6 +19,7 @@ const TasksList = ({
   filter,
   tasks,
   archiveTask,
+  isLoading,
 }) => {
   const assignColorByPriority = (priority) => {
     if (priority === PRIORITY.HIGH) {
@@ -104,12 +106,17 @@ const TasksList = ({
 
   return (
     <>
+      {console.log("tasks", tasks)}
       <MediaQuery smallerThan={"md"} styles={{ display: "none" }}>
         <Container fluid mx="xl" p={"xl"}>
           <ScrollArea h={"47vh"} py={"xl"} auto="true">
-            <SimpleGrid mx="xl" cols={1} verticalSpacing="lg">
-              {tasks.length !== 0 ? (
-                tasks.map((task) =>
+            {isLoading ? (
+              <Center>
+                <Loader />
+              </Center>
+            ) : (
+              <SimpleGrid mx="xl" cols={1} verticalSpacing="lg">
+                {tasks.map((task) =>
                   task.is_completed ? (
                     <CompletedTask
                       key={task.id}
@@ -127,15 +134,9 @@ const TasksList = ({
                       archiveTask={archiveTask}
                     />
                   )
-                )
-              ) : (
-                <Center>
-                  <Text size={"xl"} my={"xl"}>
-                    NO TODOS
-                  </Text>
-                </Center>
-              )}
-            </SimpleGrid>
+                )}
+              </SimpleGrid>
+            )}
           </ScrollArea>
         </Container>
       </MediaQuery>
@@ -143,9 +144,13 @@ const TasksList = ({
       <MediaQuery largerThan={"md"} styles={{ display: "none" }}>
         <Container fluid py={"md"}>
           <ScrollArea h={"47vh"} py={"xl"} auto="true">
-            <SimpleGrid cols={1} verticalSpacing="lg">
-              {tasks.length !== 0 ? (
-                tasks.map((task) =>
+            {isLoading ? (
+              <Center>
+                <Loader />
+              </Center>
+            ) : (
+              <SimpleGrid cols={1} verticalSpacing="lg">
+                {tasks.map((task) =>
                   task.is_completed ? (
                     <CompletedTask
                       key={task.id}
@@ -163,15 +168,9 @@ const TasksList = ({
                       archiveTask={archiveTask}
                     />
                   )
-                )
-              ) : (
-                <Center>
-                  <Text size={"xl"} my={"xl"}>
-                    NO TODOS
-                  </Text>
-                </Center>
-              )}
-            </SimpleGrid>
+                )}
+              </SimpleGrid>
+            )}
           </ScrollArea>
         </Container>
       </MediaQuery>
