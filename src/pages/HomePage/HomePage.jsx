@@ -132,7 +132,7 @@ const Home = () => {
 
     setTasks(updatedTasks);
 
-    // window.location.reload(false);
+    window.location.reload(false);
     alert("Task archived");
   };
 

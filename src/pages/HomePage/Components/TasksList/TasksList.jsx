@@ -5,7 +5,6 @@ import {
   MediaQuery,
   ScrollArea,
   SimpleGrid,
-  Text,
 } from "@mantine/core";
 
 import CompletedTask from "./CompletedTask/CompletedTask";
@@ -106,7 +105,6 @@ const TasksList = ({
 
   return (
     <>
-      {console.log("tasks", tasks)}
       <MediaQuery smallerThan={"md"} styles={{ display: "none" }}>
         <Container fluid mx="xl" p={"xl"}>
           <ScrollArea h={"47vh"} py={"xl"} auto="true">

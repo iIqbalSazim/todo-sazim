@@ -1,5 +1,6 @@
 import { ActionIcon, Card, Group, MediaQuery, Text } from "@mantine/core";
 import { IconCircleCheck, IconCircleMinus } from "@tabler/icons-react";
+import { formatCompletedAt } from "../../../HomePageHelpers";
 
 const CompletedTask = ({ task, toggleIsCompleted, archiveTask }) => {
   return (
@@ -34,7 +35,7 @@ const CompletedTask = ({ task, toggleIsCompleted, archiveTask }) => {
             </Group>
           </Group>
           <Text size="xs" weight={300}>
-            Created at {task.created_at}
+            Created at {formatCompletedAt(task.created_at)}
           </Text>
         </Card>
       </MediaQuery>
@@ -71,7 +72,7 @@ const CompletedTask = ({ task, toggleIsCompleted, archiveTask }) => {
             </Group>
           </Group>
           <Text size="xs" weight={300} pt={"md"}>
-            Created at {task.created_at}
+            Created at {formatCompletedAt(task.created_at)}
           </Text>
         </Card>
       </MediaQuery>

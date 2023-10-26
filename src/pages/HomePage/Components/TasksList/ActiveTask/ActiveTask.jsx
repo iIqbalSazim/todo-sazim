@@ -12,6 +12,7 @@ import {
   IconCircleMinus,
   IconEditCircle,
 } from "@tabler/icons-react";
+import { formatCompletedAt, formatDueDate } from "../../../HomePageHelpers";
 
 const ActiveTask = ({
   task,
@@ -68,14 +69,14 @@ const ActiveTask = ({
           </Group>
           <Group position="apart" pt={"md"}>
             <Text size="xs" weight={300}>
-              Created at {task.created_at}
+              Created at {formatCompletedAt(task.created_at)}
             </Text>
             <Code
               size={"sm"}
               radius={"md"}
               bg={assignColorByPriority(task.priority)}
             >
-              Complete by: {task.due_date}
+              Complete by: {formatDueDate(task.due_date)}
             </Code>
           </Group>
         </Card>
@@ -128,8 +129,7 @@ const ActiveTask = ({
               radius={"md"}
               bg={assignColorByPriority(task.priority)}
             >
-              Complete by:{" "}
-              {task.due_data ? task.due_date.slice(4) : "no due date"}
+              Complete by: {formatDueDate(task.due_date).slice(4)}
             </Code>
           </Group>
         </Card>
