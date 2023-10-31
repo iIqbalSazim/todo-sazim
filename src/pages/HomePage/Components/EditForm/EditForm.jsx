@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useForm } from "@mantine/form";
 
 import {
   Button,
@@ -12,48 +12,42 @@ import {
 import { DateInput } from "@mantine/dates";
 
 import { PRIORITY_OPTIONS, COLORS } from "../../HomePageConstants";
-import { updateTask } from "../../Api/Methods";
+import { taskFormValidationSchema } from "../../Validation/FormValidation";
 
 const EditForm = ({ task, isOpen, closeModal, editTask }) => {
-  const [editedTask, setEditedTask] = useState({ ...task });
+  const form = useForm({
+    initialValues: { ...task, due_date: new Date(task.due_date) },
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+    validate: taskFormValidationSchema,
+  });
 
-    await editTask(editedTask);
+  const handleSubmit = async (values) => {
+    await editTask({ ...values });
 
     closeModal();
+    window.location.reload(false);
     alert("Task successfully updated");
   };
 
   return (
     <Modal opened={isOpen} onClose={() => closeModal()} centered>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={form.onSubmit((values) => handleSubmit(values))}>
         <SimpleGrid cols={1} p={"lg"}>
-          <Title ta={"center"}>Edit Todo</Title>
+          <Title ta={"center"}>Create Todo</Title>
           <Textarea
-            defaultValue={editedTask.description}
-            onChange={(e) =>
-              setEditedTask({ ...editedTask, description: e.target.value })
-            }
+            placeholder="Write your task"
+            {...form.getInputProps("description")}
           />
           <Select
+            placeholder="Set priority"
+            defaultValue={task.priority}
             data={PRIORITY_OPTIONS}
-            defaultValue={editedTask.priority}
-            onSelect={(e) =>
-              setEditedTask({
-                ...editedTask,
-                priority: e.target.value.toLowerCase(),
-              })
-            }
+            {...form.getInputProps("priority")}
           />
           <DateInput
             minDate={new Date()}
-            defaultValue={new Date(editedTask.due_date)}
-            onChange={(input) =>
-              setEditedTask({ ...editedTask, due_date: input })
-            }
             label="Due Date"
+            {...form.getInputProps("due_date")}
           />
           <Center>
             <Button color={COLORS.BUTTON} type="submit">
