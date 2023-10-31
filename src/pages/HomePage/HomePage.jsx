@@ -6,7 +6,6 @@ import {
   Title,
   Navbar,
   MediaQuery,
-  Loader,
   Center,
   Text,
 } from "@mantine/core";
@@ -25,8 +24,7 @@ import TasksList from "./Components/TasksList/TasksList";
 import ResponsiveFilterByCompletedStatus from "./Components/ResponsiveFilterByCompletedStatus/ResponsiveFilterByCompletedStatus";
 import Bin from "./Components/Bin/Bin";
 import {
-  deleteArchivedTasks,
-  deleteCompletedTasks,
+  deleteAllTasks,
   fetchAllTasks,
   retrieveArchived,
   updateTask,
@@ -137,7 +135,7 @@ const Home = () => {
   };
 
   const clearAllCompletedTasks = async () => {
-    await deleteCompletedTasks();
+    await deleteAllTasks("Completed");
     window.location.reload(false);
     alert("All completed tasks removed!");
   };
@@ -152,7 +150,7 @@ const Home = () => {
   };
 
   const emptyTrash = async () => {
-    await deleteArchivedTasks();
+    await deleteAllTasks("archived");
     setTrash([]);
     alert("Archived tasks removed");
   };

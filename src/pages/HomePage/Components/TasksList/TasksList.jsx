@@ -88,7 +88,7 @@ const TasksList = ({
 
   const sortTasksByDueDate = (tasks) => {
     return tasks.sort(function (task1, task2) {
-      return new Date(task1.dueDate) - new Date(task2.dueDate);
+      return new Date(task1.due_date) - new Date(task2.due_date);
     });
   };
 
