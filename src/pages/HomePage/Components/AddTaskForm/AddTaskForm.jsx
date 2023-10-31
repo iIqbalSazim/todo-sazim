@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 import {
   Button,
   Center,
@@ -10,22 +8,27 @@ import {
   Title,
 } from "@mantine/core";
 import { DateInput } from "@mantine/dates";
+import { useForm } from "@mantine/form";
 
 import { PRIORITY, PRIORITY_OPTIONS, COLORS } from "../../HomePageConstants";
 import { createTask } from "../../Api/Methods";
+import { taskFormValidationSchema } from "../../Validation/FormValidation";
 
 const AddTaskForm = ({ isOpen, closeModal }) => {
-  const [newTask, setNewTask] = useState({
-    description: "Task details not provided",
-    priority: PRIORITY.LOW,
-    is_completed: false,
-    due_date: new Date().toDateString(),
+  const form = useForm({
+    validateInputOnChange: true,
+    initialValues: {
+      description: "",
+      priority: PRIORITY.LOW,
+      is_completed: false,
+      due_date: "",
+    },
+
+    validate: taskFormValidationSchema,
   });
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    await createTask({ task: { ...newTask } });
+  const handleSubmit = async (values) => {
+    await createTask({ task: { ...values } });
 
     closeModal();
     window.location.reload(false);
@@ -34,33 +37,23 @@ const AddTaskForm = ({ isOpen, closeModal }) => {
 
   return (
     <Modal opened={isOpen} onClose={() => closeModal()} centered>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={form.onSubmit((values) => handleSubmit(values))}>
         <SimpleGrid cols={1} p={"lg"}>
           <Title ta={"center"}>Create Todo</Title>
           <Textarea
             placeholder="Write your task"
-            onChange={(e) =>
-              setNewTask({ ...newTask, description: e.target.value })
-            }
+            {...form.getInputProps("description")}
           />
           <Select
             placeholder="Set priority"
             defaultValue={PRIORITY.LOW}
             data={PRIORITY_OPTIONS}
-            onSelect={(e) =>
-              setNewTask({
-                ...newTask,
-                priority: e.target.value.toLowerCase(),
-              })
-            }
+            {...form.getInputProps("priority")}
           />
           <DateInput
             minDate={new Date()}
-            defaultValue={new Date()}
-            onChange={(input) => {
-              setNewTask({ ...newTask, due_date: input });
-            }}
             label="Due Date"
+            {...form.getInputProps("due_date")}
           />
           <Center>
             <Button color={COLORS.BUTTON} type="submit">

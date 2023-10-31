@@ -34,10 +34,7 @@ export const deleteTask = async (id) => {
   return await deleteRequest(`tasks/${id}`);
 };
 
-export const deleteCompletedTasks = async () => {
-  return await deleteRequest("completed");
-};
-
-export const deleteArchivedTasks = async () => {
-  return await deleteRequest("archived");
+export const deleteAllTasks = async (type) => {
+  type = type.toLowerCase();
+  return await deleteRequest(`delete_all?type=${type}`);
 };
