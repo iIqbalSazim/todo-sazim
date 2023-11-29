@@ -16,6 +16,7 @@ const FilterByPriority = ({ setFilter, filter }) => {
             }
             color={COLORS.PRIORITY_BUTTON}
             onClick={() => setFilter(PRIORITY.HIGH)}
+            data-testid="high-button-sm"
           >
             High
           </Button>
@@ -27,6 +28,7 @@ const FilterByPriority = ({ setFilter, filter }) => {
             }
             color={COLORS.PRIORITY_BUTTON}
             onClick={() => setFilter(PRIORITY.MEDIUM)}
+            data-testid="medium-button-sm"
           >
             Medium
           </Button>
@@ -38,6 +40,7 @@ const FilterByPriority = ({ setFilter, filter }) => {
             }
             color={COLORS.PRIORITY_BUTTON}
             onClick={() => setFilter(PRIORITY.LOW)}
+            data-testid="low-button-sm"
           >
             Low
           </Button>
@@ -64,6 +67,7 @@ const FilterByPriority = ({ setFilter, filter }) => {
             color={COLORS.PRIORITYBUTTON}
             onClick={() => setFilter(PRIORITY.HIGH)}
             size="xs"
+            data-testid="high-button-md"
           >
             High
           </Button>
@@ -76,6 +80,7 @@ const FilterByPriority = ({ setFilter, filter }) => {
             color={COLORS.PRIORITYBUTTON}
             onClick={() => setFilter(PRIORITY.MEDIUM)}
             size="xs"
+            data-testid="medium-button-md"
           >
             Medium
           </Button>
@@ -88,6 +93,7 @@ const FilterByPriority = ({ setFilter, filter }) => {
             color={COLORS.PRIORITYBUTTON}
             onClick={() => setFilter(PRIORITY.LOW)}
             size="xs"
+            data-testid="low-button-md"
           >
             Low
           </Button>
