@@ -1,0 +1,552 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ActionButtons renders correctly 1`] = `
+<div>
+  <div
+    class="mantine-Group-root mantine-MediaQuery-media mantine-brp2o4"
+  >
+    <button
+      class="mantine-UnstyledButton-root mantine-Button-root mantine-1jnzd15"
+      data-button="true"
+      type="button"
+    >
+      <div
+        class="mantine-1wpc1xj mantine-Button-inner"
+      >
+        <span
+          class="mantine-Button-icon mantine-Button-leftIcon mantine-1jbrfp"
+        >
+          <svg
+            class="tabler-icon tabler-icon-plus"
+            fill="none"
+            height="1.125rem"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="1.125rem"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12 5l0 14"
+            />
+            <path
+              d="M5 12l14 0"
+            />
+          </svg>
+        </span>
+        <span
+          class="mantine-1ryt1ht mantine-Button-label"
+        >
+          <div
+            class="mantine-Text-root mantine-1d564l0"
+          >
+            Add todo
+          </div>
+        </span>
+      </div>
+    </button>
+    <div
+      class="mantine-ButtonGroup-root mantine-MediaQuery-media mantine-1s7mmb2"
+    >
+      <button
+        class="mantine-UnstyledButton-root mantine-Button-root mantine-ovgvo7"
+        data-button="true"
+        type="button"
+      >
+        <div
+          class="mantine-1wpc1xj mantine-Button-inner"
+        >
+          <span
+            class="mantine-1ryt1ht mantine-Button-label"
+          >
+            High
+          </span>
+        </div>
+      </button>
+      <button
+        class="mantine-UnstyledButton-root mantine-Button-root mantine-ovgvo7"
+        data-button="true"
+        type="button"
+      >
+        <div
+          class="mantine-1wpc1xj mantine-Button-inner"
+        >
+          <span
+            class="mantine-1ryt1ht mantine-Button-label"
+          >
+            Medium
+          </span>
+        </div>
+      </button>
+      <button
+        class="mantine-UnstyledButton-root mantine-Button-root mantine-ovgvo7"
+        data-button="true"
+        type="button"
+      >
+        <div
+          class="mantine-1wpc1xj mantine-Button-inner"
+        >
+          <span
+            class="mantine-1ryt1ht mantine-Button-label"
+          >
+            Low
+          </span>
+        </div>
+      </button>
+      <button
+        class="mantine-UnstyledButton-root mantine-Button-root mantine-ubwojs"
+        data-button="true"
+        type="button"
+      >
+        <div
+          class="mantine-1wpc1xj mantine-Button-inner"
+        >
+          <span
+            class="mantine-1ryt1ht mantine-Button-label"
+          >
+            Clear Filter
+          </span>
+          <span
+            class="mantine-Button-icon mantine-Button-rightIcon mantine-467wo8"
+          >
+            <svg
+              class="tabler-icon tabler-icon-x"
+              fill="none"
+              height="1rem"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="1rem"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M18 6l-12 12"
+              />
+              <path
+                d="M6 6l12 12"
+              />
+            </svg>
+          </span>
+        </div>
+      </button>
+    </div>
+    <div
+      class="mantine-ButtonGroup-root mantine-MediaQuery-media mantine-1fyndrs"
+    >
+      <button
+        class="mantine-UnstyledButton-root mantine-Button-root mantine-8hn0e"
+        data-button="true"
+        data-testid="high-button-md"
+        type="button"
+      >
+        <div
+          class="mantine-1wpc1xj mantine-Button-inner"
+        >
+          <span
+            class="mantine-1ryt1ht mantine-Button-label"
+          >
+            High
+          </span>
+        </div>
+      </button>
+      <button
+        class="mantine-UnstyledButton-root mantine-Button-root mantine-8hn0e"
+        data-button="true"
+        data-testid="medium-button-md"
+        type="button"
+      >
+        <div
+          class="mantine-1wpc1xj mantine-Button-inner"
+        >
+          <span
+            class="mantine-1ryt1ht mantine-Button-label"
+          >
+            Medium
+          </span>
+        </div>
+      </button>
+      <button
+        class="mantine-UnstyledButton-root mantine-Button-root mantine-8hn0e"
+        data-button="true"
+        data-testid="low-button-md"
+        type="button"
+      >
+        <div
+          class="mantine-1wpc1xj mantine-Button-inner"
+        >
+          <span
+            class="mantine-1ryt1ht mantine-Button-label"
+          >
+            Low
+          </span>
+        </div>
+      </button>
+      <button
+        class="mantine-UnstyledButton-root mantine-Button-root mantine-11592gy"
+        data-button="true"
+        type="button"
+      >
+        <div
+          class="mantine-1wpc1xj mantine-Button-inner"
+        >
+          <span
+            class="mantine-1ryt1ht mantine-Button-label"
+          >
+            Clear
+          </span>
+          <span
+            class="mantine-Button-icon mantine-Button-rightIcon mantine-467wo8"
+          >
+            <svg
+              class="tabler-icon tabler-icon-x"
+              fill="none"
+              height="1rem"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="1rem"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M18 6l-12 12"
+              />
+              <path
+                d="M6 6l12 12"
+              />
+            </svg>
+          </span>
+        </div>
+      </button>
+    </div>
+    <button
+      class="mantine-UnstyledButton-root mantine-Button-root mantine-nmfdsk"
+      data-button="true"
+      type="button"
+    >
+      <div
+        class="mantine-1wpc1xj mantine-Button-inner"
+      >
+        <span
+          class="mantine-Button-icon mantine-Button-leftIcon mantine-1jbrfp"
+        >
+          <svg
+            class="tabler-icon tabler-icon-trash-x"
+            fill="none"
+            height="1.125rem"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="1.125rem"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M4 7h16"
+            />
+            <path
+              d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12"
+            />
+            <path
+              d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3"
+            />
+            <path
+              d="M10 12l4 4m0 -4l-4 4"
+            />
+          </svg>
+        </span>
+        <span
+          class="mantine-1ryt1ht mantine-Button-label"
+        >
+          <div
+            class="mantine-Text-root mantine-1d564l0"
+          >
+            Remove Completed
+          </div>
+        </span>
+      </div>
+    </button>
+  </div>
+  <div
+    class="mantine-MediaQuery-media mantine-pmuzhx"
+  >
+    <div
+      class="mantine-Group-root mantine-hotagi"
+    >
+      <button
+        class="mantine-UnstyledButton-root mantine-Button-root mantine-1y4jq8i"
+        data-button="true"
+        type="button"
+      >
+        <div
+          class="mantine-1wpc1xj mantine-Button-inner"
+        >
+          <span
+            class="mantine-Button-icon mantine-Button-leftIcon mantine-1jbrfp"
+          >
+            <svg
+              class="tabler-icon tabler-icon-plus"
+              fill="none"
+              height="1rem"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="1rem"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 5l0 14"
+              />
+              <path
+                d="M5 12l14 0"
+              />
+            </svg>
+          </span>
+          <span
+            class="mantine-1ryt1ht mantine-Button-label"
+          >
+            <div
+              class="mantine-Text-root mantine-1nfytzr"
+            >
+              Todo
+            </div>
+          </span>
+        </div>
+      </button>
+      <button
+        class="mantine-UnstyledButton-root mantine-Button-root mantine-1nzh3mx"
+        data-button="true"
+        type="button"
+      >
+        <div
+          class="mantine-1wpc1xj mantine-Button-inner"
+        >
+          <span
+            class="mantine-Button-icon mantine-Button-leftIcon mantine-1jbrfp"
+          >
+            <svg
+              class="tabler-icon tabler-icon-trash-x"
+              fill="none"
+              height="1rem"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="1rem"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M4 7h16"
+              />
+              <path
+                d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12"
+              />
+              <path
+                d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3"
+              />
+              <path
+                d="M10 12l4 4m0 -4l-4 4"
+              />
+            </svg>
+          </span>
+          <span
+            class="mantine-1ryt1ht mantine-Button-label"
+          >
+            <div
+              class="mantine-Text-root mantine-1nfytzr"
+            >
+              Completed
+            </div>
+          </span>
+        </div>
+      </button>
+    </div>
+    <div
+      class="mantine-ButtonGroup-root mantine-MediaQuery-media mantine-1s7mmb2"
+    >
+      <button
+        class="mantine-UnstyledButton-root mantine-Button-root mantine-ovgvo7"
+        data-button="true"
+        type="button"
+      >
+        <div
+          class="mantine-1wpc1xj mantine-Button-inner"
+        >
+          <span
+            class="mantine-1ryt1ht mantine-Button-label"
+          >
+            High
+          </span>
+        </div>
+      </button>
+      <button
+        class="mantine-UnstyledButton-root mantine-Button-root mantine-ovgvo7"
+        data-button="true"
+        type="button"
+      >
+        <div
+          class="mantine-1wpc1xj mantine-Button-inner"
+        >
+          <span
+            class="mantine-1ryt1ht mantine-Button-label"
+          >
+            Medium
+          </span>
+        </div>
+      </button>
+      <button
+        class="mantine-UnstyledButton-root mantine-Button-root mantine-ovgvo7"
+        data-button="true"
+        type="button"
+      >
+        <div
+          class="mantine-1wpc1xj mantine-Button-inner"
+        >
+          <span
+            class="mantine-1ryt1ht mantine-Button-label"
+          >
+            Low
+          </span>
+        </div>
+      </button>
+      <button
+        class="mantine-UnstyledButton-root mantine-Button-root mantine-ubwojs"
+        data-button="true"
+        type="button"
+      >
+        <div
+          class="mantine-1wpc1xj mantine-Button-inner"
+        >
+          <span
+            class="mantine-1ryt1ht mantine-Button-label"
+          >
+            Clear Filter
+          </span>
+          <span
+            class="mantine-Button-icon mantine-Button-rightIcon mantine-467wo8"
+          >
+            <svg
+              class="tabler-icon tabler-icon-x"
+              fill="none"
+              height="1rem"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="1rem"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M18 6l-12 12"
+              />
+              <path
+                d="M6 6l12 12"
+              />
+            </svg>
+          </span>
+        </div>
+      </button>
+    </div>
+    <div
+      class="mantine-ButtonGroup-root mantine-MediaQuery-media mantine-1fyndrs"
+    >
+      <button
+        class="mantine-UnstyledButton-root mantine-Button-root mantine-8hn0e"
+        data-button="true"
+        data-testid="high-button-md"
+        type="button"
+      >
+        <div
+          class="mantine-1wpc1xj mantine-Button-inner"
+        >
+          <span
+            class="mantine-1ryt1ht mantine-Button-label"
+          >
+            High
+          </span>
+        </div>
+      </button>
+      <button
+        class="mantine-UnstyledButton-root mantine-Button-root mantine-8hn0e"
+        data-button="true"
+        data-testid="medium-button-md"
+        type="button"
+      >
+        <div
+          class="mantine-1wpc1xj mantine-Button-inner"
+        >
+          <span
+            class="mantine-1ryt1ht mantine-Button-label"
+          >
+            Medium
+          </span>
+        </div>
+      </button>
+      <button
+        class="mantine-UnstyledButton-root mantine-Button-root mantine-8hn0e"
+        data-button="true"
+        data-testid="low-button-md"
+        type="button"
+      >
+        <div
+          class="mantine-1wpc1xj mantine-Button-inner"
+        >
+          <span
+            class="mantine-1ryt1ht mantine-Button-label"
+          >
+            Low
+          </span>
+        </div>
+      </button>
+      <button
+        class="mantine-UnstyledButton-root mantine-Button-root mantine-11592gy"
+        data-button="true"
+        type="button"
+      >
+        <div
+          class="mantine-1wpc1xj mantine-Button-inner"
+        >
+          <span
+            class="mantine-1ryt1ht mantine-Button-label"
+          >
+            Clear
+          </span>
+          <span
+            class="mantine-Button-icon mantine-Button-rightIcon mantine-467wo8"
+          >
+            <svg
+              class="tabler-icon tabler-icon-x"
+              fill="none"
+              height="1rem"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="1rem"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M18 6l-12 12"
+              />
+              <path
+                d="M6 6l12 12"
+              />
+            </svg>
+          </span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
+`;

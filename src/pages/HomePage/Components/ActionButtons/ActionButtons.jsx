@@ -30,6 +30,7 @@ const ActionButtons = ({
           </Button>
         </Group>
       </MediaQuery>
+
       <MediaQuery largerThan={"md"} styles={{ display: "none" }}>
         <Flex direction={"column"} align={"center"}>
           <Group position="center" py={"xl"}>
