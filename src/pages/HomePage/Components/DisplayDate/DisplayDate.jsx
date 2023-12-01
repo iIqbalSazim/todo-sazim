@@ -15,6 +15,7 @@ const DisplayDate = () => {
           {new Date().toDateString()}
         </Title>
       </MediaQuery>
+
       <MediaQuery largerThan={"md"} styles={{ display: "none" }}>
         <Title order={2} fw={"400"} mb={"sm"} color={COLORS.DISPLAY_DATE}>
           {new Date().toDateString()}
