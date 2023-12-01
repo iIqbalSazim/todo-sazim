@@ -1,0 +1,233 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FilterByCompletedStatus calls setFilter with value 'active' when clicked on Active tab 1`] = `
+<div>
+  <div
+    class="mantine-Tabs-root mantine-o79pz9"
+  >
+    <div
+      aria-orientation="vertical"
+      class="mantine-Tabs-tabsList mantine-1dphvmd"
+      role="tablist"
+    >
+      <button
+        aria-selected="false"
+        class="mantine-UnstyledButton-root mantine-Tabs-tab mantine-1l1luj0"
+        id="mantine-ayflxk12m-tab-all"
+        role="tab"
+        tabindex="-1"
+        type="button"
+      >
+        <span
+          class="mantine-480qv8 mantine-Tabs-tabLabel"
+        >
+          All
+        </span>
+      </button>
+      <button
+        aria-selected="true"
+        class="mantine-UnstyledButton-root mantine-Tabs-tab mantine-1l1luj0"
+        data-active="true"
+        id="mantine-ayflxk12m-tab-active"
+        role="tab"
+        tabindex="0"
+        type="button"
+      >
+        <span
+          class="mantine-480qv8 mantine-Tabs-tabLabel"
+        >
+          Active
+        </span>
+      </button>
+      <button
+        aria-selected="false"
+        class="mantine-UnstyledButton-root mantine-Tabs-tab mantine-1l1luj0"
+        id="mantine-ayflxk12m-tab-completed"
+        role="tab"
+        tabindex="-1"
+        type="button"
+      >
+        <span
+          class="mantine-480qv8 mantine-Tabs-tabLabel"
+        >
+          Completed
+        </span>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`FilterByCompletedStatus calls setFilter with value 'all' when clicked on All tab 1`] = `
+<div>
+  <div
+    class="mantine-Tabs-root mantine-o79pz9"
+  >
+    <div
+      aria-orientation="vertical"
+      class="mantine-Tabs-tabsList mantine-1dphvmd"
+      role="tablist"
+    >
+      <button
+        aria-selected="true"
+        class="mantine-UnstyledButton-root mantine-Tabs-tab mantine-1l1luj0"
+        data-active="true"
+        id="mantine-1iomv7rt4-tab-all"
+        role="tab"
+        tabindex="0"
+        type="button"
+      >
+        <span
+          class="mantine-480qv8 mantine-Tabs-tabLabel"
+        >
+          All
+        </span>
+      </button>
+      <button
+        aria-selected="false"
+        class="mantine-UnstyledButton-root mantine-Tabs-tab mantine-1l1luj0"
+        id="mantine-1iomv7rt4-tab-active"
+        role="tab"
+        tabindex="-1"
+        type="button"
+      >
+        <span
+          class="mantine-480qv8 mantine-Tabs-tabLabel"
+        >
+          Active
+        </span>
+      </button>
+      <button
+        aria-selected="false"
+        class="mantine-UnstyledButton-root mantine-Tabs-tab mantine-1l1luj0"
+        id="mantine-1iomv7rt4-tab-completed"
+        role="tab"
+        tabindex="-1"
+        type="button"
+      >
+        <span
+          class="mantine-480qv8 mantine-Tabs-tabLabel"
+        >
+          Completed
+        </span>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`FilterByCompletedStatus calls setFilter with value 'completed' when clicked on Completed tab 1`] = `
+<div>
+  <div
+    class="mantine-Tabs-root mantine-o79pz9"
+  >
+    <div
+      aria-orientation="vertical"
+      class="mantine-Tabs-tabsList mantine-1dphvmd"
+      role="tablist"
+    >
+      <button
+        aria-selected="false"
+        class="mantine-UnstyledButton-root mantine-Tabs-tab mantine-1l1luj0"
+        id="mantine-sedor4wcv-tab-all"
+        role="tab"
+        tabindex="-1"
+        type="button"
+      >
+        <span
+          class="mantine-480qv8 mantine-Tabs-tabLabel"
+        >
+          All
+        </span>
+      </button>
+      <button
+        aria-selected="false"
+        class="mantine-UnstyledButton-root mantine-Tabs-tab mantine-1l1luj0"
+        id="mantine-sedor4wcv-tab-active"
+        role="tab"
+        tabindex="-1"
+        type="button"
+      >
+        <span
+          class="mantine-480qv8 mantine-Tabs-tabLabel"
+        >
+          Active
+        </span>
+      </button>
+      <button
+        aria-selected="true"
+        class="mantine-UnstyledButton-root mantine-Tabs-tab mantine-1l1luj0"
+        data-active="true"
+        id="mantine-sedor4wcv-tab-completed"
+        role="tab"
+        tabindex="0"
+        type="button"
+      >
+        <span
+          class="mantine-480qv8 mantine-Tabs-tabLabel"
+        >
+          Completed
+        </span>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`FilterByCompletedStatus renders correctly 1`] = `
+<div>
+  <div
+    class="mantine-Tabs-root mantine-o79pz9"
+  >
+    <div
+      aria-orientation="vertical"
+      class="mantine-Tabs-tabsList mantine-1dphvmd"
+      role="tablist"
+    >
+      <button
+        aria-selected="true"
+        class="mantine-UnstyledButton-root mantine-Tabs-tab mantine-1l1luj0"
+        data-active="true"
+        id="mantine-n2z4uw42f-tab-all"
+        role="tab"
+        tabindex="0"
+        type="button"
+      >
+        <span
+          class="mantine-480qv8 mantine-Tabs-tabLabel"
+        >
+          All
+        </span>
+      </button>
+      <button
+        aria-selected="false"
+        class="mantine-UnstyledButton-root mantine-Tabs-tab mantine-1l1luj0"
+        id="mantine-n2z4uw42f-tab-active"
+        role="tab"
+        tabindex="-1"
+        type="button"
+      >
+        <span
+          class="mantine-480qv8 mantine-Tabs-tabLabel"
+        >
+          Active
+        </span>
+      </button>
+      <button
+        aria-selected="false"
+        class="mantine-UnstyledButton-root mantine-Tabs-tab mantine-1l1luj0"
+        id="mantine-n2z4uw42f-tab-completed"
+        role="tab"
+        tabindex="-1"
+        type="button"
+      >
+        <span
+          class="mantine-480qv8 mantine-Tabs-tabLabel"
+        >
+          Completed
+        </span>
+      </button>
+    </div>
+  </div>
+</div>
+`;
