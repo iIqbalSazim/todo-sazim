@@ -1,7 +1,8 @@
-import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import ActionButtons from "./ActionButtons";
+import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+
+import ActionButtons from "./ActionButtons";
 
 const mockHandleNewToDoClick = jest.fn();
 const mockSetIsConfirmModalOpen = jest.fn();

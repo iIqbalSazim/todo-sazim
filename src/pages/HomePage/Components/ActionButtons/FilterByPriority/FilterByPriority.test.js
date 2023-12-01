@@ -1,8 +1,9 @@
-import { screen, render } from "@testing-library/react";
 import "@testing-library/jest-dom";
+import { screen, render } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 
 import FilterByPriority from "./FilterByPriority";
-import userEvent from "@testing-library/user-event";
+
 import { PRIORITY } from "../../../HomePageConstants";
 
 const mockSetFilter = jest.fn();
