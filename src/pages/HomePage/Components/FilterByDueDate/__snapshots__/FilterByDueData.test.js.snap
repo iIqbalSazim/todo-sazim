@@ -1,0 +1,169 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FilterByDueDate calls toggleFilterDueDate function on 'Sort by Due Date' button click 1`] = `
+<div>
+  <div
+    class="mantine-Group-root mantine-yhv1mz"
+  >
+    <button
+      class="mantine-UnstyledButton-root mantine-Button-root mantine-MediaQuery-media mantine-11imn0w"
+      data-button="true"
+      type="button"
+    >
+      <div
+        class="mantine-1wpc1xj mantine-Button-inner"
+      >
+        <span
+          class="mantine-1ryt1ht mantine-Button-label"
+        >
+          <div
+            class="mantine-Text-root mantine-1nfytzr"
+          >
+            Sort by Due Date
+          </div>
+        </span>
+        <span
+          class="mantine-Button-icon mantine-Button-rightIcon mantine-467wo8"
+        >
+          <svg
+            class="tabler-icon tabler-icon-chevron-down"
+            fill="none"
+            height="1rem"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="1rem"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M6 9l6 6l6 -6"
+            />
+          </svg>
+        </span>
+      </div>
+    </button>
+    <button
+      class="mantine-UnstyledButton-root mantine-Button-root mantine-MediaQuery-media mantine-3si01y"
+      data-button="true"
+      data-testid="due-date-button-md"
+      type="button"
+    >
+      <div
+        class="mantine-1wpc1xj mantine-Button-inner"
+      >
+        <span
+          class="mantine-1ryt1ht mantine-Button-label"
+        >
+          Sort by Due Date
+        </span>
+        <span
+          class="mantine-Button-icon mantine-Button-rightIcon mantine-467wo8"
+        >
+          <svg
+            class="tabler-icon tabler-icon-chevron-down"
+            fill="none"
+            height="1rem"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="1rem"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M6 9l6 6l6 -6"
+            />
+          </svg>
+        </span>
+      </div>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`FilterByDueDate renders correctly 1`] = `
+<div>
+  <div
+    class="mantine-Group-root mantine-yhv1mz"
+  >
+    <button
+      class="mantine-UnstyledButton-root mantine-Button-root mantine-MediaQuery-media mantine-11imn0w"
+      data-button="true"
+      type="button"
+    >
+      <div
+        class="mantine-1wpc1xj mantine-Button-inner"
+      >
+        <span
+          class="mantine-1ryt1ht mantine-Button-label"
+        >
+          <div
+            class="mantine-Text-root mantine-1nfytzr"
+          >
+            Sort by Due Date
+          </div>
+        </span>
+        <span
+          class="mantine-Button-icon mantine-Button-rightIcon mantine-467wo8"
+        >
+          <svg
+            class="tabler-icon tabler-icon-chevron-down"
+            fill="none"
+            height="1rem"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="1rem"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M6 9l6 6l6 -6"
+            />
+          </svg>
+        </span>
+      </div>
+    </button>
+    <button
+      class="mantine-UnstyledButton-root mantine-Button-root mantine-MediaQuery-media mantine-3si01y"
+      data-button="true"
+      data-testid="due-date-button-md"
+      type="button"
+    >
+      <div
+        class="mantine-1wpc1xj mantine-Button-inner"
+      >
+        <span
+          class="mantine-1ryt1ht mantine-Button-label"
+        >
+          Sort by Due Date
+        </span>
+        <span
+          class="mantine-Button-icon mantine-Button-rightIcon mantine-467wo8"
+        >
+          <svg
+            class="tabler-icon tabler-icon-chevron-down"
+            fill="none"
+            height="1rem"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="1rem"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M6 9l6 6l6 -6"
+            />
+          </svg>
+        </span>
+      </div>
+    </button>
+  </div>
+</div>
+`;

@@ -30,6 +30,7 @@ const FilterByDueDate = ({ filter, toggleFilterDueDate }) => {
               <IconX size={"1rem"} />
             )
           }
+          data-testid="due-date-button-md"
           variant="outline"
           onClick={() => toggleFilterDueDate()}
         >
