@@ -1,0 +1,233 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ResponsiveFilterByCompletedStatus calls setCompletedStatusFilter with value 'active' when clicked on Active button 1`] = `
+<div>
+  <div
+    class="mantine-Center-root mantine-MediaQuery-media mantine-144vvff"
+  >
+    <div
+      class="mantine-ButtonGroup-root mantine-1abrqr0"
+    >
+      <button
+        class="mantine-UnstyledButton-root mantine-Button-root mantine-xzdc54"
+        data-button="true"
+        type="button"
+      >
+        <div
+          class="mantine-1wpc1xj mantine-Button-inner"
+        >
+          <span
+            class="mantine-1ryt1ht mantine-Button-label"
+          >
+            All
+          </span>
+        </div>
+      </button>
+      <button
+        class="mantine-UnstyledButton-root mantine-Button-root mantine-xzdc54"
+        data-button="true"
+        type="button"
+      >
+        <div
+          class="mantine-1wpc1xj mantine-Button-inner"
+        >
+          <span
+            class="mantine-1ryt1ht mantine-Button-label"
+          >
+            Active
+          </span>
+        </div>
+      </button>
+      <button
+        class="mantine-UnstyledButton-root mantine-Button-root mantine-xzdc54"
+        data-button="true"
+        type="button"
+      >
+        <div
+          class="mantine-1wpc1xj mantine-Button-inner"
+        >
+          <span
+            class="mantine-1ryt1ht mantine-Button-label"
+          >
+            Completed
+          </span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ResponsiveFilterByCompletedStatus calls setCompletedStatusFilter with value 'all' when clicked on All button 1`] = `
+<div>
+  <div
+    class="mantine-Center-root mantine-MediaQuery-media mantine-144vvff"
+  >
+    <div
+      class="mantine-ButtonGroup-root mantine-1abrqr0"
+    >
+      <button
+        class="mantine-UnstyledButton-root mantine-Button-root mantine-xzdc54"
+        data-button="true"
+        type="button"
+      >
+        <div
+          class="mantine-1wpc1xj mantine-Button-inner"
+        >
+          <span
+            class="mantine-1ryt1ht mantine-Button-label"
+          >
+            All
+          </span>
+        </div>
+      </button>
+      <button
+        class="mantine-UnstyledButton-root mantine-Button-root mantine-xzdc54"
+        data-button="true"
+        type="button"
+      >
+        <div
+          class="mantine-1wpc1xj mantine-Button-inner"
+        >
+          <span
+            class="mantine-1ryt1ht mantine-Button-label"
+          >
+            Active
+          </span>
+        </div>
+      </button>
+      <button
+        class="mantine-UnstyledButton-root mantine-Button-root mantine-xzdc54"
+        data-button="true"
+        type="button"
+      >
+        <div
+          class="mantine-1wpc1xj mantine-Button-inner"
+        >
+          <span
+            class="mantine-1ryt1ht mantine-Button-label"
+          >
+            Completed
+          </span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ResponsiveFilterByCompletedStatus calls setCompletedStatusFilter with value 'completed' when clicked on Completed button 1`] = `
+<div>
+  <div
+    class="mantine-Center-root mantine-MediaQuery-media mantine-144vvff"
+  >
+    <div
+      class="mantine-ButtonGroup-root mantine-1abrqr0"
+    >
+      <button
+        class="mantine-UnstyledButton-root mantine-Button-root mantine-xzdc54"
+        data-button="true"
+        type="button"
+      >
+        <div
+          class="mantine-1wpc1xj mantine-Button-inner"
+        >
+          <span
+            class="mantine-1ryt1ht mantine-Button-label"
+          >
+            All
+          </span>
+        </div>
+      </button>
+      <button
+        class="mantine-UnstyledButton-root mantine-Button-root mantine-xzdc54"
+        data-button="true"
+        type="button"
+      >
+        <div
+          class="mantine-1wpc1xj mantine-Button-inner"
+        >
+          <span
+            class="mantine-1ryt1ht mantine-Button-label"
+          >
+            Active
+          </span>
+        </div>
+      </button>
+      <button
+        class="mantine-UnstyledButton-root mantine-Button-root mantine-xzdc54"
+        data-button="true"
+        type="button"
+      >
+        <div
+          class="mantine-1wpc1xj mantine-Button-inner"
+        >
+          <span
+            class="mantine-1ryt1ht mantine-Button-label"
+          >
+            Completed
+          </span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ResponsiveFilterByCompletedStatus renders correctly 1`] = `
+<div>
+  <div
+    class="mantine-Center-root mantine-MediaQuery-media mantine-144vvff"
+  >
+    <div
+      class="mantine-ButtonGroup-root mantine-1abrqr0"
+    >
+      <button
+        class="mantine-UnstyledButton-root mantine-Button-root mantine-xzdc54"
+        data-button="true"
+        type="button"
+      >
+        <div
+          class="mantine-1wpc1xj mantine-Button-inner"
+        >
+          <span
+            class="mantine-1ryt1ht mantine-Button-label"
+          >
+            All
+          </span>
+        </div>
+      </button>
+      <button
+        class="mantine-UnstyledButton-root mantine-Button-root mantine-xzdc54"
+        data-button="true"
+        type="button"
+      >
+        <div
+          class="mantine-1wpc1xj mantine-Button-inner"
+        >
+          <span
+            class="mantine-1ryt1ht mantine-Button-label"
+          >
+            Active
+          </span>
+        </div>
+      </button>
+      <button
+        class="mantine-UnstyledButton-root mantine-Button-root mantine-xzdc54"
+        data-button="true"
+        type="button"
+      >
+        <div
+          class="mantine-1wpc1xj mantine-Button-inner"
+        >
+          <span
+            class="mantine-1ryt1ht mantine-Button-label"
+          >
+            Completed
+          </span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
+`;
