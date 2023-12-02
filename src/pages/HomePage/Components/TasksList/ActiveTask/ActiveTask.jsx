@@ -49,21 +49,24 @@ const ActiveTask = ({
                 onClick={() => toggleIsCompleted(task.id)}
                 bg="teal.1"
               >
-                <IconCircleCheck size="1.125rem" />
+                <IconCircleCheck
+                  data-testid="toggle-complete"
+                  size="1.125rem"
+                />
               </ActionIcon>
               <ActionIcon
                 variant="light"
                 onClick={() => openEditForm(task)}
                 bg="white"
               >
-                <IconEditCircle size="1.125rem" />
+                <IconEditCircle data-testid="edit" size="1.125rem" />
               </ActionIcon>
               <ActionIcon
                 variant="light"
                 bg="red.1"
                 onClick={() => archiveTask(task)}
               >
-                <IconCircleMinus size="1.125rem" />
+                <IconCircleMinus data-testid="archive" size="1.125rem" />
               </ActionIcon>
             </Group>
           </Group>
