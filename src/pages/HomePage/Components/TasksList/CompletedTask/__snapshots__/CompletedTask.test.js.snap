@@ -1,0 +1,152 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CompletedTask renders correctly 1`] = `
+<div>
+  <div
+    class="mantine-Paper-root mantine-Card-root mantine-MediaQuery-media mantine-1fp98ri"
+    data-with-border="true"
+  >
+    <div
+      class="mantine-Group-root mantine-1emc9ft"
+    >
+      <div
+        class="mantine-Text-root mantine-lpzsne"
+      >
+        This is a test
+      </div>
+      <div
+        class="mantine-Group-root mantine-k3ov3c"
+      >
+        <button
+          class="mantine-UnstyledButton-root mantine-ActionIcon-root mantine-1vtjv2o"
+          type="button"
+        >
+          <svg
+            class="tabler-icon tabler-icon-circle-check"
+            data-testid="toggle-completed"
+            fill="none"
+            height="1.125rem"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="1.125rem"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"
+            />
+            <path
+              d="M9 12l2 2l4 -4"
+            />
+          </svg>
+        </button>
+        <button
+          class="mantine-UnstyledButton-root mantine-ActionIcon-root mantine-5lf03m"
+          type="button"
+        >
+          <svg
+            class="tabler-icon tabler-icon-circle-minus"
+            data-testid="archive"
+            fill="none"
+            height="1.125rem"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="1.125rem"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"
+            />
+            <path
+              d="M9 12l6 0"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div
+      class="mantine-Text-root mantine-1xp5ood"
+    >
+      Created at 
+      2:17 p.m. | Sat Dec 02 2023
+    </div>
+  </div>
+  <div
+    class="mantine-Paper-root mantine-Card-root mantine-MediaQuery-media mantine-1xnpc05"
+    data-with-border="true"
+  >
+    <div
+      class="mantine-Group-root mantine-1emc9ft"
+    >
+      <div
+        class="mantine-Text-root mantine-hf72e2"
+      >
+        This is a test
+      </div>
+      <div
+        class="mantine-Group-root mantine-k3ov3c"
+      >
+        <button
+          class="mantine-UnstyledButton-root mantine-ActionIcon-root mantine-lnkrkf"
+          type="button"
+        >
+          <svg
+            class="tabler-icon tabler-icon-circle-check"
+            fill="none"
+            height="1rem"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="1rem"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"
+            />
+            <path
+              d="M9 12l2 2l4 -4"
+            />
+          </svg>
+        </button>
+        <button
+          class="mantine-UnstyledButton-root mantine-ActionIcon-root mantine-x0hzwe"
+          type="button"
+        >
+          <svg
+            class="tabler-icon tabler-icon-circle-minus"
+            fill="none"
+            height="1rem"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="1rem"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"
+            />
+            <path
+              d="M9 12l6 0"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div
+      class="mantine-Text-root mantine-8ylt31"
+    >
+      Created at 
+      2:17 p.m. | Sat Dec 02 2023
+    </div>
+  </div>
+</div>
+`;

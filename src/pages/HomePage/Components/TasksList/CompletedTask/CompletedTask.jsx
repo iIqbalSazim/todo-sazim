@@ -1,5 +1,6 @@
 import { ActionIcon, Card, Group, MediaQuery, Text } from "@mantine/core";
 import { IconCircleCheck, IconCircleMinus } from "@tabler/icons-react";
+
 import { formatCompletedAt } from "../../../HomePageHelpers";
 
 const CompletedTask = ({ task, toggleIsCompleted, archiveTask }) => {
@@ -23,14 +24,17 @@ const CompletedTask = ({ task, toggleIsCompleted, archiveTask }) => {
                 bg={"cyan.4"}
                 onClick={() => toggleIsCompleted(task.id)}
               >
-                <IconCircleCheck size="1.125rem" />
+                <IconCircleCheck
+                  data-testid="toggle-completed"
+                  size="1.125rem"
+                />
               </ActionIcon>
               <ActionIcon
                 variant="filled"
                 bg="red.4"
                 onClick={() => archiveTask(task)}
               >
-                <IconCircleMinus size="1.125rem" />
+                <IconCircleMinus data-testid="archive" size="1.125rem" />
               </ActionIcon>
             </Group>
           </Group>
