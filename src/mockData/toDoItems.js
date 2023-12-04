@@ -27,3 +27,10 @@ export const mockToDoItems = [
     is_deleted: false,
   },
 ];
+
+export const mockToDo = {
+  id: 1,
+  description: "Task description",
+  priority: "high",
+  due_date: "2023-12-31T00:00:00.000Z",
+};

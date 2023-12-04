@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EditForm calls editTask with the correct task data 1`] = `
+<div
+  aria-hidden="true"
+  data-focus-id="mantine-42geniku7"
+/>
+`;
+
+exports[`EditForm renders correctly with the correct task data 1`] = `
+<div
+  aria-hidden="true"
+  data-focus-id="mantine-dog7sc9ki"
+/>
+`;
