@@ -110,7 +110,7 @@ const TasksList = ({
           <ScrollArea h={"47vh"} py={"xl"} auto="true">
             {isLoading ? (
               <Center>
-                <Loader />
+                <Loader data-testid="loader" />
               </Center>
             ) : (
               <SimpleGrid mx="xl" cols={1} verticalSpacing="lg">

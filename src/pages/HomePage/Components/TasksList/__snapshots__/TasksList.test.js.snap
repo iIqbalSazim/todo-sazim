@@ -1,0 +1,1460 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TasksList renders tasks correctly 1`] = `
+<div>
+  <div
+    class="mantine-Container-root mantine-MediaQuery-media mantine-1aen9ft"
+  >
+    <div
+      auto="true"
+      class="mantine-ScrollArea-root mantine-1kntrjn"
+      dir="ltr"
+      style="position: relative; --radix-scroll-area-corner-width: 0px; --radix-scroll-area-corner-height: 0px;"
+    >
+      <style>
+        [data-radix-scroll-area-viewport]{scrollbar-width:none;-ms-overflow-style:none;-webkit-overflow-scrolling:touch;}[data-radix-scroll-area-viewport]::-webkit-scrollbar{display:none}
+      </style>
+      <div
+        class="mantine-b6zkvl mantine-ScrollArea-viewport"
+        data-radix-scroll-area-viewport=""
+        style="overflow-x: scroll; overflow-y: scroll;"
+      >
+        <div
+          style="min-width: 100%; display: table;"
+        >
+          <div
+            class="mantine-SimpleGrid-root mantine-19263vb"
+          >
+            <div
+              class="mantine-Paper-root mantine-Card-root mantine-MediaQuery-media mantine-n3fhvh"
+              data-with-border="true"
+            >
+              <div
+                class="mantine-Group-root mantine-1emc9ft"
+              >
+                <div
+                  class="mantine-Text-root mantine-3efcew"
+                >
+                  Test task 2
+                </div>
+                <div
+                  class="mantine-Group-root mantine-kivjf7"
+                >
+                  <div
+                    class="mantine-Badge-root mantine-1v9lct0"
+                  >
+                    <span
+                      class="mantine-1t45alw mantine-Badge-inner"
+                    >
+                      high
+                    </span>
+                  </div>
+                  <button
+                    class="mantine-UnstyledButton-root mantine-ActionIcon-root mantine-1u9dylz"
+                    type="button"
+                  >
+                    <svg
+                      class="tabler-icon tabler-icon-circle-check"
+                      data-testid="toggle-complete"
+                      fill="none"
+                      height="1.125rem"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+                      width="1.125rem"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"
+                      />
+                      <path
+                        d="M9 12l2 2l4 -4"
+                      />
+                    </svg>
+                  </button>
+                  <button
+                    class="mantine-UnstyledButton-root mantine-ActionIcon-root mantine-1r41os4"
+                    type="button"
+                  >
+                    <svg
+                      class="tabler-icon tabler-icon-edit-circle"
+                      data-testid="edit"
+                      fill="none"
+                      height="1.125rem"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+                      width="1.125rem"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M12 15l8.385 -8.415a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3z"
+                      />
+                      <path
+                        d="M16 5l3 3"
+                      />
+                      <path
+                        d="M9 7.07a7 7 0 0 0 1 13.93a7 7 0 0 0 6.929 -6"
+                      />
+                    </svg>
+                  </button>
+                  <button
+                    class="mantine-UnstyledButton-root mantine-ActionIcon-root mantine-43sb5"
+                    type="button"
+                  >
+                    <svg
+                      class="tabler-icon tabler-icon-circle-minus"
+                      data-testid="archive"
+                      fill="none"
+                      height="1.125rem"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+                      width="1.125rem"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"
+                      />
+                      <path
+                        d="M9 12l6 0"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <div
+                class="mantine-Group-root mantine-vxpk8m"
+              >
+                <div
+                  class="mantine-Text-root mantine-1xp5ood"
+                >
+                  Created at 
+                  5:05 p.m. | Mon Nov 27 2023
+                </div>
+                <code
+                  class="mantine-Code-root mantine-lt0py2"
+                  dir="ltr"
+                  radius="md"
+                >
+                  Complete by: 
+                  Sun Dec 31 2023
+                </code>
+              </div>
+            </div>
+            <div
+              class="mantine-Paper-root mantine-Card-root mantine-MediaQuery-media mantine-1kgfrj8"
+              data-with-border="true"
+            >
+              <div
+                class="mantine-Group-root mantine-1v5jpi4"
+              >
+                <div
+                  class="mantine-Badge-root mantine-802lqd"
+                >
+                  <span
+                    class="mantine-1t45alw mantine-Badge-inner"
+                  >
+                    high
+                  </span>
+                </div>
+                <button
+                  class="mantine-UnstyledButton-root mantine-ActionIcon-root mantine-1u9dylz"
+                  type="button"
+                >
+                  <svg
+                    class="tabler-icon tabler-icon-circle-check"
+                    fill="none"
+                    height="1.2rem"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    width="1.2rem"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"
+                    />
+                    <path
+                      d="M9 12l2 2l4 -4"
+                    />
+                  </svg>
+                </button>
+                <button
+                  class="mantine-UnstyledButton-root mantine-ActionIcon-root mantine-1r41os4"
+                  type="button"
+                >
+                  <svg
+                    class="tabler-icon tabler-icon-edit-circle"
+                    fill="none"
+                    height="1.2rem"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    width="1.2rem"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M12 15l8.385 -8.415a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3z"
+                    />
+                    <path
+                      d="M16 5l3 3"
+                    />
+                    <path
+                      d="M9 7.07a7 7 0 0 0 1 13.93a7 7 0 0 0 6.929 -6"
+                    />
+                  </svg>
+                </button>
+                <button
+                  class="mantine-UnstyledButton-root mantine-ActionIcon-root mantine-43sb5"
+                  type="button"
+                >
+                  <svg
+                    class="tabler-icon tabler-icon-circle-minus"
+                    fill="none"
+                    height="1.2rem"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    width="1.2rem"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"
+                    />
+                    <path
+                      d="M9 12l6 0"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <div
+                class="mantine-Text-root mantine-xkqxxs"
+              >
+                Test task 2
+              </div>
+              <div
+                class="mantine-Group-root mantine-kivjf7"
+              >
+                <code
+                  class="mantine-Code-root mantine-lt0py2"
+                  dir="ltr"
+                  radius="md"
+                >
+                  Complete by: 
+                  Dec 31 2023
+                </code>
+              </div>
+            </div>
+            <div
+              class="mantine-Paper-root mantine-Card-root mantine-MediaQuery-media mantine-1uhezj9"
+              data-with-border="true"
+            >
+              <div
+                class="mantine-Group-root mantine-1emc9ft"
+              >
+                <div
+                  class="mantine-Text-root mantine-3efcew"
+                >
+                  Test task 1
+                </div>
+                <div
+                  class="mantine-Group-root mantine-kivjf7"
+                >
+                  <div
+                    class="mantine-Badge-root mantine-eb9dkb"
+                  >
+                    <span
+                      class="mantine-1t45alw mantine-Badge-inner"
+                    >
+                      medium
+                    </span>
+                  </div>
+                  <button
+                    class="mantine-UnstyledButton-root mantine-ActionIcon-root mantine-1u9dylz"
+                    type="button"
+                  >
+                    <svg
+                      class="tabler-icon tabler-icon-circle-check"
+                      data-testid="toggle-complete"
+                      fill="none"
+                      height="1.125rem"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+                      width="1.125rem"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"
+                      />
+                      <path
+                        d="M9 12l2 2l4 -4"
+                      />
+                    </svg>
+                  </button>
+                  <button
+                    class="mantine-UnstyledButton-root mantine-ActionIcon-root mantine-1r41os4"
+                    type="button"
+                  >
+                    <svg
+                      class="tabler-icon tabler-icon-edit-circle"
+                      data-testid="edit"
+                      fill="none"
+                      height="1.125rem"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+                      width="1.125rem"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M12 15l8.385 -8.415a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3z"
+                      />
+                      <path
+                        d="M16 5l3 3"
+                      />
+                      <path
+                        d="M9 7.07a7 7 0 0 0 1 13.93a7 7 0 0 0 6.929 -6"
+                      />
+                    </svg>
+                  </button>
+                  <button
+                    class="mantine-UnstyledButton-root mantine-ActionIcon-root mantine-43sb5"
+                    type="button"
+                  >
+                    <svg
+                      class="tabler-icon tabler-icon-circle-minus"
+                      data-testid="archive"
+                      fill="none"
+                      height="1.125rem"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+                      width="1.125rem"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"
+                      />
+                      <path
+                        d="M9 12l6 0"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <div
+                class="mantine-Group-root mantine-vxpk8m"
+              >
+                <div
+                  class="mantine-Text-root mantine-1xp5ood"
+                >
+                  Created at 
+                  3:45 p.m. | Thu Nov 30 2023
+                </div>
+                <code
+                  class="mantine-Code-root mantine-k1fukm"
+                  dir="ltr"
+                  radius="md"
+                >
+                  Complete by: 
+                  Sat Dec 23 2023
+                </code>
+              </div>
+            </div>
+            <div
+              class="mantine-Paper-root mantine-Card-root mantine-MediaQuery-media mantine-ngbvc8"
+              data-with-border="true"
+            >
+              <div
+                class="mantine-Group-root mantine-1v5jpi4"
+              >
+                <div
+                  class="mantine-Badge-root mantine-1tmvjsl"
+                >
+                  <span
+                    class="mantine-1t45alw mantine-Badge-inner"
+                  >
+                    medium
+                  </span>
+                </div>
+                <button
+                  class="mantine-UnstyledButton-root mantine-ActionIcon-root mantine-1u9dylz"
+                  type="button"
+                >
+                  <svg
+                    class="tabler-icon tabler-icon-circle-check"
+                    fill="none"
+                    height="1.2rem"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    width="1.2rem"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"
+                    />
+                    <path
+                      d="M9 12l2 2l4 -4"
+                    />
+                  </svg>
+                </button>
+                <button
+                  class="mantine-UnstyledButton-root mantine-ActionIcon-root mantine-1r41os4"
+                  type="button"
+                >
+                  <svg
+                    class="tabler-icon tabler-icon-edit-circle"
+                    fill="none"
+                    height="1.2rem"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    width="1.2rem"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M12 15l8.385 -8.415a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3z"
+                    />
+                    <path
+                      d="M16 5l3 3"
+                    />
+                    <path
+                      d="M9 7.07a7 7 0 0 0 1 13.93a7 7 0 0 0 6.929 -6"
+                    />
+                  </svg>
+                </button>
+                <button
+                  class="mantine-UnstyledButton-root mantine-ActionIcon-root mantine-43sb5"
+                  type="button"
+                >
+                  <svg
+                    class="tabler-icon tabler-icon-circle-minus"
+                    fill="none"
+                    height="1.2rem"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    width="1.2rem"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"
+                    />
+                    <path
+                      d="M9 12l6 0"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <div
+                class="mantine-Text-root mantine-xkqxxs"
+              >
+                Test task 1
+              </div>
+              <div
+                class="mantine-Group-root mantine-kivjf7"
+              >
+                <code
+                  class="mantine-Code-root mantine-k1fukm"
+                  dir="ltr"
+                  radius="md"
+                >
+                  Complete by: 
+                  Dec 23 2023
+                </code>
+              </div>
+            </div>
+            <div
+              class="mantine-Paper-root mantine-Card-root mantine-MediaQuery-media mantine-yxed5g"
+              data-with-border="true"
+            >
+              <div
+                class="mantine-Group-root mantine-1emc9ft"
+              >
+                <div
+                  class="mantine-Text-root mantine-3efcew"
+                >
+                  Test task 3
+                </div>
+                <div
+                  class="mantine-Group-root mantine-kivjf7"
+                >
+                  <div
+                    class="mantine-Badge-root mantine-t2n4gk"
+                  >
+                    <span
+                      class="mantine-1t45alw mantine-Badge-inner"
+                    >
+                      low
+                    </span>
+                  </div>
+                  <button
+                    class="mantine-UnstyledButton-root mantine-ActionIcon-root mantine-1u9dylz"
+                    type="button"
+                  >
+                    <svg
+                      class="tabler-icon tabler-icon-circle-check"
+                      data-testid="toggle-complete"
+                      fill="none"
+                      height="1.125rem"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+                      width="1.125rem"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"
+                      />
+                      <path
+                        d="M9 12l2 2l4 -4"
+                      />
+                    </svg>
+                  </button>
+                  <button
+                    class="mantine-UnstyledButton-root mantine-ActionIcon-root mantine-1r41os4"
+                    type="button"
+                  >
+                    <svg
+                      class="tabler-icon tabler-icon-edit-circle"
+                      data-testid="edit"
+                      fill="none"
+                      height="1.125rem"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+                      width="1.125rem"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M12 15l8.385 -8.415a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3z"
+                      />
+                      <path
+                        d="M16 5l3 3"
+                      />
+                      <path
+                        d="M9 7.07a7 7 0 0 0 1 13.93a7 7 0 0 0 6.929 -6"
+                      />
+                    </svg>
+                  </button>
+                  <button
+                    class="mantine-UnstyledButton-root mantine-ActionIcon-root mantine-43sb5"
+                    type="button"
+                  >
+                    <svg
+                      class="tabler-icon tabler-icon-circle-minus"
+                      data-testid="archive"
+                      fill="none"
+                      height="1.125rem"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+                      width="1.125rem"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"
+                      />
+                      <path
+                        d="M9 12l6 0"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <div
+                class="mantine-Group-root mantine-vxpk8m"
+              >
+                <div
+                  class="mantine-Text-root mantine-1xp5ood"
+                >
+                  Created at 
+                  6:33 p.m. | Thu Nov 30 2023
+                </div>
+                <code
+                  class="mantine-Code-root mantine-l8gcc6"
+                  dir="ltr"
+                  radius="md"
+                >
+                  Complete by: 
+                  Thu Nov 30 2023
+                </code>
+              </div>
+            </div>
+            <div
+              class="mantine-Paper-root mantine-Card-root mantine-MediaQuery-media mantine-jgto9m"
+              data-with-border="true"
+            >
+              <div
+                class="mantine-Group-root mantine-1v5jpi4"
+              >
+                <div
+                  class="mantine-Badge-root mantine-17gi8qx"
+                >
+                  <span
+                    class="mantine-1t45alw mantine-Badge-inner"
+                  >
+                    low
+                  </span>
+                </div>
+                <button
+                  class="mantine-UnstyledButton-root mantine-ActionIcon-root mantine-1u9dylz"
+                  type="button"
+                >
+                  <svg
+                    class="tabler-icon tabler-icon-circle-check"
+                    fill="none"
+                    height="1.2rem"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    width="1.2rem"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"
+                    />
+                    <path
+                      d="M9 12l2 2l4 -4"
+                    />
+                  </svg>
+                </button>
+                <button
+                  class="mantine-UnstyledButton-root mantine-ActionIcon-root mantine-1r41os4"
+                  type="button"
+                >
+                  <svg
+                    class="tabler-icon tabler-icon-edit-circle"
+                    fill="none"
+                    height="1.2rem"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    width="1.2rem"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M12 15l8.385 -8.415a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3z"
+                    />
+                    <path
+                      d="M16 5l3 3"
+                    />
+                    <path
+                      d="M9 7.07a7 7 0 0 0 1 13.93a7 7 0 0 0 6.929 -6"
+                    />
+                  </svg>
+                </button>
+                <button
+                  class="mantine-UnstyledButton-root mantine-ActionIcon-root mantine-43sb5"
+                  type="button"
+                >
+                  <svg
+                    class="tabler-icon tabler-icon-circle-minus"
+                    fill="none"
+                    height="1.2rem"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    width="1.2rem"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"
+                    />
+                    <path
+                      d="M9 12l6 0"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <div
+                class="mantine-Text-root mantine-xkqxxs"
+              >
+                Test task 3
+              </div>
+              <div
+                class="mantine-Group-root mantine-kivjf7"
+              >
+                <code
+                  class="mantine-Code-root mantine-l8gcc6"
+                  dir="ltr"
+                  radius="md"
+                >
+                  Complete by: 
+                  Nov 30 2023
+                </code>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="mantine-Container-root mantine-MediaQuery-media mantine-1u095fq"
+  >
+    <div
+      auto="true"
+      class="mantine-ScrollArea-root mantine-1kntrjn"
+      dir="ltr"
+      style="position: relative; --radix-scroll-area-corner-width: 0px; --radix-scroll-area-corner-height: 0px;"
+    >
+      <style>
+        [data-radix-scroll-area-viewport]{scrollbar-width:none;-ms-overflow-style:none;-webkit-overflow-scrolling:touch;}[data-radix-scroll-area-viewport]::-webkit-scrollbar{display:none}
+      </style>
+      <div
+        class="mantine-b6zkvl mantine-ScrollArea-viewport"
+        data-radix-scroll-area-viewport=""
+        style="overflow-x: scroll; overflow-y: scroll;"
+      >
+        <div
+          style="min-width: 100%; display: table;"
+        >
+          <div
+            class="mantine-SimpleGrid-root mantine-zvem25"
+          >
+            <div
+              class="mantine-Paper-root mantine-Card-root mantine-MediaQuery-media mantine-n3fhvh"
+              data-with-border="true"
+            >
+              <div
+                class="mantine-Group-root mantine-1emc9ft"
+              >
+                <div
+                  class="mantine-Text-root mantine-3efcew"
+                >
+                  Test task 2
+                </div>
+                <div
+                  class="mantine-Group-root mantine-kivjf7"
+                >
+                  <div
+                    class="mantine-Badge-root mantine-1v9lct0"
+                  >
+                    <span
+                      class="mantine-1t45alw mantine-Badge-inner"
+                    >
+                      high
+                    </span>
+                  </div>
+                  <button
+                    class="mantine-UnstyledButton-root mantine-ActionIcon-root mantine-1u9dylz"
+                    type="button"
+                  >
+                    <svg
+                      class="tabler-icon tabler-icon-circle-check"
+                      data-testid="toggle-complete"
+                      fill="none"
+                      height="1.125rem"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+                      width="1.125rem"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"
+                      />
+                      <path
+                        d="M9 12l2 2l4 -4"
+                      />
+                    </svg>
+                  </button>
+                  <button
+                    class="mantine-UnstyledButton-root mantine-ActionIcon-root mantine-1r41os4"
+                    type="button"
+                  >
+                    <svg
+                      class="tabler-icon tabler-icon-edit-circle"
+                      data-testid="edit"
+                      fill="none"
+                      height="1.125rem"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+                      width="1.125rem"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M12 15l8.385 -8.415a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3z"
+                      />
+                      <path
+                        d="M16 5l3 3"
+                      />
+                      <path
+                        d="M9 7.07a7 7 0 0 0 1 13.93a7 7 0 0 0 6.929 -6"
+                      />
+                    </svg>
+                  </button>
+                  <button
+                    class="mantine-UnstyledButton-root mantine-ActionIcon-root mantine-43sb5"
+                    type="button"
+                  >
+                    <svg
+                      class="tabler-icon tabler-icon-circle-minus"
+                      data-testid="archive"
+                      fill="none"
+                      height="1.125rem"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+                      width="1.125rem"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"
+                      />
+                      <path
+                        d="M9 12l6 0"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <div
+                class="mantine-Group-root mantine-vxpk8m"
+              >
+                <div
+                  class="mantine-Text-root mantine-1xp5ood"
+                >
+                  Created at 
+                  5:05 p.m. | Mon Nov 27 2023
+                </div>
+                <code
+                  class="mantine-Code-root mantine-lt0py2"
+                  dir="ltr"
+                  radius="md"
+                >
+                  Complete by: 
+                  Sun Dec 31 2023
+                </code>
+              </div>
+            </div>
+            <div
+              class="mantine-Paper-root mantine-Card-root mantine-MediaQuery-media mantine-1kgfrj8"
+              data-with-border="true"
+            >
+              <div
+                class="mantine-Group-root mantine-1v5jpi4"
+              >
+                <div
+                  class="mantine-Badge-root mantine-802lqd"
+                >
+                  <span
+                    class="mantine-1t45alw mantine-Badge-inner"
+                  >
+                    high
+                  </span>
+                </div>
+                <button
+                  class="mantine-UnstyledButton-root mantine-ActionIcon-root mantine-1u9dylz"
+                  type="button"
+                >
+                  <svg
+                    class="tabler-icon tabler-icon-circle-check"
+                    fill="none"
+                    height="1.2rem"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    width="1.2rem"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"
+                    />
+                    <path
+                      d="M9 12l2 2l4 -4"
+                    />
+                  </svg>
+                </button>
+                <button
+                  class="mantine-UnstyledButton-root mantine-ActionIcon-root mantine-1r41os4"
+                  type="button"
+                >
+                  <svg
+                    class="tabler-icon tabler-icon-edit-circle"
+                    fill="none"
+                    height="1.2rem"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    width="1.2rem"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M12 15l8.385 -8.415a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3z"
+                    />
+                    <path
+                      d="M16 5l3 3"
+                    />
+                    <path
+                      d="M9 7.07a7 7 0 0 0 1 13.93a7 7 0 0 0 6.929 -6"
+                    />
+                  </svg>
+                </button>
+                <button
+                  class="mantine-UnstyledButton-root mantine-ActionIcon-root mantine-43sb5"
+                  type="button"
+                >
+                  <svg
+                    class="tabler-icon tabler-icon-circle-minus"
+                    fill="none"
+                    height="1.2rem"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    width="1.2rem"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"
+                    />
+                    <path
+                      d="M9 12l6 0"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <div
+                class="mantine-Text-root mantine-xkqxxs"
+              >
+                Test task 2
+              </div>
+              <div
+                class="mantine-Group-root mantine-kivjf7"
+              >
+                <code
+                  class="mantine-Code-root mantine-lt0py2"
+                  dir="ltr"
+                  radius="md"
+                >
+                  Complete by: 
+                  Dec 31 2023
+                </code>
+              </div>
+            </div>
+            <div
+              class="mantine-Paper-root mantine-Card-root mantine-MediaQuery-media mantine-1uhezj9"
+              data-with-border="true"
+            >
+              <div
+                class="mantine-Group-root mantine-1emc9ft"
+              >
+                <div
+                  class="mantine-Text-root mantine-3efcew"
+                >
+                  Test task 1
+                </div>
+                <div
+                  class="mantine-Group-root mantine-kivjf7"
+                >
+                  <div
+                    class="mantine-Badge-root mantine-eb9dkb"
+                  >
+                    <span
+                      class="mantine-1t45alw mantine-Badge-inner"
+                    >
+                      medium
+                    </span>
+                  </div>
+                  <button
+                    class="mantine-UnstyledButton-root mantine-ActionIcon-root mantine-1u9dylz"
+                    type="button"
+                  >
+                    <svg
+                      class="tabler-icon tabler-icon-circle-check"
+                      data-testid="toggle-complete"
+                      fill="none"
+                      height="1.125rem"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+                      width="1.125rem"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"
+                      />
+                      <path
+                        d="M9 12l2 2l4 -4"
+                      />
+                    </svg>
+                  </button>
+                  <button
+                    class="mantine-UnstyledButton-root mantine-ActionIcon-root mantine-1r41os4"
+                    type="button"
+                  >
+                    <svg
+                      class="tabler-icon tabler-icon-edit-circle"
+                      data-testid="edit"
+                      fill="none"
+                      height="1.125rem"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+                      width="1.125rem"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M12 15l8.385 -8.415a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3z"
+                      />
+                      <path
+                        d="M16 5l3 3"
+                      />
+                      <path
+                        d="M9 7.07a7 7 0 0 0 1 13.93a7 7 0 0 0 6.929 -6"
+                      />
+                    </svg>
+                  </button>
+                  <button
+                    class="mantine-UnstyledButton-root mantine-ActionIcon-root mantine-43sb5"
+                    type="button"
+                  >
+                    <svg
+                      class="tabler-icon tabler-icon-circle-minus"
+                      data-testid="archive"
+                      fill="none"
+                      height="1.125rem"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+                      width="1.125rem"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"
+                      />
+                      <path
+                        d="M9 12l6 0"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <div
+                class="mantine-Group-root mantine-vxpk8m"
+              >
+                <div
+                  class="mantine-Text-root mantine-1xp5ood"
+                >
+                  Created at 
+                  3:45 p.m. | Thu Nov 30 2023
+                </div>
+                <code
+                  class="mantine-Code-root mantine-k1fukm"
+                  dir="ltr"
+                  radius="md"
+                >
+                  Complete by: 
+                  Sat Dec 23 2023
+                </code>
+              </div>
+            </div>
+            <div
+              class="mantine-Paper-root mantine-Card-root mantine-MediaQuery-media mantine-ngbvc8"
+              data-with-border="true"
+            >
+              <div
+                class="mantine-Group-root mantine-1v5jpi4"
+              >
+                <div
+                  class="mantine-Badge-root mantine-1tmvjsl"
+                >
+                  <span
+                    class="mantine-1t45alw mantine-Badge-inner"
+                  >
+                    medium
+                  </span>
+                </div>
+                <button
+                  class="mantine-UnstyledButton-root mantine-ActionIcon-root mantine-1u9dylz"
+                  type="button"
+                >
+                  <svg
+                    class="tabler-icon tabler-icon-circle-check"
+                    fill="none"
+                    height="1.2rem"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    width="1.2rem"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"
+                    />
+                    <path
+                      d="M9 12l2 2l4 -4"
+                    />
+                  </svg>
+                </button>
+                <button
+                  class="mantine-UnstyledButton-root mantine-ActionIcon-root mantine-1r41os4"
+                  type="button"
+                >
+                  <svg
+                    class="tabler-icon tabler-icon-edit-circle"
+                    fill="none"
+                    height="1.2rem"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    width="1.2rem"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M12 15l8.385 -8.415a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3z"
+                    />
+                    <path
+                      d="M16 5l3 3"
+                    />
+                    <path
+                      d="M9 7.07a7 7 0 0 0 1 13.93a7 7 0 0 0 6.929 -6"
+                    />
+                  </svg>
+                </button>
+                <button
+                  class="mantine-UnstyledButton-root mantine-ActionIcon-root mantine-43sb5"
+                  type="button"
+                >
+                  <svg
+                    class="tabler-icon tabler-icon-circle-minus"
+                    fill="none"
+                    height="1.2rem"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    width="1.2rem"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"
+                    />
+                    <path
+                      d="M9 12l6 0"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <div
+                class="mantine-Text-root mantine-xkqxxs"
+              >
+                Test task 1
+              </div>
+              <div
+                class="mantine-Group-root mantine-kivjf7"
+              >
+                <code
+                  class="mantine-Code-root mantine-k1fukm"
+                  dir="ltr"
+                  radius="md"
+                >
+                  Complete by: 
+                  Dec 23 2023
+                </code>
+              </div>
+            </div>
+            <div
+              class="mantine-Paper-root mantine-Card-root mantine-MediaQuery-media mantine-yxed5g"
+              data-with-border="true"
+            >
+              <div
+                class="mantine-Group-root mantine-1emc9ft"
+              >
+                <div
+                  class="mantine-Text-root mantine-3efcew"
+                >
+                  Test task 3
+                </div>
+                <div
+                  class="mantine-Group-root mantine-kivjf7"
+                >
+                  <div
+                    class="mantine-Badge-root mantine-t2n4gk"
+                  >
+                    <span
+                      class="mantine-1t45alw mantine-Badge-inner"
+                    >
+                      low
+                    </span>
+                  </div>
+                  <button
+                    class="mantine-UnstyledButton-root mantine-ActionIcon-root mantine-1u9dylz"
+                    type="button"
+                  >
+                    <svg
+                      class="tabler-icon tabler-icon-circle-check"
+                      data-testid="toggle-complete"
+                      fill="none"
+                      height="1.125rem"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+                      width="1.125rem"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"
+                      />
+                      <path
+                        d="M9 12l2 2l4 -4"
+                      />
+                    </svg>
+                  </button>
+                  <button
+                    class="mantine-UnstyledButton-root mantine-ActionIcon-root mantine-1r41os4"
+                    type="button"
+                  >
+                    <svg
+                      class="tabler-icon tabler-icon-edit-circle"
+                      data-testid="edit"
+                      fill="none"
+                      height="1.125rem"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+                      width="1.125rem"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M12 15l8.385 -8.415a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3z"
+                      />
+                      <path
+                        d="M16 5l3 3"
+                      />
+                      <path
+                        d="M9 7.07a7 7 0 0 0 1 13.93a7 7 0 0 0 6.929 -6"
+                      />
+                    </svg>
+                  </button>
+                  <button
+                    class="mantine-UnstyledButton-root mantine-ActionIcon-root mantine-43sb5"
+                    type="button"
+                  >
+                    <svg
+                      class="tabler-icon tabler-icon-circle-minus"
+                      data-testid="archive"
+                      fill="none"
+                      height="1.125rem"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+                      width="1.125rem"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"
+                      />
+                      <path
+                        d="M9 12l6 0"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <div
+                class="mantine-Group-root mantine-vxpk8m"
+              >
+                <div
+                  class="mantine-Text-root mantine-1xp5ood"
+                >
+                  Created at 
+                  6:33 p.m. | Thu Nov 30 2023
+                </div>
+                <code
+                  class="mantine-Code-root mantine-l8gcc6"
+                  dir="ltr"
+                  radius="md"
+                >
+                  Complete by: 
+                  Thu Nov 30 2023
+                </code>
+              </div>
+            </div>
+            <div
+              class="mantine-Paper-root mantine-Card-root mantine-MediaQuery-media mantine-jgto9m"
+              data-with-border="true"
+            >
+              <div
+                class="mantine-Group-root mantine-1v5jpi4"
+              >
+                <div
+                  class="mantine-Badge-root mantine-17gi8qx"
+                >
+                  <span
+                    class="mantine-1t45alw mantine-Badge-inner"
+                  >
+                    low
+                  </span>
+                </div>
+                <button
+                  class="mantine-UnstyledButton-root mantine-ActionIcon-root mantine-1u9dylz"
+                  type="button"
+                >
+                  <svg
+                    class="tabler-icon tabler-icon-circle-check"
+                    fill="none"
+                    height="1.2rem"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    width="1.2rem"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"
+                    />
+                    <path
+                      d="M9 12l2 2l4 -4"
+                    />
+                  </svg>
+                </button>
+                <button
+                  class="mantine-UnstyledButton-root mantine-ActionIcon-root mantine-1r41os4"
+                  type="button"
+                >
+                  <svg
+                    class="tabler-icon tabler-icon-edit-circle"
+                    fill="none"
+                    height="1.2rem"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    width="1.2rem"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M12 15l8.385 -8.415a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3z"
+                    />
+                    <path
+                      d="M16 5l3 3"
+                    />
+                    <path
+                      d="M9 7.07a7 7 0 0 0 1 13.93a7 7 0 0 0 6.929 -6"
+                    />
+                  </svg>
+                </button>
+                <button
+                  class="mantine-UnstyledButton-root mantine-ActionIcon-root mantine-43sb5"
+                  type="button"
+                >
+                  <svg
+                    class="tabler-icon tabler-icon-circle-minus"
+                    fill="none"
+                    height="1.2rem"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    width="1.2rem"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"
+                    />
+                    <path
+                      d="M9 12l6 0"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <div
+                class="mantine-Text-root mantine-xkqxxs"
+              >
+                Test task 3
+              </div>
+              <div
+                class="mantine-Group-root mantine-kivjf7"
+              >
+                <code
+                  class="mantine-Code-root mantine-l8gcc6"
+                  dir="ltr"
+                  radius="md"
+                >
+                  Complete by: 
+                  Nov 30 2023
+                </code>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
