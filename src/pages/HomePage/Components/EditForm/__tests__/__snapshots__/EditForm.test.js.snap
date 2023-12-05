@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EditForm calls editTask with the correct task data 1`] = `""`;
+
+exports[`EditForm renders correctly with the correct task data 1`] = `""`;

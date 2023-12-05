@@ -12,7 +12,6 @@ import {
 
 import { findIndexWithId } from "./HomePageHelpers";
 import { COMPLETED_STATUS } from "./HomePageConstants";
-
 import FilterByCompletedStatus from "./Components/FilterByCompletedStatus/FilterByCompletedStatus";
 import DisplayDate from "./Components/DisplayDate/DisplayDate";
 import ActionButtons from "./Components/ActionButtons/ActionButtons";
@@ -30,7 +29,7 @@ import {
   updateTask,
   updateTaskIsCompleted,
   updateTaskIsDeleted,
-} from "./Api/Methods";
+} from "./Api/HomePageMethods";
 
 const Home = () => {
   const [tasks, setTasks] = useState([]);
@@ -135,7 +134,7 @@ const Home = () => {
   };
 
   const clearAllCompletedTasks = async () => {
-    await deleteAllTasks("Completed");
+    await deleteAllTasks({ is_completed: true });
     window.location.reload(false);
     alert("All completed tasks removed!");
   };
@@ -150,7 +149,7 @@ const Home = () => {
   };
 
   const emptyTrash = async () => {
-    await deleteAllTasks("archived");
+    await deleteAllTasks({ is_deleted: true });
     setTrash([]);
     alert("Archived tasks removed");
   };

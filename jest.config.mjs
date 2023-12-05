@@ -9,6 +9,8 @@ const config = {
   // automock: false,
   testEnvironment: "jest-environment-jsdom",
 
+  setupFilesAfterEnv: ["<rootDir>/jest.setup.js"],
+
   // Stop running tests after `n` failures
   // bail: 0,
 

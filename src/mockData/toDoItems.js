@@ -34,3 +34,14 @@ export const mockToDo = {
   priority: "high",
   due_date: "2023-12-31T00:00:00.000Z",
 };
+
+export const mockTrashTodos = [
+  {
+    id: 1,
+    description: "Test task 1",
+  },
+  {
+    id: 2,
+    description: "Test task 2",
+  },
+];
