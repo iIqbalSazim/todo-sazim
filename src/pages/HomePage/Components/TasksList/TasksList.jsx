@@ -7,10 +7,9 @@ import {
   SimpleGrid,
 } from "@mantine/core";
 
-import CompletedTask from "./CompletedTask/CompletedTask";
-import ActiveTask from "./ActiveTask/ActiveTask";
-
 import { PRIORITY, COMPLETED_STATUS } from "../../HomePageConstants";
+import CompletedTask from "../CompletedTask/CompletedTask";
+import ActiveTask from "../ActiveTask/ActiveTask";
 
 const TasksList = ({
   toggleIsCompleted,

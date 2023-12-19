@@ -1,7 +1,7 @@
 import { Button, Flex, Group, MediaQuery, Text } from "@mantine/core";
 import { IconPlus, IconTrashX } from "@tabler/icons-react";
 
-import FilterByPriority from "./FilterByPriority/FilterByPriority";
+import FilterByPriority from "../FilterByPriority/FilterByPriority";
 
 const ActionButtons = ({
   handleNewToDoClick,
